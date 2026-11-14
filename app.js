@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       applyFilter('oficial_22');
       populateDiagnosticoChips();
       renderGlossary();
+      if (window.lucide) lucide.createIcons();
     } catch (err) {
       console.error('Falha ao carregar lesões:', err);
       showToast('Erro ao carregar o banco de lesões.');
@@ -506,17 +507,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (score >= 80) {
       el.scoreValue.style.color = 'var(--c-oliva)';
       el.gradeStamp.style.borderColor = 'var(--c-oliva)';
-      el.verdictTitle.textContent = 'Mandou Muito Bem! 🎯';
+      el.verdictTitle.textContent = 'Excelente Trabalho!';
       el.verdictSubtitle.textContent = 'Você dominou as características fundamentais desta lesão.';
     } else if (score >= 50) {
       el.scoreValue.style.color = 'var(--c-terracota)';
       el.gradeStamp.style.borderColor = 'var(--c-terracota)';
-      el.verdictTitle.textContent = 'Quase lá! Bom Treino 💡';
+      el.verdictTitle.textContent = 'Quase lá! Bom Treino';
       el.verdictSubtitle.textContent = 'Revise os campos em destaque e a consistência ao toque.';
     } else {
       el.scoreValue.style.color = 'var(--c-argila)';
       el.gradeStamp.style.borderColor = 'var(--c-argila)';
-      el.verdictTitle.textContent = 'Atenção aos Detalhes! 🔍';
+      el.verdictTitle.textContent = 'Atenção aos Detalhes!';
       el.verdictSubtitle.textContent = 'Algumas características fundamentais divergiram do gabarito oficial.';
     }
 
@@ -557,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display: flex; align-items: center; justify-content: flex-end;">
           <span class="duo-status-tag ${tagClass}">${tagText}</span>
           <button type="button" class="btn-duo-override ${isOverridden ? 'active' : ''}" data-field="${res.field}">
-            ${isOverridden ? '✓ Validado' : 'Validar'}
+            ${isOverridden ? '<i data-lucide="check"></i> Validado' : 'Validar'}
           </button>
         </div>
       `;
@@ -576,6 +577,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const oralSpeech = generateOralSpeech(state.currentCase);
     el.oralScriptText.textContent = `"${oralSpeech}"`;
+
+    if (window.lucide) lucide.createIcons();
 
     el.feedbackPanel.scrollIntoView({ behavior: 'smooth' });
   }
@@ -822,22 +825,24 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="guide-highlight-box">
-          <strong>⚡ O Pulo do Gato (Como Pensar):</strong> ${c.explicacao_clinica || 'Sem descrição.'}
+          <strong><i data-lucide="zap"></i> O Pulo do Gato (Como Pensar):</strong> ${c.explicacao_clinica || 'Sem descrição.'}
         </div>
 
         <div class="guide-diff-box">
-          <strong>🔍 Diagnósticos Diferenciais da Cátedra:</strong> ${diffList || 'Não especificados.'}
+          <strong><i data-lucide="layers"></i> Diagnósticos Diferenciais da Cátedra:</strong> ${diffList || 'Não especificados.'}
         </div>
 
         ${c.alerta_erro_crasso ? `
           <div class="guide-alert-box">
-            <strong>⚠️ Alerta de Prova (Erro Crasso):</strong> ${c.alerta_erro_crasso}
+            <strong><i data-lucide="alert-triangle"></i> Alerta de Prova (Erro Crasso):</strong> ${c.alerta_erro_crasso}
           </div>
         ` : ''}
       `;
 
       el.guideModalBody.appendChild(card);
     });
+
+    if (window.lucide) lucide.createIcons();
 
     if (targetCaseId) {
       setTimeout(() => {
@@ -948,7 +953,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateReviewButtonState() {
     if (!state.currentCase) return;
     const isSaved = state.errorDeck.includes(state.currentCase.id);
-    el.btnToggleErrorDeck.textContent = isSaved ? '⭐ Salvo na Revisão (Remover)' : '⭐ Salvar para Revisar';
+    el.btnToggleErrorDeck.innerHTML = isSaved 
+      ? '<i data-lucide="bookmark-check"></i> Salvo na Revisão (Remover)' 
+      : '<i data-lucide="bookmark-plus"></i> Salvar para Revisar';
+    if (window.lucide) lucide.createIcons();
   }
 
   // ==========================================

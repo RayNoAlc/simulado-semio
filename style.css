@@ -1311,6 +1311,14 @@ body.mode-multipla .text-field-el {
 /* ==========================================================================
    GUIA DE PATOLOGIAS E HIPÓTESES DIAGNÓSTICAS (MATERIAL DE APOIO)
    ========================================================================== */
+[data-lucide], .lucide {
+  width: 1.15em;
+  height: 1.15em;
+  stroke-width: 2.2;
+  vertical-align: -0.18em;
+  display: inline-block;
+}
+
 .duo-modal-wide {
   max-width: 860px;
   width: 95%;

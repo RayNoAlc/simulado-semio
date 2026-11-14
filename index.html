@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semiologia Bucal | Treino & Diagnóstico de Lesões</title>
-  <link rel="stylesheet" href="style.css?v=20261113_guide">
+  <link rel="stylesheet" href="style.css?v=20261113_no_emoji">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <script src="assets/lucide.min.js"></script>
 </head>
 <body>
 
@@ -331,7 +332,7 @@
               <span class="duo-block-title">Hipótese Diagnóstica</span>
             </div>
             <button type="button" class="btn-guide-inline" id="btnCaseGuide" title="Ver raciocínio clínico e como diferenciar esta lesão">
-              💡 Como raciocinar neste caso?
+              <i data-lucide="help-circle"></i> Como raciocinar neste caso?
             </button>
           </div>
 
@@ -353,10 +354,10 @@
         <!-- Ações do Formulário -->
         <div class="duo-form-actions">
           <button type="button" class="btn-duo btn-duo-secondary" id="btnSkipCase">
-            Pular Caso ⏭️
+            Pular Caso <i data-lucide="skip-forward"></i>
           </button>
           <button type="submit" class="btn-duo btn-duo-primary btn-duo-lg" id="btnSubmitForm">
-            Verificar Resposta ✨
+            Verificar Resposta <i data-lucide="check-circle-2"></i>
           </button>
         </div>
       </form>
@@ -369,7 +370,7 @@
             <span class="duo-score-label">Acerto</span>
           </div>
           <div class="duo-score-message">
-            <h3 id="verdictTitle">Excelente Trabalho! 🎯</h3>
+            <h3 id="verdictTitle">Excelente Trabalho!</h3>
             <p id="verdictSubtitle">Você acertou os critérios semiológicos principais da lesão.</p>
           </div>
         </div>
@@ -404,7 +405,7 @@
         <!-- Treino Oral -->
         <div class="duo-speech-box">
           <div class="duo-speech-header">
-            <h4>🗣️ Como Descrever na Prova Oral:</h4>
+            <h4><i data-lucide="volume-2"></i> Como Descrever na Prova Oral:</h4>
             <button class="btn-duo btn-duo-secondary btn-duo-sm" id="btnSpeakText" title="Ouvir descrição por voz">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
@@ -421,10 +422,10 @@
         <!-- Ações do Feedback -->
         <div class="duo-feedback-actions">
           <button class="btn-duo btn-duo-secondary" id="btnToggleErrorDeck">
-            ⭐ Salvar para Revisar
+            <i data-lucide="bookmark-plus"></i> Salvar para Revisar
           </button>
           <button class="btn-duo btn-duo-success btn-duo-lg" id="btnNextCase">
-            Continuar ➡️
+            Continuar <i data-lucide="arrow-right"></i>
           </button>
         </div>
       </section>
@@ -436,7 +437,7 @@
     <div class="duo-modal-card duo-modal-wide">
       <div class="duo-modal-header">
         <div style="display: flex; align-items: center; gap: 0.65rem;">
-          <span style="font-size: 1.5rem;">📚</span>
+          <i data-lucide="book-open" style="width: 24px; height: 24px; color: var(--c-terracota);"></i>
           <div>
             <h3 style="margin: 0; font-size: 1.2rem; line-height: 1.2;">Guia Clínico de Hipóteses Diagnósticas</h3>
             <span style="font-size: 0.75rem; color: var(--c-umber); font-weight: 600;">Gatilhos semiológicos e critérios de desempate da Cátedra</span>
@@ -446,14 +447,14 @@
       </div>
 
       <div class="duo-modal-search">
-        <input type="text" id="guideSearchInput" placeholder="🔍 Pesquise por patologia, sítio (gengiva, lábio), lesão fundamental ou diferencial...">
+        <input type="text" id="guideSearchInput" placeholder="Pesquisar por patologia, sítio (gengiva, lábio), lesão fundamental ou diferencial...">
         <div class="guide-filter-tabs" id="guideFilterTabs">
           <button type="button" class="guide-tab-btn active" data-tab="todos">Todas (28)</button>
-          <button type="button" class="guide-tab-btn" data-tab="gengiva">🦷 Gengiva</button>
-          <button type="button" class="guide-tab-btn" data-tab="salivares">💧 Salivares / Bolhas</button>
-          <button type="button" class="guide-tab-btn" data-tab="brancas">⚪ Lesões Brancas</button>
-          <button type="button" class="guide-tab-btn" data-tab="ulceras">⭕ Úlceras & Erosões</button>
-          <button type="button" class="guide-tab-btn" data-tab="manchas">⚫ Pigmentadas / Manchas</button>
+          <button type="button" class="guide-tab-btn" data-tab="gengiva"><i data-lucide="shield"></i> Gengiva</button>
+          <button type="button" class="guide-tab-btn" data-tab="salivares"><i data-lucide="droplet"></i> Salivares / Bolhas</button>
+          <button type="button" class="guide-tab-btn" data-tab="brancas"><i data-lucide="file-text"></i> Lesões Brancas</button>
+          <button type="button" class="guide-tab-btn" data-tab="ulceras"><i data-lucide="alert-circle"></i> Úlceras & Erosões</button>
+          <button type="button" class="guide-tab-btn" data-tab="manchas"><i data-lucide="disc"></i> Pigmentadas / Manchas</button>
         </div>
       </div>
 
@@ -462,7 +463,7 @@
       </div>
       
       <div class="duo-modal-footer" style="justify-content: space-between;">
-        <span style="font-size: 0.78rem; color: var(--c-umber); font-weight: 600;">💡 Dica: Consulte este guia a qualquer momento durante o treino da ficha.</span>
+        <span style="font-size: 0.78rem; color: var(--c-umber); font-weight: 600;"><i data-lucide="info"></i> Dica: Consulte este guia a qualquer momento durante o treino da ficha.</span>
         <button class="btn-duo btn-duo-secondary btn-duo-sm" id="btnCloseGuiaPatologiasBottom">Fechar Guia</button>
       </div>
     </div>
@@ -472,7 +473,10 @@
   <div class="duo-modal-layer" id="modalGlossario" style="display: none;">
     <div class="duo-modal-card">
       <div class="duo-modal-header">
-        <h3>📖 Glossário de Semiologia Bucal</h3>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="book" style="width: 20px; height: 20px; color: var(--c-terracota);"></i>
+          <h3 style="margin: 0;">Glossário de Semiologia Bucal</h3>
+        </div>
         <button class="duo-modal-close" id="btnCloseGlossario">&times;</button>
       </div>
       <div class="duo-modal-search">
@@ -488,7 +492,10 @@
   <div class="duo-modal-layer" id="modalDeckErros" style="display: none;">
     <div class="duo-modal-card">
       <div class="duo-modal-header">
-        <h3>⭐ Meus Casos de Revisão</h3>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="bookmark" style="width: 20px; height: 20px; color: var(--c-terracota);"></i>
+          <h3 style="margin: 0;">Meus Casos de Revisão</h3>
+        </div>
         <button class="duo-modal-close" id="btnCloseDeckErros">&times;</button>
       </div>
       <div class="duo-modal-body">
@@ -501,7 +508,7 @@
       </div>
       <div class="duo-modal-footer">
         <button class="btn-duo btn-duo-secondary btn-duo-sm" id="btnClearErrors">Limpar Lista</button>
-        <button class="btn-duo btn-duo-primary btn-duo-sm" id="btnTrainErrorsNow">Treinar Estes Casos 🎯</button>
+        <button class="btn-duo btn-duo-primary btn-duo-sm" id="btnTrainErrorsNow">Treinar Estes Casos <i data-lucide="play"></i></button>
       </div>
     </div>
   </div>
@@ -511,6 +518,6 @@
     <span id="toastMsg">Tudo pronto!</span>
   </div>
 
-  <script src="app.js?v=20261113_guide"></script>
+  <script src="app.js?v=20261113_no_emoji"></script>
 </body>
 </html>
