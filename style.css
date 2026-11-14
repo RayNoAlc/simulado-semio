@@ -1531,3 +1531,194 @@ body.mode-multipla .text-field-el {
 .guide-alert-box strong {
   color: var(--c-argila);
 }
+
+/* ==========================================================================
+   OTIMIZAÇÃO RESPONSIVA PARA DISPOSITIVOS MÓVEIS (SMARTPHONES E TABLETS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .duo-header {
+    padding: 0.65rem 0.85rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    position: relative;
+  }
+
+  .header-center-tools {
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .mode-segmented-pill {
+    flex: 1;
+  }
+
+  .mode-pill-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.35rem 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .header-status-group {
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.35rem;
+  }
+
+  .status-pill {
+    flex: 1;
+    justify-content: center;
+    padding: 0.35rem 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .duo-progress-bar {
+    padding: 0.65rem 0.85rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .collection-selector {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .collection-selector select {
+    flex: 1;
+    max-width: 200px;
+    font-size: 0.76rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .duo-progress-tracker {
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .main-stage {
+    padding: 0.65rem;
+    gap: 1.15rem;
+  }
+
+  .projector-card-header {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .case-badge-pill {
+    font-size: 0.72rem;
+  }
+
+  .image-canvas-wrapper {
+    min-height: 240px;
+    max-height: 320px;
+  }
+
+  .image-canvas-wrapper img {
+    max-height: 300px;
+  }
+
+  .duo-card-block {
+    padding: 1.15rem 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  #semiologiaForm {
+    gap: 1.25rem;
+  }
+
+  .duo-block-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .btn-guide-inline {
+    width: 100%;
+    justify-content: center;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .duo-fields-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .grid-span-1, .grid-span-2 {
+    grid-column: span 1;
+  }
+
+  .duo-form-actions {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .btn-duo-lg {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .duo-score-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.85rem;
+  }
+
+  .duo-feedback-actions {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .duo-modal-layer {
+    padding: 0.4rem;
+  }
+
+  .duo-modal-card {
+    max-height: 94vh;
+    border-radius: var(--radius-md);
+  }
+
+  .duo-modal-header {
+    padding: 0.75rem 0.95rem;
+  }
+
+  .duo-modal-search {
+    padding: 0.65rem 0.95rem;
+  }
+
+  .guide-filter-tabs {
+    gap: 0.35rem;
+  }
+
+  .guide-tab-btn {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .duo-modal-body {
+    padding: 0.85rem 0.95rem;
+  }
+
+  .guide-props-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.45rem;
+  }
+
+  .duo-modal-footer {
+    padding: 0.65rem 0.95rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .duo-toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+}
