@@ -4,6 +4,9 @@
    ========================================================================== */
 
 :root {
+  color-scheme: light only;
+  supported-color-schemes: light;
+
   /* Paleta Oficial da Imagem do Usuário */
   --c-espresso: #29221F;
   --c-chocolate: #49352E;
@@ -54,10 +57,15 @@
   padding: 0;
 }
 
+html {
+  color-scheme: light only;
+  background-color: #F5EFEB !important;
+}
+
 body {
   font-family: var(--font-body);
-  background-color: var(--bg-app);
-  color: var(--text-main);
+  background-color: var(--bg-app) !important;
+  color: var(--text-main) !important;
   line-height: 1.5;
   min-height: 100vh;
   display: flex;
@@ -1533,144 +1541,356 @@ body.mode-multipla .text-field-el {
 }
 
 /* ==========================================================================
-   OTIMIZAÇÃO RESPONSIVA PARA DISPOSITIVOS MÓVEIS (SMARTPHONES E TABLETS)
+   OTIMIZAÇÃO RESPONSIVA COMPLETA (TABLETS, FOLDABLES E SMARTPHONES)
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   .duo-header {
-    padding: 0.65rem 0.85rem;
+    padding: 0.65rem 1rem;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.65rem;
+    gap: 0.6rem;
     position: relative;
+    background: #FFFFFF !important;
   }
 
   .header-center-tools {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
   .mode-segmented-pill {
     flex: 1;
+    display: flex;
   }
 
   .mode-pill-btn {
     flex: 1;
     justify-content: center;
-    padding: 0.35rem 0.45rem;
-    font-size: 0.72rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .timer-chip {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
   }
 
   .header-status-group {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 0.35rem;
+    gap: 0.45rem;
   }
 
   .status-pill {
     flex: 1;
     justify-content: center;
-    padding: 0.35rem 0.45rem;
-    font-size: 0.72rem;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.74rem;
+    white-space: nowrap;
+  }
+
+  .status-pill-score {
+    display: none; /* remove clutter on mobile header */
   }
 
   .duo-progress-bar {
-    padding: 0.65rem 0.85rem;
+    padding: 0.6rem 1rem;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.65rem;
+    gap: 0.6rem;
+    background-color: var(--c-marfim-warm) !important;
   }
 
   .collection-selector {
+    display: flex;
+    align-items: center;
     width: 100%;
-    justify-content: space-between;
+    gap: 0.5rem;
   }
 
   .collection-selector select {
     flex: 1;
-    max-width: 200px;
-    font-size: 0.76rem;
-    padding: 0.35rem 0.5rem;
+    font-size: 0.78rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  #btnShuffle {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
   }
 
   .duo-progress-tracker {
+    width: 100%;
     max-width: 100%;
-    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .progress-case-badge {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .duo-track {
+    height: 14px;
+  }
+
+  .duo-timer-pill {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.82rem;
   }
 
   .main-stage {
-    padding: 0.65rem;
-    gap: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.85rem;
+    gap: 1.25rem;
+  }
+
+  .duo-image-column {
+    gap: 0.85rem;
+  }
+
+  .projector-card {
+    border-radius: var(--radius-md);
+    border-bottom: 4px solid var(--border-card-strong);
   }
 
   .projector-card-header {
-    padding: 0.65rem 0.85rem;
+    padding: 0.6rem 0.85rem;
   }
 
   .case-badge-pill {
+    font-size: 0.75rem;
+  }
+
+  .duo-btn-tool {
+    padding: 0.3rem 0.6rem;
     font-size: 0.72rem;
   }
 
   .image-canvas-wrapper {
-    min-height: 240px;
-    max-height: 320px;
+    min-height: 220px;
+    max-height: 280px;
+    background: #141110 !important;
   }
 
   .image-canvas-wrapper img {
-    max-height: 300px;
+    max-height: 270px;
+    object-fit: contain;
   }
 
-  .duo-card-block {
-    padding: 1.15rem 0.95rem;
-    margin-bottom: 1.25rem;
+  .canvas-hint {
+    font-size: 0.68rem;
+    padding: 0.25rem 0.5rem;
+    bottom: 6px;
+  }
+
+  .duo-tip-box {
+    display: none; /* hide extra banner to bring questions right below image */
+  }
+
+  .duo-form-column {
+    width: 100%;
+  }
+
+  .form-title-row {
+    margin-bottom: 0.65rem;
+  }
+
+  .form-title-row h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-title-row p {
+    font-size: 0.8rem;
+  }
+
+  .btn-clean-form {
+    font-size: 0.74rem;
   }
 
   #semiologiaForm {
     gap: 1.25rem;
+    margin-bottom: 5.5rem; /* Space so content is not hidden by sticky bottom bar */
+  }
+
+  .duo-card-block {
+    padding: 1.15rem 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: var(--radius-md);
+    border-bottom: 4px solid var(--c-linho);
   }
 
   .duo-block-header {
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .duo-step-badge {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+
+  .duo-block-title {
+    font-size: 1rem;
   }
 
   .btn-guide-inline {
     width: 100%;
     justify-content: center;
-    padding: 0.4rem 0.65rem;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.76rem;
   }
 
   .duo-fields-grid {
     grid-template-columns: 1fr;
-    gap: 0.85rem;
+    gap: 0.95rem;
   }
 
   .grid-span-1, .grid-span-2 {
     grid-column: span 1;
   }
 
-  .duo-form-actions {
-    flex-direction: column;
-    gap: 0.65rem;
+  .duo-field-box label {
+    font-size: 0.82rem;
+    margin-bottom: 0.35rem;
   }
 
-  .btn-duo-lg {
-    width: 100%;
+  .duo-text-input {
+    font-size: 0.88rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .duo-chips-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem;
+    margin-top: 0.5rem;
+  }
+
+  .duo-chip {
+    min-height: 42px;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.76rem;
+    text-align: center;
     justify-content: center;
-    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 3px 0 var(--c-linho);
+  }
+
+  .duo-chip.active {
+    box-shadow: 0 2px 0 var(--c-terracota-dark);
+  }
+
+  /* BARRA FIXA INFERIOR ESTILO DUOLINGO APP */
+  .duo-form-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(245, 239, 235, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 2.5px solid var(--c-areia);
+    padding: 0.65rem 1rem;
+    box-shadow: 0 -4px 20px rgba(41, 34, 31, 0.16);
+    z-index: 80;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    margin: 0;
+  }
+
+  #btnSkipCase {
+    flex: 1;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.82rem;
+    justify-content: center;
+  }
+
+  #btnSubmitForm {
+    flex: 2;
+    padding: 0.75rem 1.15rem;
+    font-size: 0.92rem;
+    justify-content: center;
+  }
+
+  /* FEEDBACK NO MOBILE */
+  .duo-feedback-panel {
+    padding: 1.15rem 1rem;
+    margin-bottom: 5.5rem;
+    border-radius: var(--radius-md);
   }
 
   .duo-score-banner {
     flex-direction: column;
     text-align: center;
-    gap: 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .duo-score-wheel {
+    width: 74px;
+    height: 74px;
+    border-width: 4px;
+  }
+
+  .duo-score-number {
+    font-size: 1.4rem;
+  }
+
+  .duo-score-message h3 {
+    font-size: 1.25rem;
+  }
+
+  .duo-score-message p {
+    font-size: 0.82rem;
   }
 
   .duo-feedback-actions {
-    flex-direction: column;
-    gap: 0.65rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(245, 239, 235, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 2.5px solid var(--c-areia);
+    padding: 0.65rem 1rem;
+    box-shadow: 0 -4px 20px rgba(41, 34, 31, 0.16);
+    z-index: 80;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
   }
 
+  #btnToggleErrorDeck {
+    flex: 1;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.78rem;
+    justify-content: center;
+  }
+
+  #btnNextCase {
+    flex: 2;
+    padding: 0.75rem 1.15rem;
+    font-size: 0.92rem;
+    justify-content: center;
+  }
+
+  /* MODAIS NO MOBILE */
   .duo-modal-layer {
     padding: 0.4rem;
   }
@@ -1678,14 +1898,20 @@ body.mode-multipla .text-field-el {
   .duo-modal-card {
     max-height: 94vh;
     border-radius: var(--radius-md);
+    border-width: 2px;
+    border-bottom-width: 5px;
   }
 
   .duo-modal-header {
-    padding: 0.75rem 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .duo-modal-header h3 {
+    font-size: 1.05rem;
   }
 
   .duo-modal-search {
-    padding: 0.65rem 0.95rem;
+    padding: 0.65rem 1rem;
   }
 
   .guide-filter-tabs {
@@ -1698,16 +1924,35 @@ body.mode-multipla .text-field-el {
   }
 
   .duo-modal-body {
-    padding: 0.85rem 0.95rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .guide-card {
+    padding: 0.95rem 1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .guide-card-title {
+    font-size: 1rem;
   }
 
   .guide-props-grid {
     grid-template-columns: 1fr 1fr;
     gap: 0.45rem;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .guide-prop-item {
+    font-size: 0.76rem;
+  }
+
+  .guide-highlight-box, .guide-diff-box, .guide-alert-box {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.7rem;
   }
 
   .duo-modal-footer {
-    padding: 0.65rem 0.95rem;
+    padding: 0.75rem 1rem;
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
@@ -1719,6 +1964,18 @@ body.mode-multipla .text-field-el {
     bottom: 16px;
     justify-content: center;
     text-align: center;
-    font-size: 0.82rem;
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-status-group .status-pill span {
+    display: none; /* keep only icon and badge on very narrow screens */
+  }
+  .header-status-group .status-pill {
+    padding: 0.4rem;
+  }
+  .duo-chips-container {
+    grid-template-columns: 1fr; /* single column on narrow screens */
   }
 }
