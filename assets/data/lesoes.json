@@ -1,0 +1,1105 @@
+{
+  "total_casos": 28,
+  "casos": [
+    {
+      "id": "caso_01_mucocele",
+      "nome": "Mucocele",
+      "categoria": "Fenômeno de Extravasamento de Muco",
+      "imagem": "assets/images/desc_img_01_46.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 1)",
+      "gabarito": {
+        "lesao_fundamental": "Bolha",
+        "lesao_fundamental_alt": [
+          "Vesícula ou Bolha",
+          "Nódulo",
+          "Elevação de conteúdo líquido"
+        ],
+        "localizacao": "Lábio inferior",
+        "lateralidade": "Lado Esquerdo",
+        "insercao": "Séssil",
+        "superficie": "Lisa",
+        "coloracao": "Semelhante à mucosa oral com translucidez, azulada",
+        "consistencia": "Macia, flutuante à palpação",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Circular"
+      },
+      "diagnosticos_diferenciais": [
+        "Hiperplasia focal",
+        "Hemangioma",
+        "Lipoma"
+      ],
+      "explicacao_clinica": "Formada pelo rompimento de ducto de glândula salivar menor com extravasamento de saliva/muco para o tecido conjuntivo adjacente. É muito frequente no lábio inferior devido a traumatismo (mordedura).",
+      "alerta_erro_crasso": "Mucocele é quase exclusiva de lábio inferior e ventre lingual. Lesão nodular em lábio superior deve levantar suspeita de neoplasia de glândula salivar (ex: Adenoma Pleomórfico)."
+    },
+    {
+      "id": "caso_02_ranula",
+      "nome": "Rânula",
+      "categoria": "Fenômeno de Extravasamento de Muco",
+      "imagem": "assets/images/desc_img_02_49.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 2)",
+      "gabarito": {
+        "lesao_fundamental": "Bolha",
+        "lesao_fundamental_alt": [
+          "Vesícula ou Bolha",
+          "Nódulo flutuante",
+          "Aumento volumétrico"
+        ],
+        "localizacao": "Assoalho bucal (soalho bucal)",
+        "lateralidade": "Lado Esquerdo",
+        "insercao": "Séssil",
+        "superficie": "Lisa",
+        "coloracao": "Arroxeada levemente translúcida (azulada)",
+        "consistencia": "Flutuante à palpação",
+        "limites": "Bem definidos",
+        "formato": "Circular"
+      },
+      "diagnosticos_diferenciais": [
+        "Cisto dermoide",
+        "Linfangioma",
+        "Mucocele de glândula menor"
+      ],
+      "explicacao_clinica": "Mucocele específica que ocorre no soalho bucal, comumente originada do ducto da glândula sublingual ou ducto de Wharton. Tratamento pode incluir marsupialização ou micromarsupialização.",
+      "alerta_erro_crasso": "A localização obrigatória da rânula é o assoalho bucal. Não ocorre em palato ou gengiva."
+    },
+    {
+      "id": "caso_03_papiloma_escamoso",
+      "nome": "Papiloma Escamoso Oral",
+      "categoria": "Neoplasia Benigna Epitelial (HPV)",
+      "imagem": "assets/images/desc_img_03_50.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 3)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Pápula vegetante",
+          "Pápula"
+        ],
+        "localizacao": "Palato",
+        "lateralidade": "Central / Linha Média",
+        "insercao": "Pediculada (pedunculada)",
+        "superficie": "Verrugosa (aspecto de couve-flor / digitiforme)",
+        "coloracao": "Esbranquiçada",
+        "consistencia": "Firme à palpação / Fibroelástica",
+        "limites": "Bem definidos",
+        "formato": "Circular"
+      },
+      "diagnosticos_diferenciais": [
+        "Verruga vulgar",
+        "Condiloma acuminado",
+        "Hiperplasia epitelial focal"
+      ],
+      "explicacao_clinica": "Proliferação benigna do epitélio escamoso estratificado associada aos vírus HPV 6 e 11. Caracterizada por projeções digitiformes lembrando uma couve-flor e base estreita (pediculada).",
+      "alerta_erro_crasso": "A superfície é classicamente VERRUGOSA (com projeções digitiformes), nunca lisa! A base é tipicamente pediculada."
+    },
+    {
+      "id": "caso_04_hemangioma_labio",
+      "nome": "Hemangioma",
+      "categoria": "Neoplasia Benigna Vascular / Malformação",
+      "imagem": "assets/images/desc_img_04_51.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 4)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Pápula",
+          "Mancha elevada"
+        ],
+        "localizacao": "Lábio inferior",
+        "lateralidade": "Lado Esquerdo",
+        "insercao": "Pediculada (pedunculada)",
+        "superficie": "Verrugosa (multilobulada)",
+        "coloracao": "Avermelhada (eritematosa)",
+        "consistencia": "Macia / Compressível à palpação",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Multilocular"
+      },
+      "diagnosticos_diferenciais": [
+        "Granuloma piogênico",
+        "Papiloma",
+        "Varizes orais"
+      ],
+      "explicacao_clinica": "Tumor benigno originado da proliferação de vasos sanguíneos. Apresenta o teste clássico de diascopia / vitropressão positivo (isquemia e clareamento quando pressionado com lâmina de vidro).",
+      "alerta_erro_crasso": "Contraindicação formal de biópsia incisional inadvertida no consultório pelo altíssimo risco de hemorragia grave!"
+    },
+    {
+      "id": "caso_05_hiperplasia_focal",
+      "nome": "Hiperplasia Focal (Fibroma Traumático)",
+      "categoria": "Processo Proliferativo Não Neoplásico",
+      "imagem": "assets/images/desc_img_05_54.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 5)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Nódulo fibroso",
+          "Pápula"
+        ],
+        "localizacao": "Região de retrocomissura / Mucosa jugal",
+        "lateralidade": "Lado Esquerdo",
+        "insercao": "Séssil",
+        "superficie": "Lisa",
+        "coloracao": "Semelhante à mucosa oral (rósea)",
+        "consistencia": "Firme à palpação / Fibroelástica",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Unilocular"
+      },
+      "diagnosticos_diferenciais": [
+        "Mucocele",
+        "Lipoma",
+        "Neoplasia de glândula salivar menor"
+      ],
+      "explicacao_clinica": "Resposta proliferativa tecidual hiperplásica fibroblástica secundária a traumatismo crônico e repetitivo (como mordiscamento da bochecha/retrocomissura).",
+      "alerta_erro_crasso": "Não se trata de neoplasia verdadeira, e sim de proliferação fibrosa reacional a trauma mecânico."
+    },
+    {
+      "id": "caso_06_lipoma",
+      "nome": "Lipoma",
+      "categoria": "Neoplasia Benigna Mesenquimal",
+      "imagem": "assets/images/desc_img_08_57.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 6)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Nódulo adiposo"
+        ],
+        "localizacao": "Região retromolar / Mucosa jugal",
+        "lateralidade": "Lado Esquerdo / Direito",
+        "insercao": "Pediculada (pedunculada)",
+        "superficie": "Lisa",
+        "coloracao": "Avermelhada levemente esbranquiçada / amarelada",
+        "consistencia": "Mole / Semiflutuante à palpação",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Unilocular"
+      },
+      "diagnosticos_diferenciais": [
+        "Hiperplasia fibrosa",
+        "Mucocele",
+        "Fibroma"
+      ],
+      "explicacao_clinica": "Tumor benigno de células adiposas maduras. Clinicamente apresenta coloração amarelada quando superficial e consistência extremamente macia/pastosa.",
+      "alerta_erro_crasso": "Ao toque, o lipoma é MOLE/MACIO ou semiflutuante devido aos adipócitos, jamais duro ou ósseo."
+    },
+    {
+      "id": "caso_07_ulcera_traumatica",
+      "nome": "Úlcera Traumática",
+      "categoria": "Lesão Traumática / Ulcerativa",
+      "imagem": "assets/images/desc_img_06_55.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 7)",
+      "gabarito": {
+        "lesao_fundamental": "Úlcera",
+        "lesao_fundamental_alt": [
+          "Placa ulcerada",
+          "Ulceração"
+        ],
+        "localizacao": "Lábio inferior",
+        "lateralidade": "Lado Esquerdo",
+        "insercao": "Séssil",
+        "superficie": "Lisa / Deprimida no centro com fibrina",
+        "coloracao": "Bordas eritematosas com o interior esbranquiçado (fundo fibrinoso)",
+        "consistencia": "Macia / Bordas flexíveis (sem enduração)",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Oval / Circular"
+      },
+      "diagnosticos_diferenciais": [
+        "Carcinoma epidermoide (CEC)",
+        "Estomatite aftosa recorrente",
+        "Úlcera tuberculosa"
+      ],
+      "explicacao_clinica": "Solução de continuidade do epitélio com exposição do conjuntivo, dolorosa, decorrente de trauma físico (mordedura, borda de dente afiado ou braquetes ortodônticos). Fundo recoberto por pseudomembrana de fibrina.",
+      "alerta_erro_crasso": "Se uma úlcera em boca persistir por mais de 14 dias após remoção do agente causal, a biópsia incisional é IMPERATIVA para descartar Carcinoma Epidermoide (Câncer Bucal)!"
+    },
+    {
+      "id": "caso_08_granuloma_piogenico",
+      "nome": "Granuloma Piogênico",
+      "categoria": "Processo Proliferativo Não Neoplásico Vascular",
+      "imagem": "assets/images/desc_img_07_56.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 8)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Pápula",
+          "Nódulo vascular"
+        ],
+        "localizacao": "Região gengival / Papila interdental",
+        "lateralidade": "Central / Vestibular",
+        "insercao": "Séssil",
+        "superficie": "Lisa com possíveis áreas ulceradas",
+        "coloracao": "Avermelhada com bordas eritematosas",
+        "consistencia": "Macia / Friável (sangra com facilidade ao toque)",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Lobulado / Globoso"
+      },
+      "diagnosticos_diferenciais": [
+        "Lesão Periférica de Células Gigantes (LPCG)",
+        "Fibroma Ossificante Periférico",
+        "Hemangioma"
+      ],
+      "explicacao_clinica": "Proliferação reacional exuberante de tecido de granulação vascular e endotélio em resposta a biofilme bacteriano, cálculo gengival ou trauma. Muito comum em gestantes (tumor gravídico).",
+      "alerta_erro_crasso": "Tríade de lesões reacionais gengivais obrigatória na prova: Granuloma Piogênico, Lesão Periférica de Células Gigantes e Fibroma Ossificante Periférico!"
+    },
+    {
+      "id": "caso_09_hemangioma_retrocomissura",
+      "nome": "Hemangioma",
+      "categoria": "Neoplasia Benigna Vascular",
+      "imagem": "assets/images/desc_img_09_60.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 9)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Pápula",
+          "Mancha vascular"
+        ],
+        "localizacao": "Região de retrocomissura / Mucosa jugal",
+        "lateralidade": "Lado Esquerdo / Direito",
+        "insercao": "Séssil",
+        "superficie": "Irregular",
+        "coloracao": "Arroxeada (violácea)",
+        "consistencia": "Macia / Compressível à palpação",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Irregular"
+      },
+      "diagnosticos_diferenciais": [
+        "Hematoma",
+        "Linfangioma",
+        "Melanoma oral"
+      ],
+      "explicacao_clinica": "Lesão vascular benigna arroxeada na mucosa jugal. À manobra de diascopia (vitropressão) apresenta isquemia transitória.",
+      "alerta_erro_crasso": "Lesão arroxeada/azulada compressível requer teste de vitropressão para confirmar natureza vascular antes de qualquer procedimento cirúrgico."
+    },
+    {
+      "id": "caso_10_cisto_erupcao",
+      "nome": "Cisto de Erupção (Hematoma de Erupção)",
+      "categoria": "Cisto Odontogênico de Desenvolvimento",
+      "imagem": "assets/images/desc_img_10_61.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 10)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Bolha",
+          "Aumento volumétrico"
+        ],
+        "localizacao": "Região de incisivo superior direito (rebordo alveolar)",
+        "lateralidade": "Lado Direito",
+        "insercao": "Séssil",
+        "superficie": "Lisa",
+        "coloracao": "Arroxeada com bordas eritematosas",
+        "consistencia": "Macia / Flutuante à palpação",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Cúpula sobre o dente em erupção"
+      },
+      "diagnosticos_diferenciais": [
+        "Hemangioma",
+        "Granuloma piogênico",
+        "Hematoma"
+      ],
+      "explicacao_clinica": "Análogo de tecido mole do cisto dentígero. Ocorre quando o folículo pericoronário se distende por acúmulo de sangue/fluido sobre um dente decíduo ou permanente em erupção. Na maioria dos casos regride espontaneamente ou requer ulectomia simples.",
+      "alerta_erro_crasso": "Sempre associado à crista alveolar sobre a coroa de dente em fase de erupção ativa."
+    },
+    {
+      "id": "caso_11_linfangioma",
+      "nome": "Linfangioma",
+      "categoria": "Malformação Hamartomatosa Vascular Linfática",
+      "imagem": "assets/images/desc_img_11_62.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 11)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulos ou pápulas",
+        "lesao_fundamental_alt": [
+          "Pápulas confluentes",
+          "Nódulo vesicular"
+        ],
+        "localizacao": "Dorso da língua",
+        "lateralidade": "Central / Linha Média",
+        "insercao": "Séssil",
+        "superficie": "Irregular (aspecto de ovas de peixe / vesículas agrupadas)",
+        "coloracao": "Avermelhada com regiões eritematosas e translúcidas",
+        "consistencia": "Mole / Compressível",
+        "limites": "Não definidos / Difusos",
+        "formato": "Agrupamento papulonodular"
+      },
+      "diagnosticos_diferenciais": [
+        "Hemangioma",
+        "Papilomatose",
+        "Amiloidose lingual"
+      ],
+      "explicacao_clinica": "Hamartoma congênito benigno dos vasos linfáticos. Na língua, causa macroglossia e tem aspecto translúcido clássico descrito como 'grumos de ovas de peixe' ou 'vesículas de tapioca'.",
+      "alerta_erro_crasso": "Ao contrário do hemangioma, o linfangioma responde muito mal a agentes esclerosantes e tem alta taxa de recidiva."
+    },
+    {
+      "id": "caso_12_herpes_simples",
+      "nome": "Herpes Simples Recorrente (Labial)",
+      "categoria": "Infecção Viral (HSV-1)",
+      "imagem": "assets/images/desc_img_12_63.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 12)",
+      "gabarito": {
+        "lesao_fundamental": "Pequenas vesículas (Vesículas)",
+        "lesao_fundamental_alt": [
+          "Vesículas agrupadas",
+          "Vesícula ou Bolha",
+          "Erosões com crostas"
+        ],
+        "localizacao": "Lábio inferior / Vermelhão do lábio",
+        "lateralidade": "Lado Esquerdo / Direito / Comissura",
+        "insercao": "Séssil",
+        "superficie": "Irregular (crostosa na fase avançada)",
+        "coloracao": "Avermelhada (halo eritematoso circundante)",
+        "consistencia": "Macia / Friável à palpação",
+        "limites": "Bem definidos",
+        "formato": "Agrupamento de vesículas em cacho"
+      },
+      "diagnosticos_diferenciais": [
+        "Impetigo",
+        "Queilite angular",
+        "Estomatite aftosa"
+      ],
+      "explicacao_clinica": "Reativação do vírus Herpes Simplex tipo 1 latente no gânglio trigeminal. Inicia com pródromos (ardência/formigamento), seguido de vesículas intraepiteliais agrupadas que coalescem, se rompem formando erosões e crostas em 7 a 10 dias.",
+      "alerta_erro_crasso": "Herpes recorrente intraoral só acomete mucosa ceratinizada aderida ao periósteo (palato duro e gengiva inserida); no lábio afeta o vermelhão e pele perioral. Se estiver em mucosa móvel não ceratinizada, é afta!"
+    },
+    {
+      "id": "caso_13_lpcg",
+      "nome": "Lesão Periférica de Células Gigantes (LPCG)",
+      "categoria": "Processo Proliferativo Não Neoplásico Gengival",
+      "imagem": "assets/images/desc_img_13_66.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 13)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Nódulo gengival",
+          "Pápula"
+        ],
+        "localizacao": "Região interdental / gengival inferior",
+        "lateralidade": "Central / Interdental",
+        "insercao": "Séssil",
+        "superficie": "Irregular (pode ter áreas ulceradas)",
+        "coloracao": "Avermelhada / Arroxeada (púrpura escura)",
+        "consistencia": "Firme / Fibroelástica à palpação",
+        "limites": "Não nítidos / Pouco definidos",
+        "formato": "Lobulado"
+      },
+      "diagnosticos_diferenciais": [
+        "Granuloma piogênico",
+        "Fibroma ossificante periférico",
+        "Sarcoma de Kaposi"
+      ],
+      "explicacao_clinica": "Lesão proliferativa reacional exclusiva da gengiva e rebordo alveolar. Radiograficamente pode demonstrar reabsorção óssea superficial em formato de 'taça' ou 'pires'. Histologicamente repleta de células gigantes multinucleadas em estroma fibroso com hemossiderina.",
+      "alerta_erro_crasso": "A LPCG é exclusiva de gengiva e rebordo alveolar anterior; não ocorre em bochecha, palato mole ou assoalho bucal."
+    },
+    {
+      "id": "caso_14_fibroma_ossificante",
+      "nome": "Fibroma Ossificante Periférico",
+      "categoria": "Processo Proliferativo Não Neoplásico Gengival",
+      "imagem": "assets/images/desc_img_14_67.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 14)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Nódulo endurecido"
+        ],
+        "localizacao": "Região gengival mandibular",
+        "lateralidade": "Lado Esquerdo / Direito / Interdental",
+        "insercao": "Séssil",
+        "superficie": "Irregular",
+        "coloracao": "Avermelhada com áreas róseas",
+        "consistencia": "Endurecida / Firme à palpação",
+        "limites": "Bem definidos",
+        "formato": "Nodular"
+      },
+      "diagnosticos_diferenciais": [
+        "Granuloma piogênico",
+        "Lesão periférica de células gigantes",
+        "Hiperplasia fibrosa focal"
+      ],
+      "explicacao_clinica": "Crescimento gengival reacional que se origina do ligamento periodontal, contendo focos de calcificação óssea ou cementóide em seu interior, o que lhe confere consistência mais firme e dura ao toque.",
+      "alerta_erro_crasso": "Diferencial palpatório: o fibroma ossificante tem áreas endurecidas devido à formação mineral/óssea no seu interior, diferindo do granuloma piogênico que é macio e vascular."
+    },
+    {
+      "id": "caso_15_aftas",
+      "nome": "Aftas (Estomatite Aftosa Recorrente)",
+      "categoria": "Condição Ulcerativa Imunomediada",
+      "imagem": "assets/images/desc_img_15_68.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 15)",
+      "gabarito": {
+        "lesao_fundamental": "Úlcera",
+        "lesao_fundamental_alt": [
+          "Ulceração"
+        ],
+        "localizacao": "Lábio inferior",
+        "lateralidade": "Lado Direito",
+        "insercao": "Séssil",
+        "superficie": "Lisa (fundo deprimido amarelado com fibrina)",
+        "coloracao": "Bordas avermelhadas (halo eritematoso) e centro amarelado/esbranquiçado",
+        "consistencia": "Macia à palpação / Dolorosa",
+        "limites": "Bem definidos",
+        "formato": "Circular / Oval"
+      },
+      "diagnosticos_diferenciais": [
+        "Úlcera traumática",
+        "Herpes intraoral",
+        "Sífilis primária (cancro duro)"
+      ],
+      "explicacao_clinica": "Úlceras rasas, extremamente dolorosas, de etiologia imunomediada (citotoxicidade celular mediada por linfócitos T). Acometem exclusivamente mucosa não ceratinizada (lábio, mucosa jugal, ventre de língua e assoalho).",
+      "alerta_erro_crasso": "Aftas comuns (menores) não acometem palato duro ou gengiva aderida (áreas ceratinizadas são o sítio do herpes intraoral recorrente)."
+    },
+    {
+      "id": "caso_16_tatuagem_amalgama_assoalho",
+      "nome": "Tatuagem por Amálgama (Assoalho Bucal)",
+      "categoria": "Pigmentação Exógena Iatrogênica",
+      "imagem": "assets/images/desc_img_16_71.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 16)",
+      "gabarito": {
+        "lesao_fundamental": "Mancha ou mácula",
+        "lesao_fundamental_alt": [
+          "Mancha",
+          "Mácula"
+        ],
+        "localizacao": "Assoalho bucal",
+        "lateralidade": "Lado Esquerdo",
+        "insercao": "Séssil (plana)",
+        "superficie": "Lisa (sem elevação ou depressão)",
+        "coloracao": "Pigmentação enegrecida / acinzentada / azulada",
+        "consistencia": "Normal / Sem alteração de consistência ao toque",
+        "limites": "Bem definidos / Nítidos",
+        "formato": "Irregular / Macular"
+      },
+      "diagnosticos_diferenciais": [
+        "Melanoma oral",
+        "Nevo melanocítico",
+        "Mácula melanótica racial"
+      ],
+      "explicacao_clinica": "Impregnação de partículas metálicas de amálgama de prata no tecido conjuntivo submucoso decorrente de procedimentos restauradores, apicectomias ou uso de brocas.",
+      "alerta_erro_crasso": "Por ser uma alteração plana de cor sem elevação, a lesão fundamental é OBRIGATORIAMENTE Mancha ou Mácula (jamais nódulo ou placa!)."
+    },
+    {
+      "id": "caso_17_tatuagem_amalgama_crista",
+      "nome": "Tatuagem por Amálgama (Crista Alveolar)",
+      "categoria": "Pigmentação Exógena Iatrogênica",
+      "imagem": "assets/images/desc_img_17_72.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 17)",
+      "gabarito": {
+        "lesao_fundamental": "Mancha ou mácula",
+        "lesao_fundamental_alt": [
+          "Mancha",
+          "Mácula"
+        ],
+        "localizacao": "Crista alveolar inferior",
+        "lateralidade": "Lado Direito / Rebordo",
+        "insercao": "Séssil (plana)",
+        "superficie": "Lisa",
+        "coloracao": "Pigmentação enegrecida / azulada / grafite",
+        "consistencia": "Sem alteração ao toque",
+        "limites": "Bem definidos / Nítidos",
+        "formato": "Irregular"
+      },
+      "diagnosticos_diferenciais": [
+        "Melanoma oral",
+        "Pigmentação racial",
+        "Nevo azul"
+      ],
+      "explicacao_clinica": "Partículas de amálgama introduzidas no tecido alveolar durante exodontias prévias. O diagnóstico é clínico-radiográfico (frequentemente observam-se partículas radiopacas na radiografia periapical).",
+      "alerta_erro_crasso": "Confundir mancha por amálgama com Melanoma Oral! Quando não há história clara ou radiopacidade na radiografia, a biópsia é indicada para afastar lesão melanocítica maligna."
+    },
+    {
+      "id": "caso_18_leucoedema",
+      "nome": "Leucoedema",
+      "categoria": "Variação da Normalidade da Mucosa Oral",
+      "imagem": "assets/images/desc_img_18_73.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 18)",
+      "gabarito": {
+        "lesao_fundamental": "Placa",
+        "lesao_fundamental_alt": [
+          "Mancha esbranquiçada difusa",
+          "Placa difusa"
+        ],
+        "localizacao": "Mucosa jugal",
+        "lateralidade": "Bilateral",
+        "insercao": "Séssil",
+        "superficie": "Lisa (aspecto pregueado ou rendilhado)",
+        "coloracao": "Pigmentação arroxeada e esbranquiçada com aspecto leitoso/difuso",
+        "consistencia": "Macia / Normal ao toque",
+        "limites": "Difusos / Não nítidos",
+        "formato": "Difuso / Pregueado"
+      },
+      "diagnosticos_diferenciais": [
+        "Leucoplasia",
+        "Líquen plano",
+        "Nevo branco esponjoso"
+      ],
+      "explicacao_clinica": "Condição comum e benigna da mucosa jugal, mais frequente e evidente em indivíduos afrodescendentes. O teste semiológico patognomônico é o estiramento da bochecha: ao tracionar a mucosa jugal, a névoa esbranquiçada DESAPARECE ou atenua consideravelmente.",
+      "alerta_erro_crasso": "Confundir Leucoedema com Leucoplasia! O leucoedema atenua ou desaparece ao esticar a mucosa jugal; a leucoplasia NÃO desaparece e não se remove."
+    },
+    {
+      "id": "caso_19_leucoplasia_pilosa",
+      "nome": "Leucoplasia Pilosa Oral",
+      "categoria": "Infecção Oportunista Associada ao EBV",
+      "imagem": "assets/images/desc_img_19_76.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 19)",
+      "gabarito": {
+        "lesao_fundamental": "Placa",
+        "lesao_fundamental_alt": [
+          "Placa ceratótica",
+          "Placa corrugada"
+        ],
+        "localizacao": "Borda lateral de língua",
+        "lateralidade": "Lado Direito (frequentemente bilateral)",
+        "insercao": "Séssil",
+        "superficie": "Irregular (corrugada / pregueada / pilosa)",
+        "coloracao": "Esbranquiçada",
+        "consistencia": "Firme / Não removível à raspagem",
+        "limites": "Não definidos / Mal delimitados",
+        "formato": "Estriado vertical / Pregueado"
+      },
+      "diagnosticos_diferenciais": [
+        "Candidose hiperplásica",
+        "Morsicatio linguarum (trauma por mordiscamento)",
+        "Leucoplasia verdadeira"
+      ],
+      "explicacao_clinica": "Causada pela replicação do vírus Epstein-Barr (EBV) no epitélio lingual em indivíduos imunocomprometidos (especialmente HIV/AIDS ou transplantados). Apresenta pregas verticais esbranquiçadas no bordo lateral da língua que NÃO saem à raspagem.",
+      "alerta_erro_crasso": "A leucoplasia pilosa NÃO sai à raspagem com gaze! Se sair com gaze deixando fundo eritematoso, é candidose pseudomembranosa."
+    },
+    {
+      "id": "caso_20_liquen_plano",
+      "nome": "Líquen Plano Oral (Forma Reticular)",
+      "categoria": "Doença Mucocutânea Imunomediada Crônica",
+      "imagem": "assets/images/desc_img_20_77.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 20)",
+      "gabarito": {
+        "lesao_fundamental": "Placa esbranquiçada com estrias",
+        "lesao_fundamental_alt": [
+          "Placa",
+          "Pápulas confluentes em rede"
+        ],
+        "localizacao": "Mucosa jugal",
+        "lateralidade": "Bilateral (geralmente simétrica)",
+        "insercao": "Séssil",
+        "superficie": "Lisa / Estriada",
+        "coloracao": "Esbranquiçada com estrias avermelhadas / eritematosas circundantes",
+        "consistencia": "Macia / Fibroelástica",
+        "limites": "Bem definidos / Nítidos (Estrias de Wickham)",
+        "formato": "Reticulado / Rendilhado"
+      },
+      "diagnosticos_diferenciais": [
+        "Reação liquenoide a medicamentos/amálgama",
+        "Leucoplasia",
+        "Lúpus eritematoso"
+      ],
+      "explicacao_clinica": "Doença inflamatória crônica mediada por linfócitos T citotóxicos contra ceratinócitos basais. A forma reticular exibe o clássico entrelaçamento de linhas brancas ceratóticas denominadas Estrias de Wickham.",
+      "alerta_erro_crasso": "Líquen Plano Oral clássico é tipicamente BILATERAL e simétrico em mucosa jugal! Se for estritamente UNILATERAL em contato direto com restauração metálica, pensar em Reação Liquenoide de Contato!"
+    },
+    {
+      "id": "caso_21_granulos_fordyce",
+      "nome": "Grânulos de Fordyce",
+      "categoria": "Variação Anatômica da Normalidade",
+      "imagem": "assets/images/desc_img_21_78.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 21)",
+      "gabarito": {
+        "lesao_fundamental": "Pápulas multiloculares (Pápulas)",
+        "lesao_fundamental_alt": [
+          "Pápulas",
+          "Pápulas agrupadas"
+        ],
+        "localizacao": "Lábio superior externamente / Mucosa jugal",
+        "lateralidade": "Bilateral",
+        "insercao": "Séssil",
+        "superficie": "Irregular / Pontilhada",
+        "coloracao": "Semelhante à mucosa / Levemente amareladas",
+        "consistencia": "Macia / Normal à palpação",
+        "limites": "Bem definidos / Nítidos",
+        "formato": "Múltiplas pápulas pontiformes agrupadas"
+      },
+      "diagnosticos_diferenciais": [
+        "Candidose",
+        "Hiperplasia sebácea",
+        "Leucoplasia pontilhada"
+      ],
+      "explicacao_clinica": "Glândulas sebáceas ectópicas ou coristomas na mucosa bucal, sem folículo piloso associado. São inteiramente benignas e consideradas variação da anatomia normal humana.",
+      "alerta_erro_crasso": "Grânulos de Fordyce NÃO necessitam de biópsia ou tratamento cirúrgico; são variação anatômica normal inócua."
+    },
+    {
+      "id": "caso_22_tireoide_lingual",
+      "nome": "Tireoide Lingual",
+      "categoria": "Anomalia de Desenvolvimento Embrionário",
+      "imagem": "assets/images/desc_img_22_81.jpeg",
+      "origem": "Descrição de Lesão da Mucosa Oral (Caso 22)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Aumento de volume",
+          "Nódulo vascularizado"
+        ],
+        "localizacao": "Linha média na região dorsal posterior de língua (forame cego)",
+        "lateralidade": "Central / Linha Média",
+        "insercao": "Séssil",
+        "superficie": "Irregular / Vascularizada",
+        "coloracao": "Avermelhada (hiperemiada)",
+        "consistencia": "Firme à palpação",
+        "limites": "Bem definidos / Nítidos",
+        "formato": "Nodular circunscrito"
+      },
+      "diagnosticos_diferenciais": [
+        "Carcinoma epidermoide de base de língua",
+        "Linfangioma",
+        "Cisto do ducto tireoglosso"
+      ],
+      "explicacao_clinica": "Remanescente ectópico de parênquima tireoidiano funcional resultante da falha na descida embrionária da glândula tireoide a partir do forame cego da língua até a região cervical anterior.",
+      "alerta_erro_crasso": "NUNCA biopsiar ou remover cirurgicamente sem antes realizar cintilografia com iodo radioativo! Em até 70% dos pacientes, a tireoide lingual é o ÚNICO tecido tireoidiano funcional do organismo!"
+    },
+    {
+      "id": "caso_23_candidose_pseudomembranosa",
+      "nome": "Candidose Pseudomembranosa",
+      "categoria": "Infecção Fúngica Oportunista",
+      "imagem": "assets/images/semio_img_05_20.jpeg",
+      "origem": "Lesões de Semio (Caso 23)",
+      "gabarito": {
+        "lesao_fundamental": "Placa",
+        "lesao_fundamental_alt": [
+          "Placas destacáveis",
+          "Pápulas confluentes"
+        ],
+        "localizacao": "Mucosa jugal / Palato / Dorso da língua",
+        "lateralidade": "Bilateral / Difusa",
+        "insercao": "Séssil",
+        "superficie": "Irregular / Macia (aspecto de leite coalhado ou nata)",
+        "coloracao": "Esbranquiçada / Amarelada",
+        "consistencia": "Macia / Removível à raspagem",
+        "limites": "Nítidos a irregulares",
+        "formato": "Placas confluentes destacáveis"
+      },
+      "diagnosticos_diferenciais": [
+        "Leucoplasia",
+        "Leucoedema",
+        "Queimadura química"
+      ],
+      "explicacao_clinica": "Infecção fúngica oportunista por Candida albicans. A manobra clínica clássica com gaze é o teste de raspagem: as placas brancas são DESTACÁVEIS com gaze, revelando por baixo uma mucosa eritematosa, cruenta e às vezes discretamente sangrante.",
+      "alerta_erro_crasso": "Confundir Candidose Pseudomembranosa com Leucoplasia! A candidose pseudomembranosa SAI À RASPAGEM com gaze; a leucoplasia NÃO SAI de forma alguma!"
+    },
+    {
+      "id": "caso_24_estomatite_herpetica",
+      "nome": "Estomatite Herpética Primária",
+      "categoria": "Infecção Viral Primária (HSV-1)",
+      "imagem": "assets/images/semio_img_06_23.jpeg",
+      "origem": "Lesões de Semio (Caso 24)",
+      "gabarito": {
+        "lesao_fundamental": "Vesícula ou Bolha (evoluindo para Úlceras)",
+        "lesao_fundamental_alt": [
+          "Pequenas vesículas",
+          "Úlceras coalescentes"
+        ],
+        "localizacao": "Gengiva difusa, mucosa labial e jugal",
+        "lateralidade": "Bilateral / Generalizada",
+        "insercao": "Séssil",
+        "superficie": "Irregular com ulcerações puntiformes coalescentes",
+        "coloracao": "Avermelhada com centro ulcerado esbranquiçado/amarelado",
+        "consistencia": "Macia / Extremamente dolorosa",
+        "limites": "Bem definidos",
+        "formato": "Múltiplas microvesículas que rompem rapidamente"
+      },
+      "diagnosticos_diferenciais": [
+        "Faringite estreptocócica",
+        "Eritema multiforme",
+        "Herpangina"
+      ],
+      "explicacao_clinica": "Primeiro contato do paciente com o vírus HSV-1, muito frequente em crianças e adultos jovens. Causa febre alta, linfadenopatia cervical, irritabilidade, disfagia e gengivite eritematosa marginal difusa ('gengiva em fogo').",
+      "alerta_erro_crasso": "Diferencial de Herpes Primário vs Recorrente: o primário é disseminado em toda a cavidade oral com sintomas sistêmicos (febre); o recorrente é localizado e sem pródromos sistêmicos intensos."
+    },
+    {
+      "id": "caso_25_queilite_angular",
+      "nome": "Queilite Angular",
+      "categoria": "Infecção Mista Fúngico-Bacteriana / Perda de DVO",
+      "imagem": "assets/images/semio_img_12_31.jpeg",
+      "origem": "Lesões de Semio (Caso 25)",
+      "gabarito": {
+        "lesao_fundamental": "Erosão",
+        "lesao_fundamental_alt": [
+          "Fissura",
+          "Ulceração linear"
+        ],
+        "localizacao": "Comissura labial (ângulos da boca)",
+        "lateralidade": "Bilateral (geralmente simétrica)",
+        "insercao": "Séssil",
+        "superficie": "Irregular / Fissurada com crostas",
+        "coloracao": "Avermelhada (eritematosa) e macerada",
+        "consistencia": "Macia com áreas crostosas",
+        "limites": "Bem definidos",
+        "formato": "Fissuras lineares radiadas (rágades)"
+      },
+      "diagnosticos_diferenciais": [
+        "Queilite actínica",
+        "Herpes perioral",
+        "Deficiência nutricional de vitamina B"
+      ],
+      "explicacao_clinica": "Acúmulo de saliva e umidade na comissura labial que favorece infecção secundária por Candida albicans e Staphylococcus aureus. Frequentemente associada à diminuição da Dimensão Vertical de Oclusão (DVO) em usuários de próteses totais antigas e desgastadas.",
+      "alerta_erro_crasso": "Tratar apenas com pomada sem reabilitar a Dimensão Vertical de Oclusão (DVO) da prótese causará recidiva imediata da lesão!"
+    },
+    {
+      "id": "caso_26_estomatite_protetica",
+      "nome": "Estomatite Protética",
+      "categoria": "Infecção Oportunista por Candida / Inflamação Reacional",
+      "imagem": "assets/images/semio_img_13_33.jpeg",
+      "origem": "Lesões de Semio (Caso 26)",
+      "gabarito": {
+        "lesao_fundamental": "Mancha ou mácula",
+        "lesao_fundamental_alt": [
+          "Mancha eritematosa",
+          "Erosão"
+        ],
+        "localizacao": "Área chapeada do palato duro",
+        "lateralidade": "Bilateral / Linha média do palato",
+        "insercao": "Séssil (plana)",
+        "superficie": "Lisa a granular/pontilhada",
+        "coloracao": "Avermelhada brilhante (eritema intenso delimitado)",
+        "consistencia": "Normal ou discretamente edemaciada",
+        "limites": "Nítidos / Delimitando exatamente a área da base da prótese",
+        "formato": "Espelha o contorno exato da prótese total"
+      },
+      "diagnosticos_diferenciais": [
+        "Queimadura térmica por alimento",
+        "Líquen plano erosivo",
+        "Sarcoma de Kaposi"
+      ],
+      "explicacao_clinica": "Reação inflamatória eritematosa na mucosa palatina coberta por prótese dentária removível (total ou parcial), associada à colonização por biofilme de Candida albicans em próteses porosas, higienização precária e hábito de dormir com a prótese.",
+      "alerta_erro_crasso": "O tratamento exige higienização rigorosa da prótese com hipoclorito a 0,5% ou nistatina tópica e orientação de NÃO DORMIR com a prótese na boca!"
+    },
+    {
+      "id": "caso_27_hiperplasia_fibrosa_inflamatoria",
+      "nome": "Hiperplasia Fibrosa Inflamatória (Epúlide Fissurada)",
+      "categoria": "Processo Proliferativo Não Neoplásico Reacional",
+      "imagem": "assets/images/semio_img_14_36.jpeg",
+      "origem": "Lesões de Semio (Caso 27)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Dobras teciduais hiperplásicas",
+          "Aumento volumétrico"
+        ],
+        "localizacao": "Fundo de sulco vestibular / Rebordo alveolar",
+        "lateralidade": "Lado Direito / Esquerdo / Anterior",
+        "insercao": "Séssil",
+        "superficie": "Lisa com sulco/fissura central",
+        "coloracao": "Semelhante à mucosa oral (rósea) ou discretamente eritematosa",
+        "consistencia": "Firme / Fibroelástica à palpação",
+        "limites": "Bem definidos",
+        "formato": "Pregas ou dobras de tecido fibroso exuberante"
+      },
+      "diagnosticos_diferenciais": [
+        "Carcinoma epidermoide de sulco gengivolabial",
+        "Hiperplasia focal",
+        "Epúlide congênita"
+      ],
+      "explicacao_clinica": "Crescimento hiperplásico redundante de tecido conjuntivo fibroso induzido pelo atrito crônico da borda desadaptada ou cortante de uma prótese total ou parcial no fundo de sulco vestibular.",
+      "alerta_erro_crasso": "A lesão abraça a borda da prótese desadaptada; o plano de tratamento exige alívio da borda da prótese antes da excisão cirúrgica e confecção de nova prótese."
+    },
+    {
+      "id": "caso_28_lingua_pilosa",
+      "nome": "Língua Pilosa",
+      "categoria": "Alteração Benigna da Superfície Lingual",
+      "imagem": "assets/images/slide_37.jpg",
+      "origem": "Slides de Aula (Slide 37)",
+      "gabarito": {
+        "lesao_fundamental": "Placa",
+        "lesao_fundamental_alt": [
+          "Alongamento papilar",
+          "Mancha pilosa"
+        ],
+        "localizacao": "Dorso da língua",
+        "lateralidade": "Central / Linha Média",
+        "insercao": "Séssil",
+        "superficie": "Irregular / Pilosa (aspecto cabeludo / piloso)",
+        "coloracao": "Amarelo-esbranquiçada / Acastanhada / Enegrecida",
+        "consistencia": "Macia / Textura aveludada",
+        "limites": "Difusos / Anteriormente ao V lingual",
+        "formato": "Revestimento piloso sobre o dorso posterior"
+      },
+      "diagnosticos_diferenciais": [
+        "Língua saburrosa",
+        "Candidose pseudomembranosa",
+        "Pigmentação exógena por bochechos"
+      ],
+      "explicacao_clinica": "Hipertrofia e alongamento acentuado das papilas filiformes do dorso da língua por diminuição da descamação normal associada ao tabagismo, má higiene bucal, xerostomia ou uso prolongado de antibióticos.",
+      "alerta_erro_crasso": "Não confundir Língua Pilosa (papilas filiformes hipertrofiadas no dorso lingual) com Leucoplasia Pilosa (lesão oportunista viral por EBV na borda lateral de língua em imunossuprimidos)!"
+    }
+  ],
+  "sinonimos": {
+    "lesao_fundamental": {
+      "bolha": [
+        "bolha",
+        "vesicula ou bolha",
+        "vesícula",
+        "vesiculo-bolhosa",
+        "conteudo liquido",
+        "elevacao liquida"
+      ],
+      "nodulo": [
+        "nodulo",
+        "nódulo",
+        "papula ou nodulo",
+        "aumento de volume",
+        "nodular",
+        "tumor",
+        "massa"
+      ],
+      "papula": [
+        "papula",
+        "pápula",
+        "papulas",
+        "pápulas",
+        "papulosa"
+      ],
+      "placa": [
+        "placa",
+        "placas",
+        "superficie elevada plana"
+      ],
+      "ulcera": [
+        "ulcera",
+        "úlcera",
+        "ulceracao",
+        "ulceração",
+        "ulcerada"
+      ],
+      "mancha": [
+        "mancha",
+        "macula",
+        "mácula",
+        "mancha ou macula",
+        "mancha ou mácula",
+        "pigmentacao"
+      ],
+      "erosao": [
+        "erosao",
+        "erosão",
+        "erosiva"
+      ]
+    },
+    "insercao": {
+      "sessil": [
+        "sessil",
+        "séssil",
+        "base larga",
+        "base ampla",
+        "plana"
+      ],
+      "pediculada": [
+        "pediculada",
+        "pedunculada",
+        "pediculado",
+        "pedunculado",
+        "base estreita",
+        "haste"
+      ]
+    },
+    "superficie": {
+      "lisa": [
+        "lisa",
+        "plana",
+        "uniforme",
+        "regular"
+      ],
+      "irregular": [
+        "irregular",
+        "rugosa",
+        "deprimida",
+        "fissurada"
+      ],
+      "verrugosa": [
+        "verrugosa",
+        "verrucosa",
+        "couve-flor",
+        "papilar",
+        "digitiforme",
+        "papilomatosa"
+      ],
+      "pilosa": [
+        "pilosa",
+        "cabeluda",
+        "aveludada"
+      ]
+    },
+    "coloracao": {
+      "semelhante": [
+        "semelhante a mucosa",
+        "cor da mucosa",
+        "rosea",
+        "róseo",
+        "rósea",
+        "rosa",
+        "normal"
+      ],
+      "avermelhada": [
+        "avermelhada",
+        "vermelha",
+        "eritematosa",
+        "eritema",
+        "rubra"
+      ],
+      "arroxeada": [
+        "arroxeada",
+        "roxa",
+        "violacea",
+        "violácea",
+        "azulada",
+        "purpura",
+        "púrpura"
+      ],
+      "esbranquiçada": [
+        "esbranquiçada",
+        "esbranquicado",
+        "branca",
+        "leucoplasica",
+        "leucoplásica",
+        "leitosa"
+      ],
+      "enegrecida": [
+        "enegrecida",
+        "preta",
+        "negra",
+        "escura",
+        "acastanhada",
+        "marrom",
+        "cinza",
+        "acinzentada"
+      ],
+      "amarelada": [
+        "amarelada",
+        "amarela",
+        "amarelado"
+      ]
+    },
+    "consistencia": {
+      "macia": [
+        "macia",
+        "mole",
+        "suave",
+        "compressivel",
+        "compressível"
+      ],
+      "flutuante": [
+        "flutuante",
+        "flutuante a palpacao",
+        "flutuante à palpação",
+        "cistica",
+        "líquida"
+      ],
+      "firme": [
+        "firme",
+        "fibroelastica",
+        "fibroelástica",
+        "fibrosa",
+        "resistente"
+      ],
+      "endurecida": [
+        "endurecida",
+        "dura",
+        "ossea",
+        "óssea",
+        "pétrea",
+        "rigida"
+      ]
+    },
+    "limites": {
+      "nitidos": [
+        "nitidos",
+        "nítidos",
+        "bem definidos",
+        "delimitados",
+        "circunscrito",
+        "preciso",
+        "claros"
+      ],
+      "nao_nitidos": [
+        "nao nitidos",
+        "não nítidos",
+        "mal definidos",
+        "difusos",
+        "imprecisos",
+        "indefinidos"
+      ]
+    },
+    "lateralidade": {
+      "esquerda": [
+        "esquerda",
+        "lado esquerdo",
+        "esq"
+      ],
+      "direita": [
+        "direita",
+        "lado direito",
+        "dir"
+      ],
+      "central": [
+        "central",
+        "linha media",
+        "linha média",
+        "mediana",
+        "meio"
+      ],
+      "bilateral": [
+        "bilateral",
+        "ambos os lados",
+        "simetrica",
+        "simétrica"
+      ]
+    }
+  },
+  "glossario": {
+    "lesoes_fundamentais": [
+      {
+        "termo": "Mácula / Mancha",
+        "definicao": "Alteração de cor da mucosa ou pele SEM elevação ou depressão tecidual ao toque. Por convenção: Mácula até 1 cm; Mancha acima de 1 cm.",
+        "exemplos": "Tatuagem por amálgama, pigmentação melânica racial, efélides."
+      },
+      {
+        "termo": "Pápula",
+        "definicao": "Lesão sólida superficial, circunscrita e elevada, com diâmetro MENOR ou igual a 5 mm. Pode ser séssil ou pediculada.",
+        "exemplos": "Grânulos de Fordyce, pápulas do HPV, líquen plano cutâneo."
+      },
+      {
+        "termo": "Nódulo",
+        "definicao": "Lesão sólida, circunscrita e elevada, com diâmetro MAIOR que 5 mm, localizada em epitélio ou tecido conjuntivo profundo.",
+        "exemplos": "Hiperplasia focal, lipoma, fibroma ossificante, granuloma piogênico."
+      },
+      {
+        "termo": "Vesícula",
+        "definicao": "Elevação epitelial circunscrita de conteúdo líquido transparente no seu interior, com diâmetro MENOR ou igual a 5 mm.",
+        "exemplos": "Herpes simples primário/recorrente inicial, herpes-zóster."
+      },
+      {
+        "termo": "Bolha",
+        "definicao": "Elevação epitelial circunscrita contendo líquido seroso, mucoso ou hemorrágico, com diâmetro MAIOR que 5 mm.",
+        "exemplos": "Mucocele, rânula, pênfigo vulgar, penfigoide."
+      },
+      {
+        "termo": "Placa",
+        "definicao": "Lesão elevada em platô, cuja extensão em superfície é muito maior que sua espessura/altura, frequentemente esbranquiçada ou ceratótica.",
+        "exemplos": "Leucoplasia, líquen plano em placa, leucoedema, leucoplasia pilosa."
+      },
+      {
+        "termo": "Erosão",
+        "definicao": "Perda parcial do epitélio (não atinge o tecido conjuntivo), deixando área eritematosa que não sangra espontaneamente e repara sem cicatriz.",
+        "exemplos": "Rompimento de vesículas herpéticas, queilite angular inicial."
+      },
+      {
+        "termo": "Úlcera / Ulceração",
+        "definicao": "Solução de continuidade com perda total do epitélio e exposição do tecido conjuntivo. Úlcera tem caráter crônico; Ulceração é aguda/autolimitada.",
+        "exemplos": "Úlcera traumática, aftas (estomatite aftosa), carcinoma epidermoide."
+      }
+    ],
+    "propriedades_semiologicas": [
+      {
+        "termo": "Base Séssil",
+        "definicao": "Crescimento ou tumor cuja base de inserção é a porção mais larga da lesão (a base tem o mesmo diâmetro do ápice)."
+      },
+      {
+        "termo": "Base Pediculada / Pedunculada",
+        "definicao": "Lesão cuja base de fixação é significativamente mais estreita que o restante do corpo do tumor ('haste' ou aspecto de couve-flor)."
+      },
+      {
+        "termo": "Consistência Flutuante",
+        "definicao": "Sensação tátil ao pressionar alternadamente com dois dedos de deslocamento de líquido dentro de uma cavidade (conteúdo líquido encapsulado)."
+      },
+      {
+        "termo": "Consistência Fibroelástica / Firme",
+        "definicao": "Sensação tátil de resistência elástica firme, decorrente da alta densidade de fibras colágenas (tecido conjuntivo denso)."
+      },
+      {
+        "termo": "Diascopia / Vitropressão",
+        "definicao": "Manobra semiotécnica de pressionar uma lâmina de vidro transparente contra a lesão avermelhada. Se clarear (isquemia), confirma vascularização intraluminal (ex: hemangioma)."
+      }
+    ]
+  }
+}

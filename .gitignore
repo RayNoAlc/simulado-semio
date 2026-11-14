@@ -1,0 +1,16 @@
+# PDFs e arquivos brutos da disciplina
+*.pdf
+
+# Scripts de build e ferramentas locais
+build_dataset.py
+*.pyc
+__pycache__/
+
+# Imagens de teste / rascunho de extração
+desc_page_*.png
+slide_*.png
+
+# Vercel e IDE
+.vercel
+.vscode/
+.idea/

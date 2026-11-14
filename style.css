@@ -1,0 +1,1525 @@
+/* ==========================================================================
+   SEMIOLOGIA BUCAL - ESTÉTICA VIBRANTE VIBES DUOLINGO
+   Paleta: Espresso, Chocolate, Umber, Terracota, Areia, Linho, Marfim, Oliva, Argila
+   ========================================================================== */
+
+:root {
+  /* Paleta Oficial da Imagem do Usuário */
+  --c-espresso: #29221F;
+  --c-chocolate: #49352E;
+  --c-umber: #795344;
+  --c-terracota: #A46F54;
+  --c-terracota-dark: #805039;
+  --c-terracota-light: #F6EDE8;
+  --c-areia: #C5A889;
+  --c-areia-dark: #A88865;
+  --c-linho: #D9C9B5;
+  --c-marfim: #EAE1D5;
+  --c-marfim-light: #F7F3EE;
+  --c-marfim-warm: #FAF7F2;
+  
+  --c-oliva: #69715B;
+  --c-oliva-dark: #4F5643;
+  --c-oliva-light: #EFF2EC;
+  
+  --c-argila: #A64F42;
+  --c-argila-dark: #83392E;
+  --c-argila-light: #FBF0EE;
+
+  /* Aplicação dos temas */
+  --bg-app: #F5EFEB;
+  --bg-card: #FFFFFF;
+  --border-card: #E2D7C8;
+  --border-card-strong: #C5A889;
+  --text-main: #29221F;
+  --text-body: #49352E;
+  --text-muted: #795344;
+  --text-light: #A88865;
+
+  --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  --shadow-duo: 0 4px 0 #D9C9B5;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   HEADER VIBRANTE ESTILO DUOLINGO
+   ========================================================================== */
+.duo-header {
+  background-color: #FFFFFF;
+  border-bottom: 2px solid var(--c-linho);
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--c-marfim);
+  border: 2px solid var(--c-areia);
+  border-bottom: 4px solid var(--c-umber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-chocolate);
+  flex-shrink: 0;
+}
+
+.brand-text h1 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--c-espresso);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.brand-text p {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c-terracota);
+}
+
+/* Controles Centrais da Barra */
+.header-center-tools {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.mode-segmented-pill {
+  display: inline-flex;
+  background-color: var(--c-marfim-light);
+  border: 2px solid var(--c-linho);
+  border-radius: var(--radius-full);
+  padding: 3px;
+}
+
+.mode-pill-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-umber);
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
+}
+
+.mode-pill-btn:hover {
+  color: var(--c-espresso);
+}
+
+.mode-pill-btn.active {
+  background-color: var(--c-terracota);
+  color: #FFFFFF;
+  box-shadow: 0 2px 0 var(--c-terracota-dark);
+}
+
+.timer-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-bottom: 4px solid var(--c-areia);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+}
+
+.timer-chip select {
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-terracota);
+  cursor: pointer;
+  outline: none;
+}
+
+/* Ações Direitas (Estilo Status do Duolingo) */
+.header-status-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-bottom: 3px solid var(--c-linho);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+  cursor: pointer;
+  transition: transform 0.1s ease, border-color 0.1s ease;
+}
+
+.status-pill:hover {
+  border-color: var(--c-areia);
+  background-color: var(--c-marfim-warm);
+}
+
+.status-pill:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+.status-pill-score strong {
+  color: var(--c-oliva);
+  font-size: 0.95rem;
+}
+
+.count-bubble {
+  background: var(--c-argila);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   SUB-BARRA: TRILHA DE PROGRESSO DO DUOLINGO
+   ========================================================================== */
+.duo-progress-bar {
+  background-color: var(--c-marfim-warm);
+  border-bottom: 2px solid var(--c-linho);
+  padding: 0.65rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.collection-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.collection-selector label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-umber);
+}
+
+.collection-selector select {
+  background: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-bottom: 3px solid var(--c-areia);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-espresso);
+  padding: 0.4rem 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.duo-progress-tracker {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+  max-width: 480px;
+}
+
+.progress-case-badge {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--c-terracota);
+  white-space: nowrap;
+}
+
+.duo-track {
+  flex: 1;
+  height: 16px;
+  background-color: var(--c-linho);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 2px solid var(--c-areia);
+  position: relative;
+}
+
+.duo-fill {
+  height: 100%;
+  background: linear-gradient(180deg, #7E876F, var(--c-oliva));
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.duo-timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-bottom: 3px solid var(--c-areia);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--c-espresso);
+}
+
+.duo-timer-pill.warning {
+  border-color: var(--c-areia-dark);
+  color: var(--c-terracota);
+  background-color: var(--c-terracota-light);
+  animation: pulseTimer 1s infinite;
+}
+
+.duo-timer-pill.danger {
+  border-color: var(--c-argila-dark);
+  color: #FFFFFF;
+  background-color: var(--c-argila);
+  animation: pulseTimer 0.6s infinite;
+}
+
+@keyframes pulseTimer {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* ==========================================================================
+   CONTAINER PRINCIPAL (2 COLUNAS TÁTEIS)
+   ========================================================================== */
+.main-stage {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 1.75rem;
+  padding: 1.75rem 2.25rem;
+  max-width: 1750px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1150px) {
+  .main-stage {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   COLUNA ESQUERDA: CARD DA IMAGEM PROJETADA
+   ========================================================================== */
+.duo-image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.projector-card {
+  background: #FFFFFF;
+  border: 2px solid var(--border-card);
+  border-bottom: 6px solid var(--border-card-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(73, 53, 46, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.projector-card-header {
+  padding: 0.85rem 1.25rem;
+  background-color: var(--c-marfim-warm);
+  border-bottom: 2px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.case-badge-pill {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-chocolate);
+  letter-spacing: 0.04em;
+}
+
+.projector-tools {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.duo-btn-tool {
+  background: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-bottom: 3px solid var(--c-areia);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.1s ease;
+}
+
+.duo-btn-tool:hover {
+  background: var(--c-marfim-warm);
+  border-color: var(--c-areia);
+}
+
+.duo-btn-tool.active {
+  background: var(--c-terracota);
+  border-color: var(--c-terracota-dark);
+  border-bottom: 3px solid var(--c-terracota-dark);
+  color: #FFFFFF;
+  transform: translateY(1px);
+}
+
+.image-canvas-wrapper {
+  background-color: #1A1615;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.image-canvas-wrapper img {
+  max-width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.image-canvas-wrapper.mirrored img {
+  transform: scaleX(-1);
+}
+
+.duo-magnifier {
+  position: absolute;
+  border: 3px solid var(--c-areia);
+  border-radius: 50%;
+  cursor: none;
+  width: 180px;
+  height: 180px;
+  box-shadow: 0 0 0 2px var(--c-espresso), 0 8px 24px rgba(0, 0, 0, 0.6);
+  display: none;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  z-index: 30;
+}
+
+.canvas-hint {
+  position: absolute;
+  bottom: 12px;
+  background: rgba(41, 34, 31, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--c-marfim);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(217, 201, 181, 0.2);
+  pointer-events: none;
+}
+
+.duo-tip-box {
+  background: #FFFFFF;
+  border: 2px solid var(--border-card);
+  border-left: 6px solid var(--c-terracota);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.15rem;
+  font-size: 0.82rem;
+  color: var(--c-chocolate);
+}
+
+.duo-tip-box strong {
+  color: var(--c-terracota);
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   COLUNA DIREITA: FICHA CLÍNICA VIBES DUOLINGO
+   ========================================================================== */
+.duo-form-column {
+  background: #FFFFFF;
+  border: 2px solid var(--border-card);
+  border-bottom: 6px solid var(--border-card-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  box-shadow: 0 4px 12px rgba(73, 53, 46, 0.06);
+}
+
+.form-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--c-marfim);
+  padding-bottom: 0.85rem;
+}
+
+.form-title-row h2 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--c-espresso);
+  letter-spacing: -0.01em;
+}
+
+.form-title-row p {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-umber);
+}
+
+.btn-clean-form {
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--c-umber);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-clean-form:hover {
+  color: var(--c-terracota);
+}
+
+/* Formulário & Espaçamento Generoso dos Blocos 1, 2, 3, 4 */
+#semiologiaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+/* Blocos / Cards da Ficha */
+.duo-card-block {
+  background: var(--c-marfim-light);
+  border: 2px solid var(--border-card);
+  border-bottom: 5px solid var(--c-linho);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem; /* Espaço físico explícito entre os cartões 1, 2, 3, 4 */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 4px 0 rgba(217, 201, 181, 0.4);
+  transition: all 0.15s ease;
+}
+
+.duo-card-block:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+.duo-card-block:hover {
+  border-color: var(--c-areia);
+  box-shadow: 0 4px 12px rgba(73, 53, 46, 0.05);
+}
+
+.duo-block-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.duo-step-badge {
+  width: 32px;
+  height: 32px;
+  background-color: var(--c-terracota);
+  border-bottom: 3px solid var(--c-terracota-dark);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.duo-block-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--c-chocolate);
+  letter-spacing: -0.01em;
+}
+
+.duo-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.grid-span-2 {
+  grid-column: span 2;
+}
+
+.grid-span-1 {
+  grid-column: span 1;
+}
+
+@media (max-width: 800px) {
+  .grid-span-1 {
+    grid-column: span 2;
+  }
+}
+
+.duo-field-box label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+  margin-bottom: 0.4rem;
+}
+
+.duo-field-box label .req-star {
+  color: var(--c-argila);
+}
+
+.duo-text-input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-bottom: 3px solid var(--c-areia);
+  color: var(--c-espresso);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 0.95rem;
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.duo-text-input:focus {
+  border-color: var(--c-terracota);
+  border-bottom-color: var(--c-terracota-dark);
+  box-shadow: 0 0 0 3px rgba(164, 111, 84, 0.15);
+}
+
+.duo-input-large {
+  font-size: 1rem;
+  padding: 0.75rem 1.15rem;
+  font-weight: 700;
+  border-color: var(--c-areia);
+}
+
+/* Chips / Opções Rápidas (Estilo Botões 3D do Duolingo) */
+.duo-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.45rem;
+}
+
+body.mode-escrito .duo-chips-container {
+  display: none;
+}
+
+body.mode-multipla .text-field-el {
+  display: none;
+}
+
+.duo-chip {
+  background: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-bottom: 4px solid var(--c-areia);
+  border-radius: var(--radius-md);
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.duo-chip:hover {
+  background: var(--c-marfim-warm);
+  border-color: var(--c-areia);
+}
+
+.duo-chip.active {
+  background: var(--c-terracota);
+  border-color: var(--c-terracota-dark);
+  border-bottom: 4px solid var(--c-terracota-dark);
+  color: #FFFFFF;
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+.duo-chip-diagnostic {
+  font-size: 0.85rem;
+  padding: 0.55rem 1rem;
+}
+
+.block-highlight {
+  background: var(--c-terracota-light);
+  border-color: rgba(164, 111, 84, 0.35);
+}
+
+.block-highlight .duo-step-badge {
+  background-color: var(--c-chocolate);
+  border-bottom-color: var(--c-espresso);
+}
+
+/* Botões do Rodapé da Ficha */
+.duo-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--c-marfim);
+}
+
+/* ==========================================================================
+   SISTEMA DE BOTÕES DUOLINGO 3D
+   ========================================================================== */
+.btn-duo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-md);
+  border: 2px solid;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+  user-select: none;
+}
+
+.btn-duo-primary {
+  background-color: var(--c-terracota);
+  border-color: var(--c-terracota-dark);
+  color: #FFFFFF;
+  box-shadow: 0 4px 0 var(--c-terracota-dark);
+}
+
+.btn-duo-primary:hover {
+  background-color: #b57e62;
+}
+
+.btn-duo-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--c-terracota-dark);
+}
+
+.btn-duo-success {
+  background-color: var(--c-oliva);
+  border-color: var(--c-oliva-dark);
+  color: #FFFFFF;
+  box-shadow: 0 4px 0 var(--c-oliva-dark);
+}
+
+.btn-duo-success:hover {
+  background-color: #767f67;
+}
+
+.btn-duo-success:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--c-oliva-dark);
+}
+
+.btn-duo-secondary {
+  background-color: #FFFFFF;
+  border-color: var(--c-linho);
+  color: var(--c-chocolate);
+  box-shadow: 0 4px 0 var(--c-areia);
+}
+
+.btn-duo-secondary:hover {
+  background-color: var(--c-marfim-warm);
+  border-color: var(--c-areia);
+}
+
+.btn-duo-secondary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--c-areia);
+}
+
+.btn-duo-lg {
+  font-size: 0.95rem;
+  padding: 0.85rem 1.85rem;
+}
+
+.btn-duo-sm {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 3px 0 var(--c-areia);
+}
+
+.btn-duo-sm:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--c-areia);
+}
+
+/* ==========================================================================
+   PAINEL DE FEEDBACK / LAUDO AUDITORIA VIBES DUOLINGO
+   ========================================================================== */
+.duo-feedback-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  animation: duoBounceIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes duoBounceIn {
+  from { opacity: 0; transform: scale(0.97) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.duo-score-banner {
+  background: #FFFFFF;
+  border: 2px solid var(--border-card);
+  border-bottom: 5px solid var(--border-card-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+}
+
+.duo-score-wheel {
+  width: 78px;
+  height: 78px;
+  border-radius: var(--radius-full);
+  background-color: var(--c-marfim-light);
+  border: 4px solid var(--c-oliva);
+  box-shadow: 0 4px 0 var(--c-oliva-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.duo-score-number {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--c-oliva);
+  line-height: 1;
+}
+
+.duo-score-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-umber);
+}
+
+.duo-score-message h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--c-espresso);
+}
+
+.duo-score-message p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c-umber);
+  margin-top: 0.2rem;
+}
+
+/* Banner de Alerta Crítico */
+.duo-alert-card {
+  background-color: var(--c-argila-light);
+  border: 2px solid var(--c-argila);
+  border-bottom: 5px solid var(--c-argila-dark);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.duo-alert-icon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--c-argila);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.duo-alert-content h4 {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--c-argila-dark);
+  text-transform: uppercase;
+}
+
+.duo-alert-content p {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-chocolate);
+  margin-top: 0.25rem;
+}
+
+/* Cartões Comparativos Lado a Lado (Em vez de tabela cinza) */
+.comparison-cards-header h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--c-espresso);
+  margin-bottom: 0.75rem;
+}
+
+.comparison-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.duo-comp-card {
+  background: #FFFFFF;
+  border: 2px solid var(--c-linho);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.15rem;
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 0 var(--c-linho);
+}
+
+@media (max-width: 900px) {
+  .duo-comp-card {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+}
+
+.duo-comp-card.status-correct {
+  border-color: var(--c-oliva);
+  border-left-width: 6px;
+  background-color: var(--c-oliva-light);
+}
+
+.duo-comp-card.status-partial {
+  border-color: var(--c-areia);
+  border-left-width: 6px;
+  background-color: var(--c-marfim-warm);
+}
+
+.duo-comp-card.status-wrong {
+  border-color: var(--c-argila);
+  border-left-width: 6px;
+  background-color: var(--c-argila-light);
+}
+
+.duo-comp-field {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: var(--c-chocolate);
+}
+
+.duo-comp-user {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-espresso);
+}
+
+.duo-comp-user .lbl {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--c-umber);
+}
+
+.duo-comp-chair {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+}
+
+.duo-comp-chair .lbl {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--c-terracota);
+}
+
+.duo-status-tag {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.tag-correct {
+  background-color: var(--c-oliva);
+  color: #FFFFFF;
+}
+
+.tag-partial {
+  background-color: var(--c-areia);
+  color: #FFFFFF;
+}
+
+.tag-wrong {
+  background-color: var(--c-argila);
+  color: #FFFFFF;
+}
+
+.btn-duo-override {
+  background: #FFFFFF;
+  border: 1px solid var(--c-areia);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--c-umber);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  margin-left: 0.4rem;
+  transition: all 0.1s ease;
+}
+
+.btn-duo-override:hover, .btn-duo-override.active {
+  background-color: var(--c-oliva);
+  border-color: var(--c-oliva-dark);
+  color: #FFFFFF;
+}
+
+/* Card de Fisiopatologia */
+.duo-pathology-box {
+  background: #FFFFFF;
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+  box-shadow: 0 3px 0 var(--border-card);
+}
+
+.duo-pathology-box h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--c-terracota);
+  margin-bottom: 0.35rem;
+}
+
+.duo-pathology-box p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--c-chocolate);
+  line-height: 1.55;
+}
+
+.duo-differentials-row {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 2px dashed var(--c-marfim);
+  font-size: 0.82rem;
+  color: var(--c-umber);
+}
+
+.duo-differentials-row strong {
+  color: var(--c-espresso);
+  font-weight: 800;
+}
+
+/* Apresentação Oral */
+.duo-speech-box {
+  background: var(--c-marfim-warm);
+  border: 2px solid var(--c-areia);
+  border-left: 6px solid var(--c-terracota);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+}
+
+.duo-speech-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.duo-speech-header h4 {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--c-chocolate);
+}
+
+.duo-speech-quote {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--c-espresso);
+  line-height: 1.6;
+}
+
+.duo-feedback-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--c-marfim);
+}
+
+/* ==========================================================================
+   MODAIS VIBRANTES DUOLINGO
+   ========================================================================== */
+.duo-modal-layer {
+  position: fixed;
+  inset: 0;
+  background: rgba(41, 34, 31, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.duo-modal-card {
+  background: #FFFFFF;
+  border: 3px solid var(--c-linho);
+  border-bottom: 8px solid var(--c-areia);
+  border-radius: var(--radius-lg);
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(41, 34, 31, 0.2);
+}
+
+.duo-modal-header {
+  padding: 1.15rem 1.5rem;
+  background-color: var(--c-marfim-warm);
+  border-bottom: 2px solid var(--c-linho);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.duo-modal-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--c-espresso);
+}
+
+.duo-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--c-umber);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.duo-modal-search {
+  padding: 0.85rem 1.5rem;
+  background: #FFFFFF;
+  border-bottom: 2px solid var(--c-marfim);
+}
+
+.duo-modal-search input {
+  width: 100%;
+  background: var(--c-marfim-light);
+  border: 2px solid var(--c-linho);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.55rem 0.95rem;
+  outline: none;
+  color: var(--c-espresso);
+}
+
+.duo-modal-search input:focus {
+  border-color: var(--c-terracota);
+}
+
+.duo-modal-body {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  background: #FFFFFF;
+}
+
+.duo-modal-footer {
+  padding: 1rem 1.5rem;
+  background-color: var(--c-marfim-warm);
+  border-top: 2px solid var(--c-linho);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+}
+
+.duo-glossary-card {
+  background: var(--c-marfim-light);
+  border: 2px solid var(--c-linho);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.duo-glossary-cat {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-terracota);
+}
+
+.duo-glossary-card h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--c-espresso);
+  margin-top: 0.15rem;
+}
+
+.duo-glossary-card p {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-chocolate);
+  margin-top: 0.25rem;
+}
+
+.duo-glossary-example {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--c-umber);
+}
+
+/* Toast Animado */
+.duo-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--c-espresso);
+  border: 2px solid var(--c-areia);
+  border-bottom: 4px solid var(--c-chocolate);
+  color: #FFFFFF;
+  padding: 0.75rem 1.35rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(41, 34, 31, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  z-index: 200;
+  animation: duoToastBounce 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes duoToastBounce {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   GUIA DE PATOLOGIAS E HIPÓTESES DIAGNÓSTICAS (MATERIAL DE APOIO)
+   ========================================================================== */
+.duo-modal-wide {
+  max-width: 860px;
+  width: 95%;
+}
+
+.status-pill-guide {
+  background-color: var(--c-marfim-warm);
+  border-color: var(--c-areia);
+  border-bottom: 3px solid var(--c-areia);
+  color: var(--c-espresso);
+  font-weight: 800;
+}
+
+.status-pill-guide:hover {
+  background-color: var(--c-linho);
+  border-color: var(--c-terracota);
+  color: var(--c-espresso);
+}
+
+.btn-guide-inline {
+  background: #FFFFFF;
+  border: 1.5px solid var(--c-areia);
+  border-bottom: 2.5px solid var(--c-terracota);
+  border-radius: var(--radius-full);
+  padding: 0.3rem 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--c-terracota);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.12s ease;
+}
+
+.btn-guide-inline:hover {
+  background: var(--c-marfim-warm);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(164, 111, 84, 0.15);
+}
+
+.btn-guide-inline:active {
+  transform: translateY(1px);
+  border-bottom-width: 1px;
+}
+
+.guide-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.guide-tab-btn {
+  background: var(--c-marfim-warm);
+  border: 1.5px solid var(--c-linho);
+  border-bottom: 2.5px solid var(--c-linho);
+  border-radius: var(--radius-full);
+  padding: 0.3rem 0.7rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.guide-tab-btn:hover {
+  border-color: var(--c-areia);
+  background: #FFFFFF;
+}
+
+.guide-tab-btn.active {
+  background: var(--c-chocolate);
+  color: #FFFFFF;
+  border-color: var(--c-chocolate);
+  border-bottom: 2.5px solid var(--c-espresso);
+}
+
+/* Cards do Guia */
+.guide-card {
+  background: var(--c-marfim-light);
+  border: 2px solid var(--c-linho);
+  border-bottom: 4px solid var(--c-linho);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+  margin-bottom: 1rem;
+  transition: all 0.15s ease;
+}
+
+.guide-card:hover {
+  border-color: var(--c-areia);
+  box-shadow: 0 4px 12px rgba(73, 53, 46, 0.06);
+}
+
+.guide-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.guide-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.guide-card-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--c-linho);
+  color: var(--c-espresso);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guide-card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--c-espresso);
+}
+
+.guide-card-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: var(--c-marfim-warm);
+  border: 1px solid var(--c-areia);
+  color: var(--c-umber);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.guide-props-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  background: #FFFFFF;
+  border: 1.5px solid var(--c-linho);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+}
+
+.guide-prop-item {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  color: var(--c-espresso);
+}
+
+.guide-prop-item strong {
+  color: var(--c-umber);
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.15rem;
+}
+
+.guide-highlight-box {
+  background: rgba(105, 113, 91, 0.09);
+  border-left: 3.5px solid var(--c-oliva);
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.82rem;
+  color: var(--c-espresso);
+  margin-bottom: 0.55rem;
+  line-height: 1.45;
+}
+
+.guide-highlight-box strong {
+  color: var(--c-oliva);
+}
+
+.guide-diff-box {
+  background: #FFFFFF;
+  border: 1.5px dashed var(--c-areia);
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.82rem;
+  color: var(--c-chocolate);
+  margin-bottom: 0.55rem;
+  line-height: 1.45;
+}
+
+.guide-diff-box strong {
+  color: var(--c-terracota);
+}
+
+.guide-alert-box {
+  background: rgba(166, 79, 66, 0.08);
+  border-left: 3.5px solid var(--c-argila);
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--c-espresso);
+  line-height: 1.45;
+}
+
+.guide-alert-box strong {
+  color: var(--c-argila);
+}

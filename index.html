@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semiologia Bucal | Treino & Diagnóstico de Lesões</title>
+  <link rel="stylesheet" href="style.css?v=20261113_guide">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER VIBRANTE ESTILO DUOLINGO -->
+  <header class="duo-header">
+    <!-- Modos de Treino e Cronômetro -->
+    <div class="header-center-tools">
+      <div class="mode-segmented-pill" id="modeControl">
+        <button class="mode-pill-btn active" data-mode="escrito" title="Treino ativo com digitação livre">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+          Digitação Livre
+        </button>
+        <button class="mode-pill-btn" data-mode="multipla" title="Treino rápido com botões de múltipla escolha">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Múltipla Escolha
+        </button>
+      </div>
+
+      <div class="timer-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Projetor:</span>
+        <select id="timerSelect">
+          <option value="0">Sem Limite</option>
+          <option value="60">60 segundos</option>
+          <option value="90" selected>90 segundos</option>
+          <option value="120">120 segundos</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Status do Usuário -->
+    <div class="header-status-group">
+      <button class="status-pill status-pill-guide" id="btnGuiaPatologias" title="Material de apoio: como formular a hipótese diagnóstica de cada patologia">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        Guia de Patologias
+      </button>
+
+      <button class="status-pill" id="btnGlossario" title="Consultar conceitos e termos da disciplina">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"/>
+        </svg>
+        Glossário
+      </button>
+
+      <button class="status-pill" id="btnDeckErros" title="Casos marcados para revisão focada">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        Revisão <span class="count-bubble" id="errorCountBadge">0</span>
+      </button>
+
+      <div class="status-pill status-pill-score" title="Média de acerto geral nos testes">
+        <span>Aproveitamento:</span>
+        <strong id="globalScoreBadge">--%</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUB-BARRA: TRILHA DE PROGRESSO DO DUOLINGO -->
+  <div class="duo-progress-bar">
+    <div class="collection-selector">
+      <label for="filterCategory">Conjunto:</label>
+      <select id="filterCategory">
+        <option value="oficial_22" selected>Prova Oficial (22 Casos com Gabarito)</option>
+        <option value="todos">Banco Completo (28 Casos Catalogados)</option>
+        <option value="erros">Apenas Meus Casos para Revisão</option>
+        <option value="nodulos">Apenas Nódulos e Pápulas</option>
+        <option value="bolhas">Apenas Lesões de Conteúdo Líquido</option>
+        <option value="placas">Apenas Placas e Manchas</option>
+      </select>
+      <button type="button" class="duo-btn-tool" id="btnShuffle" title="Embaralhar ordem dos casos">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
+          <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
+          <line x1="4" y1="4" x2="9" y2="9"/>
+        </svg>
+        Embaralhar
+      </button>
+    </div>
+
+    <div class="duo-progress-tracker">
+      <span class="progress-case-badge" id="caseCounterText">Caso 01 de 22</span>
+      <div class="duo-track">
+        <div class="duo-fill" id="progressBarFill" style="width: 5%;"></div>
+      </div>
+    </div>
+
+    <div class="duo-timer-pill" id="timerBox">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <span id="timerText">01:30</span>
+    </div>
+  </div>
+
+  <!-- CONTAINER PRINCIPAL (2 COLUNAS TÁTEIS) -->
+  <main class="main-stage">
+    
+    <!-- COLUNA ESQUERDA: CARD DA IMAGEM PROJETADA -->
+    <section class="duo-image-column">
+      <div class="projector-card">
+        <div class="projector-card-header">
+          <span class="case-badge-pill" id="caseOriginBadge">Caso Oficial de Semiologia</span>
+          <div class="projector-tools">
+            <button class="duo-btn-tool" id="btnZoomToggle" title="Ativar lupa de inspeção microscópica">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              Lupa de Zoom
+            </button>
+            <button class="duo-btn-tool" id="btnMirrorToggle" title="Espelhar imagem horizontalmente para evitar viés fotográfico">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+              </svg>
+              Espelhar
+            </button>
+          </div>
+        </div>
+
+        <div class="image-canvas-wrapper" id="projectorScreen">
+          <img src="" alt="Projeção Fotográfica da Lesão" id="projectorImage">
+          <div class="duo-magnifier" id="magnifierLens"></div>
+          <div class="canvas-hint" id="zoomHint">
+            Passe o mouse ou toque para ampliar os detalhes da lesão
+          </div>
+        </div>
+      </div>
+
+      <div class="duo-tip-box">
+        <strong>Dica de Mestre:</strong> Fique atento à consistência ao toque esperada para esta lesão e ao padrão de inserção (séssil vs pediculada).
+      </div>
+    </section>
+
+    <!-- COLUNA DIREITA: FICHA CLÍNICA VIBES DUOLINGO -->
+    <section class="duo-form-column">
+      <div class="form-title-row">
+        <div>
+          <h2>Ficha da Lesão</h2>
+          <p>Identifique cada uma das características clínicas projetadas:</p>
+        </div>
+        <button type="button" class="btn-clean-form" id="btnClearForm">Limpar Campos</button>
+      </div>
+
+      <form id="semiologiaForm" autocomplete="off">
+        
+        <!-- BLOCO 1: Inspeção Visual & Morfologia -->
+        <div class="duo-card-block">
+          <div class="duo-block-header">
+            <span class="duo-step-badge">1</span>
+            <span class="duo-block-title">Morfologia & Inspeção Visual</span>
+          </div>
+
+          <div class="duo-fields-grid">
+            <!-- Lesão Fundamental -->
+            <div class="duo-field-box grid-span-2">
+              <label for="inputLesaoFundamental">
+                Lesão Fundamental <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="lesao_fundamental">
+                <input type="text" id="inputLesaoFundamental" class="duo-text-input text-field-el" placeholder="Ex: Nódulo, Bolha, Úlcera, Placa, Mancha...">
+                <div class="duo-chips-container" id="pillsLesaoFundamental">
+                  <button type="button" class="duo-chip" data-val="Nódulo">Nódulo</button>
+                  <button type="button" class="duo-chip" data-val="Bolha">Bolha</button>
+                  <button type="button" class="duo-chip" data-val="Úlcera">Úlcera</button>
+                  <button type="button" class="duo-chip" data-val="Placa">Placa</button>
+                  <button type="button" class="duo-chip" data-val="Mancha ou mácula">Mancha / Mácula</button>
+                  <button type="button" class="duo-chip" data-val="Pápula">Pápula</button>
+                  <button type="button" class="duo-chip" data-val="Vesícula">Vesícula</button>
+                  <button type="button" class="duo-chip" data-val="Erosão">Erosão</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inserção / Base -->
+            <div class="duo-field-box grid-span-1">
+              <label for="inputInsercao">
+                Base de Inserção <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="insercao">
+                <input type="text" id="inputInsercao" class="duo-text-input text-field-el" placeholder="Séssil ou Pediculada">
+                <div class="duo-chips-container" id="pillsInsercao">
+                  <button type="button" class="duo-chip" data-val="Séssil">Séssil (base larga)</button>
+                  <button type="button" class="duo-chip" data-val="Pediculada">Pediculada (haste estreita)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Superfície -->
+            <div class="duo-field-box grid-span-1">
+              <label for="inputSuperficie">
+                Superfície <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="superficie">
+                <input type="text" id="inputSuperficie" class="duo-text-input text-field-el" placeholder="Lisa, Verrugosa, Irregular...">
+                <div class="duo-chips-container" id="pillsSuperficie">
+                  <button type="button" class="duo-chip" data-val="Lisa">Lisa</button>
+                  <button type="button" class="duo-chip" data-val="Irregular">Irregular</button>
+                  <button type="button" class="duo-chip" data-val="Verrugosa">Verrugosa (couve-flor)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Limites -->
+            <div class="duo-field-box grid-span-1">
+              <label for="inputLimites">
+                Limites / Bordas <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="limites">
+                <input type="text" id="inputLimites" class="duo-text-input text-field-el" placeholder="Nítidos / Bem definidos ou Difusos">
+                <div class="duo-chips-container" id="pillsLimites">
+                  <button type="button" class="duo-chip" data-val="Nítidos; bem definidos">Nítidos / Bem definidos</button>
+                  <button type="button" class="duo-chip" data-val="Não definidos / Difusos">Não nítidos / Difusos</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coloração -->
+            <div class="duo-field-box grid-span-1">
+              <label for="inputColoracao">
+                Coloração <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="coloracao">
+                <input type="text" id="inputColoracao" class="duo-text-input text-field-el" placeholder="Semelhante à mucosa, avermelhada, arroxeada...">
+                <div class="duo-chips-container" id="pillsColoracao">
+                  <button type="button" class="duo-chip" data-val="Semelhante à mucosa oral">Cor da mucosa (róseo)</button>
+                  <button type="button" class="duo-chip" data-val="Avermelhada">Avermelhada</button>
+                  <button type="button" class="duo-chip" data-val="Arroxeada">Arroxeada / Azulada</button>
+                  <button type="button" class="duo-chip" data-val="Esbranquiçada">Esbranquiçada</button>
+                  <button type="button" class="duo-chip" data-val="Pigmentação enegrecida">Enegrecida / Acastanhada</button>
+                  <button type="button" class="duo-chip" data-val="Amarelada">Amarelada</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 2: Topografia & Lateralidade -->
+        <div class="duo-card-block">
+          <div class="duo-block-header">
+            <span class="duo-step-badge">2</span>
+            <span class="duo-block-title">Topografia & Lateralidade</span>
+          </div>
+
+          <div class="duo-fields-grid">
+            <div class="duo-field-box grid-span-1">
+              <label for="inputLocalizacao">
+                Localização Anatômica <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="localizacao">
+                <input type="text" id="inputLocalizacao" class="duo-text-input text-field-el" placeholder="Lábio inferior, assoalho bucal, palato...">
+                <div class="duo-chips-container" id="pillsLocalizacao">
+                  <button type="button" class="duo-chip" data-val="Lábio inferior">Lábio inferior</button>
+                  <button type="button" class="duo-chip" data-val="Assoalho bucal">Assoalho bucal</button>
+                  <button type="button" class="duo-chip" data-val="Mucosa jugal">Mucosa jugal</button>
+                  <button type="button" class="duo-chip" data-val="Retrocomissura">Retrocomissura</button>
+                  <button type="button" class="duo-chip" data-val="Dorso da língua">Dorso de língua</button>
+                  <button type="button" class="duo-chip" data-val="Lateral de língua">Lateral de língua</button>
+                  <button type="button" class="duo-chip" data-val="Palato">Palato</button>
+                  <button type="button" class="duo-chip" data-val="Região gengival">Região gengival</button>
+                  <button type="button" class="duo-chip" data-val="Região retromolar">Região retromolar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="duo-field-box grid-span-1">
+              <label for="inputLateralidade">
+                Lateralidade <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="lateralidade">
+                <input type="text" id="inputLateralidade" class="duo-text-input text-field-el" placeholder="Esquerda, Direita, Central...">
+                <div class="duo-chips-container" id="pillsLateralidade">
+                  <button type="button" class="duo-chip" data-val="Lado Esquerdo">Lado Esquerdo</button>
+                  <button type="button" class="duo-chip" data-val="Lado Direito">Lado Direito</button>
+                  <button type="button" class="duo-chip" data-val="Central / Linha Média">Central / Linha Média</button>
+                  <button type="button" class="duo-chip" data-val="Bilateral">Bilateral</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 3: Palpação & Sensação ao Toque -->
+        <div class="duo-card-block">
+          <div class="duo-block-header">
+            <span class="duo-step-badge">3</span>
+            <span class="duo-block-title">Palpação & Sensação ao Toque</span>
+          </div>
+
+          <div class="duo-fields-grid">
+            <div class="duo-field-box grid-span-2">
+              <label for="inputConsistencia">
+                Consistência ao Toque <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="consistencia">
+                <input type="text" id="inputConsistencia" class="duo-text-input text-field-el" placeholder="Macia, flutuante à palpação, firme/fibroelástica, endurecida...">
+                <div class="duo-chips-container" id="pillsConsistencia">
+                  <button type="button" class="duo-chip" data-val="Macia; flutuante à palpação">Macia / Flutuante à palpação</button>
+                  <button type="button" class="duo-chip" data-val="Firme à palpação / Fibroelástica">Firme / Fibroelástica</button>
+                  <button type="button" class="duo-chip" data-val="Endurecida / Dura">Endurecida / Dura</button>
+                  <button type="button" class="duo-chip" data-val="Normal ao toque">Normal ao toque</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 4: Hipótese Diagnóstica -->
+        <div class="duo-card-block block-highlight">
+          <div class="duo-block-header" style="justify-content: space-between; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="duo-step-badge">4</span>
+              <span class="duo-block-title">Hipótese Diagnóstica</span>
+            </div>
+            <button type="button" class="btn-guide-inline" id="btnCaseGuide" title="Ver raciocínio clínico e como diferenciar esta lesão">
+              💡 Como raciocinar neste caso?
+            </button>
+          </div>
+
+          <div class="duo-fields-grid">
+            <div class="duo-field-box grid-span-2">
+              <label for="inputDiagnostico">
+                Nome da Lesão / Diagnóstico <span class="req-star">*</span>
+              </label>
+              <div class="input-container" data-field="diagnostico">
+                <input type="text" id="inputDiagnostico" class="duo-text-input duo-input-large text-field-el" placeholder="Digite o nome da patologia (ex: Mucocele, Granuloma Piogênico...)">
+                <div class="duo-chips-container" id="pillsDiagnostico">
+                  <!-- Gerado dinamicamente -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ações do Formulário -->
+        <div class="duo-form-actions">
+          <button type="button" class="btn-duo btn-duo-secondary" id="btnSkipCase">
+            Pular Caso ⏭️
+          </button>
+          <button type="submit" class="btn-duo btn-duo-primary btn-duo-lg" id="btnSubmitForm">
+            Verificar Resposta ✨
+          </button>
+        </div>
+      </form>
+
+      <!-- PAINEL DE FEEDBACK VIBES DUOLINGO -->
+      <section class="duo-feedback-panel" id="feedbackPanel" style="display: none;">
+        <div class="duo-score-banner">
+          <div class="duo-score-wheel" id="gradeStamp">
+            <span class="duo-score-number" id="scoreValue">85%</span>
+            <span class="duo-score-label">Acerto</span>
+          </div>
+          <div class="duo-score-message">
+            <h3 id="verdictTitle">Excelente Trabalho! 🎯</h3>
+            <p id="verdictSubtitle">Você acertou os critérios semiológicos principais da lesão.</p>
+          </div>
+        </div>
+
+        <!-- Alerta Crítico (Erro Crasso) -->
+        <div class="duo-alert-card" id="fatalAlertBox" style="display: none;">
+          <div class="duo-alert-icon">!</div>
+          <div class="duo-alert-content">
+            <h4>Alerta de Atenção Clínica:</h4>
+            <p id="fatalAlertText"></p>
+          </div>
+        </div>
+
+        <!-- Cartões de Comparação Lado a Lado -->
+        <div class="comparison-cards-header">
+          <h4>Comparativo com o Gabarito Oficial:</h4>
+          <div class="comparison-cards-grid" id="comparisonGrid">
+            <!-- Injetado dinamicamente via JS -->
+          </div>
+        </div>
+
+        <!-- Fisiopatologia e Diferenciais -->
+        <div class="duo-pathology-box">
+          <h4>Fisiopatologia & Conduta Clínica:</h4>
+          <p id="clinicalExplanationText"></p>
+          <div class="duo-differentials-row">
+            <strong>Diagnósticos Diferenciais Obrigatórios:</strong>
+            <span id="differentialsText"></span>
+          </div>
+        </div>
+
+        <!-- Treino Oral -->
+        <div class="duo-speech-box">
+          <div class="duo-speech-header">
+            <h4>🗣️ Como Descrever na Prova Oral:</h4>
+            <button class="btn-duo btn-duo-secondary btn-duo-sm" id="btnSpeakText" title="Ouvir descrição por voz">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+              Ouvir Pronúncia
+            </button>
+          </div>
+          <p class="duo-speech-quote" id="oralScriptText">
+            "Ao exame estomatológico, o paciente apresenta..."
+          </p>
+        </div>
+
+        <!-- Ações do Feedback -->
+        <div class="duo-feedback-actions">
+          <button class="btn-duo btn-duo-secondary" id="btnToggleErrorDeck">
+            ⭐ Salvar para Revisar
+          </button>
+          <button class="btn-duo btn-duo-success btn-duo-lg" id="btnNextCase">
+            Continuar ➡️
+          </button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- MODAL: GUIA DE PATOLOGIAS E HIPÓTESES DIAGNÓSTICAS -->
+  <div class="duo-modal-layer" id="modalGuiaPatologias" style="display: none;">
+    <div class="duo-modal-card duo-modal-wide">
+      <div class="duo-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <span style="font-size: 1.5rem;">📚</span>
+          <div>
+            <h3 style="margin: 0; font-size: 1.2rem; line-height: 1.2;">Guia Clínico de Hipóteses Diagnósticas</h3>
+            <span style="font-size: 0.75rem; color: var(--c-umber); font-weight: 600;">Gatilhos semiológicos e critérios de desempate da Cátedra</span>
+          </div>
+        </div>
+        <button class="duo-modal-close" id="btnCloseGuiaPatologias">&times;</button>
+      </div>
+
+      <div class="duo-modal-search">
+        <input type="text" id="guideSearchInput" placeholder="🔍 Pesquise por patologia, sítio (gengiva, lábio), lesão fundamental ou diferencial...">
+        <div class="guide-filter-tabs" id="guideFilterTabs">
+          <button type="button" class="guide-tab-btn active" data-tab="todos">Todas (28)</button>
+          <button type="button" class="guide-tab-btn" data-tab="gengiva">🦷 Gengiva</button>
+          <button type="button" class="guide-tab-btn" data-tab="salivares">💧 Salivares / Bolhas</button>
+          <button type="button" class="guide-tab-btn" data-tab="brancas">⚪ Lesões Brancas</button>
+          <button type="button" class="guide-tab-btn" data-tab="ulceras">⭕ Úlceras & Erosões</button>
+          <button type="button" class="guide-tab-btn" data-tab="manchas">⚫ Pigmentadas / Manchas</button>
+        </div>
+      </div>
+
+      <div class="duo-modal-body" id="guideModalBody">
+        <!-- Injetado dinamicamente via JS -->
+      </div>
+      
+      <div class="duo-modal-footer" style="justify-content: space-between;">
+        <span style="font-size: 0.78rem; color: var(--c-umber); font-weight: 600;">💡 Dica: Consulte este guia a qualquer momento durante o treino da ficha.</span>
+        <button class="btn-duo btn-duo-secondary btn-duo-sm" id="btnCloseGuiaPatologiasBottom">Fechar Guia</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: GLOSSÁRIO DUOLINGO -->
+  <div class="duo-modal-layer" id="modalGlossario" style="display: none;">
+    <div class="duo-modal-card">
+      <div class="duo-modal-header">
+        <h3>📖 Glossário de Semiologia Bucal</h3>
+        <button class="duo-modal-close" id="btnCloseGlossario">&times;</button>
+      </div>
+      <div class="duo-modal-search">
+        <input type="text" id="glossarySearchInput" placeholder="Pesquisar termo ou lesão (ex: nódulo, séssil, vitropressão)...">
+      </div>
+      <div class="duo-modal-body" id="glossaryBody">
+        <!-- Injetado dinamicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CASOS PARA REVISÃO -->
+  <div class="duo-modal-layer" id="modalDeckErros" style="display: none;">
+    <div class="duo-modal-card">
+      <div class="duo-modal-header">
+        <h3>⭐ Meus Casos de Revisão</h3>
+        <button class="duo-modal-close" id="btnCloseDeckErros">&times;</button>
+      </div>
+      <div class="duo-modal-body">
+        <p style="font-size: 0.85rem; font-weight: 600; color: var(--c-umber); margin-bottom: 1rem;">
+          Casos em que você teve alguma dúvida ou que foram arquivados para treino repetido:
+        </p>
+        <div id="errorDeckList">
+          <!-- Injetado dinamicamente -->
+        </div>
+      </div>
+      <div class="duo-modal-footer">
+        <button class="btn-duo btn-duo-secondary btn-duo-sm" id="btnClearErrors">Limpar Lista</button>
+        <button class="btn-duo btn-duo-primary btn-duo-sm" id="btnTrainErrorsNow">Treinar Estes Casos 🎯</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CLÍNICO -->
+  <div class="duo-toast" id="toastAlert" style="display: none;">
+    <span id="toastMsg">Tudo pronto!</span>
+  </div>
+
+  <script src="app.js?v=20261113_guide"></script>
+</body>
+</html>
