@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       applyFilter('oficial_22');
       populateDiagnosticoChips();
+      setupTabAutocomplete();
       renderGlossary();
       if (window.lucide) lucide.createIcons();
     } catch (err) {
@@ -915,8 +916,305 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // VOCABULÁRIO & SISTEMA AUTOCOMPLETE TIPO TAB
+  // ==========================================
+  const FIELD_VOCABULARY = {
+    lesao_fundamental: [
+      "Nódulo", "Bolha", "Úlcera", "Placa", "Mancha ou mácula",
+      "Pápula", "Vesícula", "Erosão", "Hematoma", "Fissura", "Crosta"
+    ],
+    insercao: [
+      "Séssil", "Pediculada", "Séssil (base larga)", "Pediculada (haste estreita)"
+    ],
+    superficie: [
+      "Lisa", "Irregular", "Verrugosa", "Verrugosa (couve-flor)", "Lobulada", "Papilomatosa", "Fissurada"
+    ],
+    limites: [
+      "Nítidos; bem definidos", "Não definidos / Difusos", "Bem definidos", "Difusos", "Nítidos"
+    ],
+    coloracao: [
+      "Semelhante à mucosa oral", "Avermelhada", "Arroxeada", "Esbranquiçada",
+      "Pigmentação enegrecida", "Amarelada", "Azulada", "Cor da mucosa (róseo)", "Arroxeada / Azulada", "Enegrecida / Acastanhada"
+    ],
+    localizacao: [
+      "Lábio inferior", "Lábio superior", "Assoalho bucal", "Mucosa jugal",
+      "Retrocomissura", "Dorso da língua", "Lateral de língua", "Ventre lingual",
+      "Palato", "Região gengival", "Região retromolar", "Rebordo alveolar", "Fundo de sulco vestibular", "Comissura labial"
+    ],
+    lateralidade: [
+      "Lado Esquerdo", "Lado Direito", "Central / Linha Média", "Bilateral"
+    ],
+    consistencia: [
+      "Macia; flutuante à palpação", "Firme à palpação / Fibroelástica",
+      "Endurecida / Dura", "Normal ao toque", "Macia / Flutuante à palpação", "Firme / Fibroelástica"
+    ],
+    diagnostico: []
+  };
+
+  const FIELD_ALIASES = {
+    lesao_fundamental: {
+      "nod": "Nódulo", "nodulo": "Nódulo",
+      "bol": "Bolha", "bolha": "Bolha",
+      "ulc": "Úlcera", "ulcera": "Úlcera",
+      "pla": "Placa", "placa": "Placa",
+      "man": "Mancha ou mácula", "mac": "Mancha ou mácula", "mancha": "Mancha ou mácula",
+      "pap": "Pápula", "papula": "Pápula",
+      "ves": "Vesícula", "vesicula": "Vesícula",
+      "ero": "Erosão", "erosao": "Erosão"
+    },
+    insercao: {
+      "ses": "Séssil", "sess": "Séssil", "sessil": "Séssil", "larga": "Séssil", "base": "Séssil",
+      "ped": "Pediculada", "pedi": "Pediculada", "pediculada": "Pediculada", "haste": "Pediculada", "estreita": "Pediculada"
+    },
+    superficie: {
+      "lis": "Lisa", "lisa": "Lisa",
+      "irr": "Irregular", "irregular": "Irregular",
+      "ver": "Verrugosa", "verr": "Verrugosa", "verrugosa": "Verrugosa", "couve": "Verrugosa (couve-flor)", "flor": "Verrugosa (couve-flor)"
+    },
+    limites: {
+      "nit": "Nítidos; bem definidos", "nitido": "Nítidos; bem definidos", "bem": "Nítidos; bem definidos", "definido": "Nítidos; bem definidos",
+      "nao": "Não definidos / Difusos", "dif": "Não definidos / Difusos", "difuso": "Não definidos / Difusos", "mal": "Não definidos / Difusos"
+    },
+    coloracao: {
+      "cor": "Semelhante à mucosa oral", "ros": "Semelhante à mucosa oral", "rosea": "Semelhante à mucosa oral", "sem": "Semelhante à mucosa oral",
+      "ave": "Avermelhada", "verm": "Avermelhada", "vermelho": "Avermelhada", "eritema": "Avermelhada",
+      "arr": "Arroxeada", "rox": "Arroxeada", "azul": "Arroxeada", "viola": "Arroxeada",
+      "esb": "Esbranquiçada", "bran": "Esbranquiçada", "branco": "Esbranquiçada",
+      "ene": "Pigmentação enegrecida", "pret": "Pigmentação enegrecida", "negro": "Pigmentação enegrecida", "cast": "Pigmentação enegrecida",
+      "ama": "Amarelada", "amarelo": "Amarelada"
+    },
+    localizacao: {
+      "lab": "Lábio inferior", "labio": "Lábio inferior", "inf": "Lábio inferior", "lab inf": "Lábio inferior",
+      "sup": "Lábio superior", "lab sup": "Lábio superior",
+      "ass": "Assoalho bucal", "soalho": "Assoalho bucal", "chao": "Assoalho bucal",
+      "jug": "Mucosa jugal", "bochecha": "Mucosa jugal", "muc": "Mucosa jugal",
+      "ret": "Retrocomissura", "retro": "Retrocomissura",
+      "dor": "Dorso da língua", "ling": "Dorso da língua", "lingua": "Dorso da língua",
+      "lat": "Lateral de língua", "borda": "Lateral de língua",
+      "pal": "Palato", "ceu": "Palato",
+      "gen": "Região gengival", "gengiva": "Região gengival",
+      "molar": "Região retromolar", "triangulo": "Região retromolar",
+      "reb": "Rebordo alveolar", "alveolo": "Rebordo alveolar",
+      "sul": "Fundo de sulco vestibular", "vest": "Fundo de sulco vestibular",
+      "com": "Comissura labial", "canto": "Comissura labial"
+    },
+    lateralidade: {
+      "esq": "Lado Esquerdo", "esquerda": "Lado Esquerdo",
+      "dir": "Lado Direito", "direita": "Lado Direito",
+      "cen": "Central / Linha Média", "central": "Central / Linha Média", "med": "Central / Linha Média", "linha": "Central / Linha Média",
+      "bil": "Bilateral", "ambos": "Bilateral"
+    },
+    consistencia: {
+      "mac": "Macia; flutuante à palpação", "flu": "Macia; flutuante à palpação", "flutuante": "Macia; flutuante à palpação", "mole": "Macia; flutuante à palpação",
+      "fir": "Firme à palpação / Fibroelástica", "fib": "Firme à palpação / Fibroelástica", "fibro": "Firme à palpação / Fibroelástica",
+      "end": "Endurecida / Dura", "dur": "Endurecida / Dura", "dura": "Endurecida / Dura",
+      "nor": "Normal ao toque", "normal": "Normal ao toque"
+    },
+    diagnostico: {
+      "muc": "Mucocele",
+      "ran": "Rânula",
+      "pap": "Papiloma Escamoso Oral",
+      "hem": "Hemangioma",
+      "fib": "Hiperplasia Focal (Fibroma Traumático)",
+      "lip": "Lipoma",
+      "ulc": "Úlcera Traumática",
+      "gra": "Granuloma Piogênico", "pio": "Granuloma Piogênico",
+      "cis": "Cisto de Erupção (Hematoma de Erupção)", "erup": "Cisto de Erupção (Hematoma de Erupção)",
+      "linf": "Linfangioma",
+      "her": "Herpes Simples Recorrente (Labial)",
+      "lpcg": "Lesão Periférica de Células Gigantes (LPCG)", "gigant": "Lesão Periférica de Células Gigantes (LPCG)",
+      "fop": "Fibroma Ossificante Periférico", "ossif": "Fibroma Ossificante Periférico",
+      "aft": "Aftas (Estomatite Aftosa Recorrente)",
+      "amal": "Tatuagem por Amálgama (Assoalho Bucal)", "tatu": "Tatuagem por Amálgama (Assoalho Bucal)",
+      "leucoed": "Leucoedema",
+      "pilosa": "Leucoplasia Pilosa Oral", "ebv": "Leucoplasia Pilosa Oral",
+      "liqu": "Líquen Plano Oral (Forma Reticular)", "wick": "Líquen Plano Oral (Forma Reticular)",
+      "for": "Grânulos de Fordyce", "seb": "Grânulos de Fordyce",
+      "tir": "Tireoide Lingual",
+      "cand": "Candidose Pseudomembranosa",
+      "estom": "Estomatite Herpética Primária",
+      "queil": "Queilite Angular",
+      "prot": "Estomatite Protética",
+      "epul": "Hiperplasia Fibrosa Inflamatória (Epúlide Fissurada)", "inflam": "Hiperplasia Fibrosa Inflamatória (Epúlide Fissurada)",
+      "pil": "Língua Pilosa"
+    }
+  };
+
+  function findFieldMatch(field, rawQuery, vocabList) {
+    const q = normalizeText(rawQuery);
+    if (!q) return null;
+
+    // 1. Verifica aliases pré-mapeados
+    const aliasMap = FIELD_ALIASES[field] || {};
+    for (const [trigger, target] of Object.entries(aliasMap)) {
+      if (trigger.startsWith(q) || q.startsWith(trigger)) {
+        return target;
+      }
+    }
+
+    // 2. Termo do vocabulário começa com o que foi digitado
+    for (const term of vocabList) {
+      if (normalizeText(term).startsWith(q)) {
+        return term;
+      }
+    }
+
+    // 3. Qualquer palavra dentro do termo começa com o que foi digitado
+    for (const term of vocabList) {
+      const words = normalizeText(term).split(' ');
+      if (words.some(w => w.startsWith(q))) {
+        return term;
+      }
+    }
+
+    // 4. Termo contém o que foi digitado
+    for (const term of vocabList) {
+      if (normalizeText(term).includes(q)) {
+        return term;
+      }
+    }
+
+    return null;
+  }
+
+  function playPopSound() {
+    try {
+      if (!state.audioCtx) {
+        state.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      const ctx = state.audioCtx;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.1);
+
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.13);
+    } catch (e) {}
+  }
+
+  function setupTabAutocomplete() {
+    const containers = document.querySelectorAll('.input-container[data-field]');
+
+    containers.forEach(cont => {
+      const field = cont.dataset.field;
+      const input = cont.querySelector('.duo-text-input');
+      const badge = cont.querySelector('.tab-autocomplete-badge');
+      const matchSpan = badge ? badge.querySelector('.tab-match-word') : null;
+      if (!input || !badge || !matchSpan) return;
+
+      const chipVals = Array.from(cont.querySelectorAll('.duo-chip')).map(c => c.dataset.val).filter(Boolean);
+      const defaultVocab = FIELD_VOCABULARY[field] || [];
+      const combinedVocab = Array.from(new Set([...chipVals, ...defaultVocab]));
+
+      function updateSuggestion() {
+        const query = input.value || '';
+        if (query.trim().length === 0) {
+          badge.style.display = 'none';
+          input.dataset.suggestion = '';
+          return;
+        }
+
+        let activeVocab = combinedVocab;
+        if (field === 'diagnostico' && state.allCases && state.allCases.length > 0) {
+          const caseNames = state.allCases.map(c => c.nome);
+          activeVocab = Array.from(new Set([...caseNames, ...combinedVocab]));
+        }
+
+        const match = findFieldMatch(field, query, activeVocab);
+
+        if (match && normalizeText(match) !== normalizeText(query)) {
+          badge.style.display = 'inline-flex';
+          matchSpan.textContent = match;
+          input.dataset.suggestion = match;
+        } else {
+          badge.style.display = 'none';
+          input.dataset.suggestion = '';
+        }
+      }
+
+      function acceptSuggestion() {
+        if (!input.dataset.suggestion) return false;
+        const targetValue = input.dataset.suggestion;
+        input.value = targetValue;
+        input.dataset.suggestion = '';
+
+        badge.classList.add('pulse-accept');
+        setTimeout(() => {
+          badge.style.display = 'none';
+          badge.classList.remove('pulse-accept');
+        }, 150);
+
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+
+        cont.querySelectorAll('.duo-chip').forEach(chip => {
+          chip.classList.toggle('active', chip.dataset.val === targetValue);
+        });
+
+        playPopSound();
+        return true;
+      }
+
+      input.addEventListener('input', updateSuggestion);
+      input.addEventListener('focus', updateSuggestion);
+      input.addEventListener('blur', () => {
+        setTimeout(() => {
+          badge.style.display = 'none';
+        }, 220);
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          if (acceptSuggestion()) {
+            e.preventDefault();
+          }
+        } else if (e.key === 'ArrowRight') {
+          if (input.selectionStart === input.value.length) {
+            if (acceptSuggestion()) {
+              e.preventDefault();
+            }
+          }
+        } else if (e.key === 'Enter') {
+          if (acceptSuggestion()) {
+            e.preventDefault();
+          }
+        } else if (e.key === 'Escape') {
+          badge.style.display = 'none';
+          input.dataset.suggestion = '';
+        }
+      });
+
+      badge.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        acceptSuggestion();
+        input.focus();
+      });
+
+      badge.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        acceptSuggestion();
+        input.focus();
+      }, { passive: false });
+    });
+  }
+
   function clearFormFields() {
-    document.querySelectorAll('.duo-text-input').forEach(inp => inp.value = '');
+    document.querySelectorAll('.duo-text-input').forEach(inp => {
+      inp.value = '';
+      inp.dataset.suggestion = '';
+    });
+    document.querySelectorAll('.tab-autocomplete-badge').forEach(b => {
+      b.style.display = 'none';
+    });
     document.querySelectorAll('.duo-chip.active').forEach(p => p.classList.remove('active'));
   }
 

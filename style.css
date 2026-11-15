@@ -917,6 +917,128 @@ body {
   border-color: var(--c-areia);
 }
 
+/* ==========================================================================
+   SISTEMA AUTOCOMPLETE COM TAB / BADGE FLUTUANTE
+   ========================================================================== */
+.form-tab-tip {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(164, 111, 84, 0.08);
+  border: 1.5px dashed var(--c-terracota);
+  border-radius: var(--radius-md);
+  padding: 0.55rem 0.85rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--c-chocolate);
+  line-height: 1.4;
+}
+
+.form-tab-tip i {
+  color: var(--c-terracota);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.form-tab-tip kbd {
+  background: var(--c-espresso);
+  color: #FFFFFF;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+body.mode-multipla .form-tab-tip {
+  display: none;
+}
+
+.duo-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+body.mode-multipla .duo-input-wrap {
+  display: none;
+}
+
+.duo-input-wrap .duo-text-input {
+  padding-right: 145px;
+}
+
+.tab-autocomplete-badge {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #29221F;
+  color: #F5EFEB;
+  border: 1.5px solid #49352E;
+  border-radius: var(--radius-full);
+  padding: 0.22rem 0.55rem 0.22rem 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(41, 34, 31, 0.22);
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+  z-index: 5;
+  max-width: calc(100% - 20px);
+}
+
+.tab-autocomplete-badge:hover {
+  background: #141110;
+  transform: translateY(-50%) scale(1.03);
+  box-shadow: 0 4px 12px rgba(41, 34, 31, 0.3);
+}
+
+.tab-autocomplete-badge:active {
+  transform: translateY(-50%) scale(0.97);
+}
+
+.tab-autocomplete-badge kbd {
+  background: var(--c-terracota);
+  color: #FFFFFF;
+  border-radius: 999px;
+  padding: 0.12rem 0.4rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: inline-block;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.tab-autocomplete-badge .tab-match-word {
+  color: #F5EFEB;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.tab-autocomplete-badge.pulse-accept {
+  animation: tabAcceptPulse 0.15s ease-out;
+}
+
+@keyframes tabAcceptPulse {
+  0% { transform: translateY(-50%) scale(1); background: #29221F; }
+  50% { transform: translateY(-50%) scale(1.08); background: var(--c-oliva, #5E7153); }
+  100% { transform: translateY(-50%) scale(1); background: #29221F; }
+}
+
 /* Chips / Opções Rápidas (Estilo Botões 3D do Duolingo) */
 .duo-chips-container {
   display: flex;
@@ -2330,6 +2452,34 @@ html, body {
   .duo-field-box label {
     font-size: 0.78rem !important;
     margin-bottom: 0.3rem !important;
+  }
+
+  .form-tab-tip {
+    font-size: 0.72rem !important;
+    padding: 0.45rem 0.6rem !important;
+    gap: 0.4rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .duo-input-wrap .duo-text-input {
+    padding-right: 120px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .tab-autocomplete-badge {
+    right: 4px !important;
+    padding: 0.18rem 0.42rem 0.18rem 0.28rem !important;
+    font-size: 0.7rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .tab-autocomplete-badge kbd {
+    font-size: 0.62rem !important;
+    padding: 0.1rem 0.35rem !important;
+  }
+
+  .tab-autocomplete-badge .tab-match-word {
+    max-width: 88px !important;
   }
 
   .duo-text-input {

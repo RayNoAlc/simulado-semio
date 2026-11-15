@@ -7,7 +7,7 @@
   <meta name="supported-color-schemes" content="light">
   <meta name="theme-color" content="#F5EFEB">
   <title>Semiologia Bucal | Treino & Diagnóstico de Lesões</title>
-  <link rel="stylesheet" href="style.css?v=20261115_guide_img_v1">
+  <link rel="stylesheet" href="style.css?v=20261115_tab_autocomplete_v1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
@@ -194,6 +194,10 @@
       </div>
 
       <form id="semiologiaForm" autocomplete="off">
+        <div class="form-tab-tip">
+          <i data-lucide="keyboard"></i>
+          <span><strong>Preenchimento Ágil:</strong> Digite 1 ou 2 letras e aperte <kbd>Tab ⇥</kbd> (ou clique no balão) para autocompletar os termos semiológicos instantaneamente.</span>
+        </div>
         
         <!-- BLOCO 1: Inspeção Visual & Morfologia -->
         <div class="duo-card-block">
@@ -209,7 +213,13 @@
                 Lesão Fundamental <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="lesao_fundamental">
-                <input type="text" id="inputLesaoFundamental" class="duo-text-input text-field-el" placeholder="Ex: Nódulo, Bolha, Úlcera, Placa, Mancha...">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputLesaoFundamental" class="duo-text-input text-field-el" placeholder="Ex: Nódulo, Bolha, Úlcera, Placa, Mancha...">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsLesaoFundamental">
                   <button type="button" class="duo-chip" data-val="Nódulo">Nódulo</button>
                   <button type="button" class="duo-chip" data-val="Bolha">Bolha</button>
@@ -229,7 +239,13 @@
                 Base de Inserção <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="insercao">
-                <input type="text" id="inputInsercao" class="duo-text-input text-field-el" placeholder="Séssil ou Pediculada">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputInsercao" class="duo-text-input text-field-el" placeholder="Séssil ou Pediculada">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsInsercao">
                   <button type="button" class="duo-chip" data-val="Séssil">Séssil (base larga)</button>
                   <button type="button" class="duo-chip" data-val="Pediculada">Pediculada (haste estreita)</button>
@@ -243,7 +259,13 @@
                 Superfície <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="superficie">
-                <input type="text" id="inputSuperficie" class="duo-text-input text-field-el" placeholder="Lisa, Verrugosa, Irregular...">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputSuperficie" class="duo-text-input text-field-el" placeholder="Lisa, Verrugosa, Irregular...">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsSuperficie">
                   <button type="button" class="duo-chip" data-val="Lisa">Lisa</button>
                   <button type="button" class="duo-chip" data-val="Irregular">Irregular</button>
@@ -258,7 +280,13 @@
                 Limites / Bordas <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="limites">
-                <input type="text" id="inputLimites" class="duo-text-input text-field-el" placeholder="Nítidos / Bem definidos ou Difusos">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputLimites" class="duo-text-input text-field-el" placeholder="Nítidos / Bem definidos ou Difusos">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsLimites">
                   <button type="button" class="duo-chip" data-val="Nítidos; bem definidos">Nítidos / Bem definidos</button>
                   <button type="button" class="duo-chip" data-val="Não definidos / Difusos">Não nítidos / Difusos</button>
@@ -272,7 +300,13 @@
                 Coloração <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="coloracao">
-                <input type="text" id="inputColoracao" class="duo-text-input text-field-el" placeholder="Semelhante à mucosa, avermelhada, arroxeada...">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputColoracao" class="duo-text-input text-field-el" placeholder="Semelhante à mucosa, avermelhada, arroxeada...">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsColoracao">
                   <button type="button" class="duo-chip" data-val="Semelhante à mucosa oral">Cor da mucosa (róseo)</button>
                   <button type="button" class="duo-chip" data-val="Avermelhada">Avermelhada</button>
@@ -299,7 +333,13 @@
                 Localização Anatômica <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="localizacao">
-                <input type="text" id="inputLocalizacao" class="duo-text-input text-field-el" placeholder="Lábio inferior, assoalho bucal, palato...">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputLocalizacao" class="duo-text-input text-field-el" placeholder="Lábio inferior, assoalho bucal, palato...">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsLocalizacao">
                   <button type="button" class="duo-chip" data-val="Lábio inferior">Lábio inferior</button>
                   <button type="button" class="duo-chip" data-val="Assoalho bucal">Assoalho bucal</button>
@@ -319,7 +359,13 @@
                 Lateralidade <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="lateralidade">
-                <input type="text" id="inputLateralidade" class="duo-text-input text-field-el" placeholder="Esquerda, Direita, Central...">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputLateralidade" class="duo-text-input text-field-el" placeholder="Esquerda, Direita, Central...">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsLateralidade">
                   <button type="button" class="duo-chip" data-val="Lado Esquerdo">Lado Esquerdo</button>
                   <button type="button" class="duo-chip" data-val="Lado Direito">Lado Direito</button>
@@ -344,7 +390,13 @@
                 Consistência ao Toque <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="consistencia">
-                <input type="text" id="inputConsistencia" class="duo-text-input text-field-el" placeholder="Macia, flutuante à palpação, firme/fibroelástica, endurecida...">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputConsistencia" class="duo-text-input text-field-el" placeholder="Macia, flutuante à palpação, firme/fibroelástica, endurecida...">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsConsistencia">
                   <button type="button" class="duo-chip" data-val="Macia; flutuante à palpação">Macia / Flutuante à palpação</button>
                   <button type="button" class="duo-chip" data-val="Firme à palpação / Fibroelástica">Firme / Fibroelástica</button>
@@ -379,7 +431,13 @@
                 Nome da Lesão / Diagnóstico <span class="req-star">*</span>
               </label>
               <div class="input-container" data-field="diagnostico">
-                <input type="text" id="inputDiagnostico" class="duo-text-input duo-input-large text-field-el" placeholder="Digite o nome da patologia (ex: Mucocele, Granuloma Piogênico...)">
+                <div class="duo-input-wrap">
+                  <input type="text" id="inputDiagnostico" class="duo-text-input duo-input-large text-field-el" placeholder="Digite o nome da patologia (ex: Mucocele, Granuloma Piogênico...)">
+                  <button type="button" class="tab-autocomplete-badge" style="display: none;" tabindex="-1">
+                    <kbd>Tab ⇥</kbd>
+                    <span class="tab-match-word"></span>
+                  </button>
+                </div>
                 <div class="duo-chips-container" id="pillsDiagnostico">
                   <!-- Gerado dinamicamente -->
                 </div>
