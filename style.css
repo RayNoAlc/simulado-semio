@@ -1775,6 +1775,200 @@ body.mode-multipla .text-field-el {
   color: var(--c-argila);
 }
 
+
+/* ==========================================================================
+   GUIA DE PATOLOGIAS: IMAGEM CLÍNICA COMENTADA E LIGHTBOX
+   ========================================================================== */
+.btn-guide-train {
+  height: 28px;
+  padding: 0 0.65rem;
+  font-size: 0.72rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--c-terracota);
+  border-bottom-width: 2.5px;
+  background: #FFFFFF;
+  color: var(--c-terracota-dark);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+}
+
+.btn-guide-train:hover {
+  background: var(--c-terracota);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.guide-image-section {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  background: var(--c-marfim-warm);
+  border: 1.5px solid var(--c-linho);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.guide-img-container {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #141110;
+  min-height: 160px;
+  max-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--c-linho);
+  cursor: pointer;
+}
+
+.guide-case-photo {
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.guide-img-container:hover .guide-case-photo {
+  transform: scale(1.04);
+}
+
+.guide-img-overlay-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(41, 34, 31, 0.82);
+  backdrop-filter: blur(4px);
+  color: var(--c-marfim);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.15s ease;
+}
+
+.guide-img-container:hover .guide-img-overlay-badge {
+  background: var(--c-terracota);
+  color: #FFFFFF;
+}
+
+.guide-img-commentary-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.45rem;
+}
+
+.guide-img-commentary-header {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--c-chocolate);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.guide-img-commentary-text {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--c-espresso);
+  margin: 0;
+  font-weight: 500;
+}
+
+.guide-img-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+.guide-tag-pill {
+  background: #FFFFFF;
+  border: 1.5px solid var(--c-linho);
+  border-radius: var(--radius-full);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--c-chocolate);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  box-shadow: 0 1px 2px rgba(41, 34, 31, 0.04);
+}
+
+/* Lightbox de Imagem Ampliada */
+.image-viewer-card {
+  background: #201A18;
+  border: 2px solid var(--c-chocolate);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 680px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.image-viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid rgba(217, 201, 181, 0.2);
+  background: #29221F;
+}
+
+.image-viewer-body {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-viewer-img-wrap {
+  width: 100%;
+  height: 380px;
+  background: #0F0D0C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#imageViewerImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-viewer-caption-box {
+  padding: 1rem 1.15rem;
+  background: #29221F;
+  border-top: 1px solid rgba(217, 201, 181, 0.15);
+}
+
+.image-viewer-caption {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--c-marfim-light);
+  font-weight: 500;
+}
+
 /* ==========================================================================
    OTIMIZAÇÃO RESPONSIVA COMPLETA (TABLETS, FOLDABLES E SMARTPHONES)
    ========================================================================== */
@@ -2379,4 +2573,48 @@ html, body {
     text-align: center !important;
     font-size: 0.82rem !important;
   }
+
+  /* GUIA DE PATOLOGIAS COM IMAGEM NO MOBILE */
+  @media (max-width: 768px) {
+    .guide-image-section {
+      grid-template-columns: 1fr !important;
+      gap: 0.65rem !important;
+      padding: 0.65rem !important;
+    }
+
+    .guide-img-container {
+      max-height: 190px !important;
+      min-height: 150px !important;
+      width: 100% !important;
+    }
+
+    .guide-case-photo {
+      max-height: 190px !important;
+    }
+
+    .guide-img-commentary-text {
+      font-size: 0.78rem !important;
+      line-height: 1.4 !important;
+    }
+
+    .guide-tag-pill {
+      font-size: 0.68rem !important;
+      padding: 0.15rem 0.45rem !important;
+    }
+
+    .btn-guide-train {
+      font-size: 0.68rem !important;
+      height: 26px !important;
+      padding: 0 0.5rem !important;
+    }
+
+    .image-viewer-img-wrap {
+      height: 240px !important;
+    }
+
+    .image-viewer-caption {
+      font-size: 0.78rem !important;
+    }
+  }
+
 }

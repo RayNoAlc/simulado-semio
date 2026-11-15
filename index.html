@@ -7,7 +7,7 @@
   <meta name="supported-color-schemes" content="light">
   <meta name="theme-color" content="#F5EFEB">
   <title>Semiologia Bucal | Treino & Diagnóstico de Lesões</title>
-  <link rel="stylesheet" href="style.css?v=20261115_hints_nav_v1">
+  <link rel="stylesheet" href="style.css?v=20261115_guide_img_v1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
@@ -555,6 +555,31 @@
       <div class="duo-modal-footer">
         <button class="btn-duo btn-duo-secondary btn-duo-sm" id="btnClearErrors">Limpar Lista</button>
         <button class="btn-duo btn-duo-primary btn-duo-sm" id="btnTrainErrorsNow">Treinar Estes Casos <i data-lucide="play"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: VISUALIZADOR DE IMAGEM AMPLIADA (LIGHTBOX) -->
+  <div class="duo-modal-layer" id="modalImageViewer" style="display: none; z-index: 9999;">
+    <div class="image-viewer-card">
+      <div class="image-viewer-header">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="image" style="width: 20px; height: 20px; color: var(--c-areia);"></i>
+          <h4 id="imageViewerTitle" style="margin: 0; color: #FFFFFF; font-family: var(--font-display); font-size: 1.05rem;">Caso Clínico</h4>
+        </div>
+        <button class="duo-modal-close" id="btnCloseImageViewer" style="color: #FFFFFF;">&times;</button>
+      </div>
+      <div class="image-viewer-body">
+        <div class="image-viewer-img-wrap">
+          <img id="imageViewerImg" src="" alt="Imagem clínica ampliada" />
+        </div>
+        <div class="image-viewer-caption-box">
+          <div style="display: flex; align-items: center; gap: 0.35rem; color: var(--c-areia); font-family: var(--font-display); font-size: 0.8rem; font-weight: 800; margin-bottom: 0.35rem;">
+            <i data-lucide="scan-search"></i>
+            <span>Comentário Semiológico:</span>
+          </div>
+          <p id="imageViewerCaption" class="image-viewer-caption"></p>
+        </div>
       </div>
     </div>
   </div>

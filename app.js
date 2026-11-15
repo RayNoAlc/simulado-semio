@@ -128,7 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
     hintBtnText: document.getElementById('hintBtnText'),
     hintBody: document.getElementById('hintBody'),
     hintList: document.getElementById('hintList'),
-    btnJumpToHint: document.getElementById('btnJumpToHint')
+    btnJumpToHint: document.getElementById('btnJumpToHint'),
+
+    // Visualizador de Imagem Ampliada (Lightbox)
+    modalImageViewer: document.getElementById('modalImageViewer'),
+    btnCloseImageViewer: document.getElementById('btnCloseImageViewer'),
+    imageViewerTitle: document.getElementById('imageViewerTitle'),
+    imageViewerImg: document.getElementById('imageViewerImg'),
+    imageViewerCaption: document.getElementById('imageViewerCaption')
   };
 
   // ==========================================
@@ -140,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMagnifier();
 
     try {
-      const resp = await fetch('assets/data/lesoes.json');
+      const resp = await fetch('assets/data/lesoes.json?v=20261115_v2');
       const data = await resp.json();
       state.allCases = data.casos;
       state.synonyms = data.sinonimos || {};
@@ -950,6 +957,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
+  // LIGHTBOX / VISUALIZADOR DE IMAGEM AMPLIADA
+  // ==========================================
+  function openImageViewer(imgSrc, title, comment) {
+    if (!el.modalImageViewer) return;
+    el.imageViewerImg.src = imgSrc;
+    el.imageViewerTitle.textContent = title || 'Caso Clínico';
+    el.imageViewerCaption.textContent = comment || 'Análise semiótica visual da lesão.';
+    el.modalImageViewer.style.display = 'flex';
+    if (window.lucide) lucide.createIcons();
+  }
+
+  // ==========================================
   // GUIA DE PATOLOGIAS E HIPÓTESES DIAGNÓSTICAS
   // ==========================================
   let currentGuideCategory = 'todos';
@@ -977,6 +996,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return fund.includes('mancha') || fund.includes('macula') || nome.includes('amalgama') || nome.includes('hemangioma') || nome.includes('estomatite protetica');
     }
     return true;
+  }
+
+  function generateVisualCommentary(c) {
+    if (c.comentario_imagem) return c.comentario_imagem;
+    const g = c.gabarito || {};
+    return `Na projeção clínica de ${c.nome}, observe a lesão fundamental do tipo ${g.lesao_fundamental || 'característica'} topograficamente situada em ${g.localizacao || 'mucosa oral'} (${g.lateralidade || 'central'}). Atente para a coloração ${g.coloracao || 'típica'}, limites ${g.limites || 'definidos'} e base de inserção ${g.insercao || 'séssil'}, com superfície ${g.superficie || 'lisa'}.`;
   }
 
   function renderPatologiasGuide(searchFilter = '', categoryFilter = 'todos', targetCaseId = null) {
@@ -1030,48 +1055,102 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="guide-card-header">
           <div class="guide-card-title-group">
             <span class="guide-card-num">${idx + 1}</span>
-            <span class="guide-card-title">${c.nome}</span>
+            <span class="guide-card-title">${escapeHtml(c.nome)}</span>
           </div>
-          <span class="guide-card-tag">${c.categoria || 'Patologia Oral'}</span>
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="guide-card-tag">${escapeHtml(c.categoria || 'Patologia Oral')}</span>
+            <button type="button" class="btn-guide-train" data-case-id="${c.id}" title="Praticar este caso diretamente no simulador">
+              <i data-lucide="play-circle"></i> Treinar Caso
+            </button>
+          </div>
+        </div>
+
+        <!-- Seção da Imagem Clínica Comentada -->
+        <div class="guide-image-section">
+          <div class="guide-img-container" title="Clique para ampliar a imagem clínica em alta resolução">
+            <img src="${escapeHtml(c.imagem)}" alt="${escapeHtml(c.nome)}" class="guide-case-photo" loading="lazy" />
+            <span class="guide-img-overlay-badge"><i data-lucide="zoom-in"></i> Ampliar</span>
+          </div>
+          <div class="guide-img-commentary-box">
+            <div class="guide-img-commentary-header">
+              <i data-lucide="scan-search"></i>
+              <strong>Achados Semiológicos Visíveis na Imagem:</strong>
+            </div>
+            <p class="guide-img-commentary-text">
+              ${escapeHtml(generateVisualCommentary(c))}
+            </p>
+            <div class="guide-img-tags">
+              <span class="guide-tag-pill"><i data-lucide="map-pin"></i> ${c.gabarito ? escapeHtml(c.gabarito.localizacao) : '--'}</span>
+              <span class="guide-tag-pill"><i data-lucide="eye"></i> ${c.gabarito ? escapeHtml(c.gabarito.lesao_fundamental) : '--'}</span>
+              <span class="guide-tag-pill"><i data-lucide="hand"></i> ${c.gabarito ? escapeHtml(c.gabarito.consistencia) : '--'}</span>
+            </div>
+          </div>
         </div>
 
         <div class="guide-props-grid">
           <div class="guide-prop-item">
             <strong>Lesão Fundamental</strong>
-            ${c.gabarito ? c.gabarito.lesao_fundamental : '--'}
+            ${c.gabarito ? escapeHtml(c.gabarito.lesao_fundamental) : '--'}
           </div>
           <div class="guide-prop-item">
             <strong>Sítio Anatômico</strong>
-            ${c.gabarito ? c.gabarito.localizacao : '--'}
+            ${c.gabarito ? escapeHtml(c.gabarito.localizacao) : '--'}
           </div>
           <div class="guide-prop-item">
             <strong>Coloração</strong>
-            ${c.gabarito ? c.gabarito.coloracao : '--'}
+            ${c.gabarito ? escapeHtml(c.gabarito.coloracao) : '--'}
           </div>
           <div class="guide-prop-item">
             <strong>Consistência</strong>
-            ${c.gabarito ? c.gabarito.consistencia : '--'}
+            ${c.gabarito ? escapeHtml(c.gabarito.consistencia) : '--'}
           </div>
           <div class="guide-prop-item">
             <strong>Base & Relevo</strong>
-            ${(c.gabarito && c.gabarito.insercao) || 'Séssil'} • ${(c.gabarito && c.gabarito.superficie) || 'Lisa'}
+            ${(c.gabarito && escapeHtml(c.gabarito.insercao)) || 'Séssil'} • ${(c.gabarito && escapeHtml(c.gabarito.superficie)) || 'Lisa'}
           </div>
         </div>
 
         <div class="guide-highlight-box">
-          <strong><i data-lucide="zap"></i> O Pulo do Gato (Como Pensar):</strong> ${c.explicacao_clinica || 'Sem descrição.'}
+          <strong><i data-lucide="zap"></i> O Pulo do Gato (Como Pensar):</strong> ${escapeHtml(c.explicacao_clinica || 'Sem descrição.')}
         </div>
 
         <div class="guide-diff-box">
-          <strong><i data-lucide="layers"></i> Diagnósticos Diferenciais da Cátedra:</strong> ${diffList || 'Não especificados.'}
+          <strong><i data-lucide="layers"></i> Diagnósticos Diferenciais da Cátedra:</strong> ${escapeHtml(diffList || 'Não especificados.')}
         </div>
 
         ${c.alerta_erro_crasso ? `
           <div class="guide-alert-box">
-            <strong><i data-lucide="alert-triangle"></i> Alerta de Prova (Erro Crasso):</strong> ${c.alerta_erro_crasso}
+            <strong><i data-lucide="alert-triangle"></i> Alerta de Prova (Erro Crasso):</strong> ${escapeHtml(c.alerta_erro_crasso)}
           </div>
         ` : ''}
       `;
+
+      // Evento para ampliar imagem
+      const imgContainer = card.querySelector('.guide-img-container');
+      if (imgContainer) {
+        imgContainer.addEventListener('click', () => {
+          openImageViewer(c.imagem, c.nome, generateVisualCommentary(c));
+        });
+      }
+
+      // Evento para praticar este caso no simulador
+      const trainBtn = card.querySelector('.btn-guide-train');
+      if (trainBtn) {
+        trainBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          el.modalGuiaPatologias.style.display = 'none';
+          let caseIdx = state.currentFilteredCases.findIndex(item => item.id === c.id);
+          if (caseIdx === -1) {
+            el.filterCategory.value = 'todos';
+            applyFilter('todos');
+            caseIdx = state.currentFilteredCases.findIndex(item => item.id === c.id);
+          }
+          if (caseIdx !== -1) {
+            loadCase(caseIdx, true);
+            showToast(`Carregado no simulador: ${c.nome}`);
+          }
+        });
+      }
 
       el.guideModalBody.appendChild(card);
     });
@@ -1431,7 +1510,13 @@ document.addEventListener('DOMContentLoaded', () => {
       applyFilter('erros');
     });
 
-    [el.modalGuiaPatologias, el.modalGlossario, el.modalDeckErros].filter(Boolean).forEach(modal => {
+    if (el.btnCloseImageViewer) {
+      el.btnCloseImageViewer.addEventListener('click', () => {
+        if (el.modalImageViewer) el.modalImageViewer.style.display = 'none';
+      });
+    }
+
+    [el.modalGuiaPatologias, el.modalGlossario, el.modalDeckErros, el.modalImageViewer].filter(Boolean).forEach(modal => {
       modal.addEventListener('click', (e) => {
         if (e.target === modal) modal.style.display = 'none';
       });
@@ -1440,6 +1525,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (el.modalGuiaPatologias) el.modalGuiaPatologias.style.display = 'none';
+        if (el.modalImageViewer) el.modalImageViewer.style.display = 'none';
         el.modalGlossario.style.display = 'none';
         el.modalDeckErros.style.display = 'none';
       }

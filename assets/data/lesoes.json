@@ -29,7 +29,8 @@
         "Lipoma"
       ],
       "explicacao_clinica": "Formada pelo rompimento de ducto de glândula salivar menor com extravasamento de saliva/muco para o tecido conjuntivo adjacente. É muito frequente no lábio inferior devido a traumatismo (mordedura).",
-      "alerta_erro_crasso": "Mucocele é quase exclusiva de lábio inferior e ventre lingual. Lesão nodular em lábio superior deve levantar suspeita de neoplasia de glândula salivar (ex: Adenoma Pleomórfico)."
+      "alerta_erro_crasso": "Mucocele é quase exclusiva de lábio inferior e ventre lingual. Lesão nodular em lábio superior deve levantar suspeita de neoplasia de glândula salivar (ex: Adenoma Pleomórfico).",
+      "comentario_imagem": "Na imagem, observa-se uma tumefação circunscrita em lábio inferior esquerdo, de formato nodular/vesicular com superfície lisa e brilhante. Nota-se a clássica translucidez azulada característica do extravasamento de saliva sob uma fina camada mucosa, com limites bem demarcados e base séssil sem sinais de ulceração."
     },
     {
       "id": "caso_02_ranula",
@@ -59,7 +60,8 @@
         "Mucocele de glândula menor"
       ],
       "explicacao_clinica": "Mucocele específica que ocorre no soalho bucal, comumente originada do ducto da glândula sublingual ou ducto de Wharton. Tratamento pode incluir marsupialização ou micromarsupialização.",
-      "alerta_erro_crasso": "A localização obrigatória da rânula é o assoalho bucal. Não ocorre em palato ou gengiva."
+      "alerta_erro_crasso": "A localização obrigatória da rânula é o assoalho bucal. Não ocorre em palato ou gengiva.",
+      "comentario_imagem": "A foto projeta no assoalho bucal esquerdo uma volumosa elevação séssil de conteúdo líquido, elevando o ventre lingual. Apresenta coloração azulada/arroxeada translúcida comparada ao ventre da rã ('ranina'), superfície lisa e consistência flutuante decorrente do acúmulo de muco da glândula sublingual."
     },
     {
       "id": "caso_03_papiloma_escamoso",
@@ -88,7 +90,8 @@
         "Hiperplasia epitelial focal"
       ],
       "explicacao_clinica": "Proliferação benigna do epitélio escamoso estratificado associada aos vírus HPV 6 e 11. Caracterizada por projeções digitiformes lembrando uma couve-flor e base estreita (pediculada).",
-      "alerta_erro_crasso": "A superfície é classicamente VERRUGOSA (com projeções digitiformes), nunca lisa! A base é tipicamente pediculada."
+      "alerta_erro_crasso": "A superfície é classicamente VERRUGOSA (com projeções digitiformes), nunca lisa! A base é tipicamente pediculada.",
+      "comentario_imagem": "A imagem evidencia em palato uma lesão exofítica esbranquiçada e bem delimitada com aspecto clássico de 'couve-flor'. São visíveis múltiplas projeções digitiformes ceratinizadas na superfície, unidas à mucosa palatina por uma base estreita (pediculada/pedunculada)."
     },
     {
       "id": "caso_04_hemangioma_labio",
@@ -117,7 +120,8 @@
         "Varizes orais"
       ],
       "explicacao_clinica": "Tumor benigno originado da proliferação de vasos sanguíneos. Apresenta o teste clássico de diascopia / vitropressão positivo (isquemia e clareamento quando pressionado com lâmina de vidro).",
-      "alerta_erro_crasso": "Contraindicação formal de biópsia incisional inadvertida no consultório pelo altíssimo risco de hemorragia grave!"
+      "alerta_erro_crasso": "Contraindicação formal de biópsia incisional inadvertida no consultório pelo altíssimo risco de hemorragia grave!",
+      "comentario_imagem": "Projeção clínica em lábio inferior esquerdo exibindo massa nodular avermelhada a violácea, multilobulada e de limites nítidos. A coloração reflete a proliferação de vasos sanguíneos; à manobra de vitropressão (diascopia), a lesão sofreria isquemia transitória com empalidecimento."
     },
     {
       "id": "caso_05_hiperplasia_focal",
@@ -146,7 +150,8 @@
         "Neoplasia de glândula salivar menor"
       ],
       "explicacao_clinica": "Resposta proliferativa tecidual hiperplásica fibroblástica secundária a traumatismo crônico e repetitivo (como mordiscamento da bochecha/retrocomissura).",
-      "alerta_erro_crasso": "Não se trata de neoplasia verdadeira, e sim de proliferação fibrosa reacional a trauma mecânico."
+      "alerta_erro_crasso": "Não se trata de neoplasia verdadeira, e sim de proliferação fibrosa reacional a trauma mecânico.",
+      "comentario_imagem": "Observa-se na mucosa jugal, exatamente na linha de oclusão (área propensa a mordedura), um nódulo séssil arredondado, de superfície lisa e coloração rósea perfeitamente idêntica à da mucosa circundante, refletindo hiperplasia fibrosa reacional sem processo inflamatório agudo."
     },
     {
       "id": "caso_06_lipoma",
@@ -174,7 +179,8 @@
         "Fibroma"
       ],
       "explicacao_clinica": "Tumor benigno de células adiposas maduras. Clinicamente apresenta coloração amarelada quando superficial e consistência extremamente macia/pastosa.",
-      "alerta_erro_crasso": "Ao toque, o lipoma é MOLE/MACIO ou semiflutuante devido aos adipócitos, jamais duro ou ósseo."
+      "alerta_erro_crasso": "Ao toque, o lipoma é MOLE/MACIO ou semiflutuante devido aos adipócitos, jamais duro ou ósseo.",
+      "comentario_imagem": "A fotografia mostra um nódulo submucoso bem circunscrito na transição de mucosa jugal e região retromolar. Apresenta halo discretamente amarelado transparecendo sob a mucosa íntegra, superfície lisa e contorno suave, correspondendo à coleção de tecido adiposo maduro."
     },
     {
       "id": "caso_07_ulcera_traumatica",
@@ -203,7 +209,8 @@
         "Úlcera tuberculosa"
       ],
       "explicacao_clinica": "Solução de continuidade do epitélio com exposição do conjuntivo, dolorosa, decorrente de trauma físico (mordedura, borda de dente afiado ou braquetes ortodônticos). Fundo recoberto por pseudomembrana de fibrina.",
-      "alerta_erro_crasso": "Se uma úlcera em boca persistir por mais de 14 dias após remoção do agente causal, a biópsia incisional é IMPERATIVA para descartar Carcinoma Epidermoide (Câncer Bucal)!"
+      "alerta_erro_crasso": "Se uma úlcera em boca persistir por mais de 14 dias após remoção do agente causal, a biópsia incisional é IMPERATIVA para descartar Carcinoma Epidermoide (Câncer Bucal)!",
+      "comentario_imagem": "Imagem clássica de perda tecidual epitelial (solução de continuidade) em lábio inferior. O fundo da úlcera é recoberto por pseudomembrana fibrinosa amarelada/esbranquiçada, circundado por um halo eritematoso fino inflamatório e bordas suaves, sem a induração típica de neoplasias malignas."
     },
     {
       "id": "caso_08_granuloma_piogenico",
@@ -232,7 +239,8 @@
         "Hemangioma"
       ],
       "explicacao_clinica": "Proliferação reacional exuberante de tecido de granulação vascular e endotélio em resposta a biofilme bacteriano, cálculo gengival ou trauma. Muito comum em gestantes (tumor gravídico).",
-      "alerta_erro_crasso": "Tríade de lesões reacionais gengivais obrigatória na prova: Granuloma Piogênico, Lesão Periférica de Células Gigantes e Fibroma Ossificante Periférico!"
+      "alerta_erro_crasso": "Tríade de lesões reacionais gengivais obrigatória na prova: Granuloma Piogênico, Lesão Periférica de Células Gigantes e Fibroma Ossificante Periférico!",
+      "comentario_imagem": "Observa-se massa nodular exuberante avermelhada/eritematosa originada na papila interdental gengival. A superfície apresenta áreas lobuladas e focos esbranquiçados de ulceração por trauma mastigatório; o aspecto intensamente vascularizado explica o sangramento abundante ao menor toque."
     },
     {
       "id": "caso_09_hemangioma_retrocomissura",
@@ -261,7 +269,8 @@
         "Melanoma oral"
       ],
       "explicacao_clinica": "Lesão vascular benigna arroxeada na mucosa jugal. À manobra de diascopia (vitropressão) apresenta isquemia transitória.",
-      "alerta_erro_crasso": "Lesão arroxeada/azulada compressível requer teste de vitropressão para confirmar natureza vascular antes de qualquer procedimento cirúrgico."
+      "alerta_erro_crasso": "Lesão arroxeada/azulada compressível requer teste de vitropressão para confirmar natureza vascular antes de qualquer procedimento cirúrgico.",
+      "comentario_imagem": "Fotografia evidenciando mancha/nódulo arroxeado escuro (azul-violáceo) em mucosa jugal e retrocomissura, de contornos definidos e superfície lisa. O aspecto vascular é evidente pela tonalidade sanguínea profunda sem ulceração periférica."
     },
     {
       "id": "caso_10_cisto_erupcao",
@@ -290,7 +299,8 @@
         "Hematoma"
       ],
       "explicacao_clinica": "Análogo de tecido mole do cisto dentígero. Ocorre quando o folículo pericoronário se distende por acúmulo de sangue/fluido sobre um dente decíduo ou permanente em erupção. Na maioria dos casos regride espontaneamente ou requer ulectomia simples.",
-      "alerta_erro_crasso": "Sempre associado à crista alveolar sobre a coroa de dente em fase de erupção ativa."
+      "alerta_erro_crasso": "Sempre associado à crista alveolar sobre a coroa de dente em fase de erupção ativa.",
+      "comentario_imagem": "A foto revela sobre o rebordo alveolar superior em paciente odontopediatria uma tumefação cística azulada/arroxeada diretamente sobre a coroa de dente permanente em erupção. A tonalidade escura decorre de hematoma traumático no fluido do folículo pericoronário."
     },
     {
       "id": "caso_11_linfangioma",
@@ -319,7 +329,8 @@
         "Amiloidose lingual"
       ],
       "explicacao_clinica": "Hamartoma congênito benigno dos vasos linfáticos. Na língua, causa macroglossia e tem aspecto translúcido clássico descrito como 'grumos de ovas de peixe' ou 'vesículas de tapioca'.",
-      "alerta_erro_crasso": "Ao contrário do hemangioma, o linfangioma responde muito mal a agentes esclerosantes e tem alta taxa de recidiva."
+      "alerta_erro_crasso": "Ao contrário do hemangioma, o linfangioma responde muito mal a agentes esclerosantes e tem alta taxa de recidiva.",
+      "comentario_imagem": "No dorso da língua, a projeção mostra macroglossia localizada com múltiplas pápulas/vesículas translúcidas agrupadas com aspecto de 'ovos de sapo' ou 'grânulos de sagu'. Algumas vesículas contêm sangue por trauma secundário, conferindo focos avermelhados entremeados."
     },
     {
       "id": "caso_12_herpes_simples",
@@ -349,7 +360,8 @@
         "Estomatite aftosa"
       ],
       "explicacao_clinica": "Reativação do vírus Herpes Simplex tipo 1 latente no gânglio trigeminal. Inicia com pródromos (ardência/formigamento), seguido de vesículas intraepiteliais agrupadas que coalescem, se rompem formando erosões e crostas em 7 a 10 dias.",
-      "alerta_erro_crasso": "Herpes recorrente intraoral só acomete mucosa ceratinizada aderida ao periósteo (palato duro e gengiva inserida); no lábio afeta o vermelhão e pele perioral. Se estiver em mucosa móvel não ceratinizada, é afta!"
+      "alerta_erro_crasso": "Herpes recorrente intraoral só acomete mucosa ceratinizada aderida ao periósteo (palato duro e gengiva inserida); no lábio afeta o vermelhão e pele perioral. Se estiver em mucosa móvel não ceratinizada, é afta!",
+      "comentario_imagem": "Observa-se em vermelhão e semimucosa do lábio inferior um agrupamento típico em cacho de pequenas vesículas e microerosões com crostas amareladas e base eritematosa. O aspecto coalescente e a localização labial externa são patognomônicos da reativação do HSV-1."
     },
     {
       "id": "caso_13_lpcg",
@@ -378,7 +390,8 @@
         "Sarcoma de Kaposi"
       ],
       "explicacao_clinica": "Lesão proliferativa reacional exclusiva da gengiva e rebordo alveolar. Radiograficamente pode demonstrar reabsorção óssea superficial em formato de 'taça' ou 'pires'. Histologicamente repleta de células gigantes multinucleadas em estroma fibroso com hemossiderina.",
-      "alerta_erro_crasso": "A LPCG é exclusiva de gengiva e rebordo alveolar anterior; não ocorre em bochecha, palato mole ou assoalho bucal."
+      "alerta_erro_crasso": "A LPCG é exclusiva de gengiva e rebordo alveolar anterior; não ocorre em bochecha, palato mole ou assoalho bucal.",
+      "comentario_imagem": "Massa nodular de inserção séssil na gengiva anterior inferior, com coloração vermelha-escura a arroxeada. A tonalidade violácea deve-se à intensa vascularização e hemorragia no estroma fibroso com células gigantes multinucleadas."
     },
     {
       "id": "caso_14_fibroma_ossificante",
@@ -406,7 +419,8 @@
         "Hiperplasia fibrosa focal"
       ],
       "explicacao_clinica": "Crescimento gengival reacional que se origina do ligamento periodontal, contendo focos de calcificação óssea ou cementóide em seu interior, o que lhe confere consistência mais firme e dura ao toque.",
-      "alerta_erro_crasso": "Diferencial palpatório: o fibroma ossificante tem áreas endurecidas devido à formação mineral/óssea no seu interior, diferindo do granuloma piogênico que é macio e vascular."
+      "alerta_erro_crasso": "Diferencial palpatório: o fibroma ossificante tem áreas endurecidas devido à formação mineral/óssea no seu interior, diferindo do granuloma piogênico que é macio e vascular.",
+      "comentario_imagem": "Nódulo volumoso de base séssil na gengiva vestibular mandibular, com superfície íntegra e coloração rósea-pálida com focos eritematosos. A consistência é nitidamente endurecida à palpação devido à formação interna de matriz mineralizada/óssea."
     },
     {
       "id": "caso_15_aftas",
@@ -434,7 +448,8 @@
         "Sífilis primária (cancro duro)"
       ],
       "explicacao_clinica": "Úlceras rasas, extremamente dolorosas, de etiologia imunomediada (citotoxicidade celular mediada por linfócitos T). Acometem exclusivamente mucosa não ceratinizada (lábio, mucosa jugal, ventre de língua e assoalho).",
-      "alerta_erro_crasso": "Aftas comuns (menores) não acometem palato duro ou gengiva aderida (áreas ceratinizadas são o sítio do herpes intraoral recorrente)."
+      "alerta_erro_crasso": "Aftas comuns (menores) não acometem palato duro ou gengiva aderida (áreas ceratinizadas são o sítio do herpes intraoral recorrente).",
+      "comentario_imagem": "Úlcera ovalada e rasa em mucosa móvel labial não ceratinizada. Apresenta fundo necrótico branco-amarelado bem delimitado, circundado por um exuberante halo eritematoso inflamatório ('fogo perilesional'). Altamente dolorosa e sem sinais de infecção viral prévia."
     },
     {
       "id": "caso_16_tatuagem_amalgama_assoalho",
@@ -463,7 +478,8 @@
         "Mácula melanótica racial"
       ],
       "explicacao_clinica": "Impregnação de partículas metálicas de amálgama de prata no tecido conjuntivo submucoso decorrente de procedimentos restauradores, apicectomias ou uso de brocas.",
-      "alerta_erro_crasso": "Por ser uma alteração plana de cor sem elevação, a lesão fundamental é OBRIGATORIAMENTE Mancha ou Mácula (jamais nódulo ou placa!)."
+      "alerta_erro_crasso": "Por ser uma alteração plana de cor sem elevação, a lesão fundamental é OBRIGATORIAMENTE Mancha ou Mácula (jamais nódulo ou placa!).",
+      "comentario_imagem": "Mancha/mácula plana, de contornos irregulares e coloração azul-acinzentada a enegrecida no assoalho bucal. A mucosa superficial encontra-se perfeitamente lisa, sem relevo ou enduração, refletindo depósito iatrogênico de partículas metálicas de amálgama."
     },
     {
       "id": "caso_17_tatuagem_amalgama_crista",
@@ -492,7 +508,8 @@
         "Nevo azul"
       ],
       "explicacao_clinica": "Partículas de amálgama introduzidas no tecido alveolar durante exodontias prévias. O diagnóstico é clínico-radiográfico (frequentemente observam-se partículas radiopacas na radiografia periapical).",
-      "alerta_erro_crasso": "Confundir mancha por amálgama com Melanoma Oral! Quando não há história clara ou radiopacidade na radiografia, a biópsia é indicada para afastar lesão melanocítica maligna."
+      "alerta_erro_crasso": "Confundir mancha por amálgama com Melanoma Oral! Quando não há história clara ou radiopacidade na radiografia, a biópsia é indicada para afastar lesão melanocítica maligna.",
+      "comentario_imagem": "Mácula plana negra-azulada na crista alveolar de rebordo edêntulo. Não apresenta elevação nem resposta à vitropressão; radiograficamente costuma evidenciar pequenos fragmentos radiopacos metálicos residuais de restauração prévia."
     },
     {
       "id": "caso_18_leucoedema",
@@ -521,7 +538,8 @@
         "Nevo branco esponjoso"
       ],
       "explicacao_clinica": "Condição comum e benigna da mucosa jugal, mais frequente e evidente em indivíduos afrodescendentes. O teste semiológico patognomônico é o estiramento da bochecha: ao tracionar a mucosa jugal, a névoa esbranquiçada DESAPARECE ou atenua consideravelmente.",
-      "alerta_erro_crasso": "Confundir Leucoedema com Leucoplasia! O leucoedema atenua ou desaparece ao esticar a mucosa jugal; a leucoplasia NÃO desaparece e não se remove."
+      "alerta_erro_crasso": "Confundir Leucoedema com Leucoplasia! O leucoedema atenua ou desaparece ao esticar a mucosa jugal; a leucoplasia NÃO desaparece e não se remove.",
+      "comentario_imagem": "Fotografia demonstrando aspecto difuso branco-acinzentado leitoso/aveludado sobre a mucosa jugal. Ao teste semiótico de tracionamento/estiramento da bochecha, a opalescência diminui ou desaparece completamente, confirmando variação anatômica benigna."
     },
     {
       "id": "caso_19_leucoplasia_pilosa",
@@ -550,7 +568,8 @@
         "Leucoplasia verdadeira"
       ],
       "explicacao_clinica": "Causada pela replicação do vírus Epstein-Barr (EBV) no epitélio lingual em indivíduos imunocomprometidos (especialmente HIV/AIDS ou transplantados). Apresenta pregas verticais esbranquiçadas no bordo lateral da língua que NÃO saem à raspagem.",
-      "alerta_erro_crasso": "A leucoplasia pilosa NÃO sai à raspagem com gaze! Se sair com gaze deixando fundo eritematoso, é candidose pseudomembranosa."
+      "alerta_erro_crasso": "A leucoplasia pilosa NÃO sai à raspagem com gaze! Se sair com gaze deixando fundo eritematoso, é candidose pseudomembranosa.",
+      "comentario_imagem": "Placa branca rugosa com dobras verticais estriadas na borda lateral da língua. Não é destacável à raspagem com gaze e não apresenta inflamação perilesional, correspondendo à replicação do vírus Epstein-Barr (EBV)."
     },
     {
       "id": "caso_20_liquen_plano",
@@ -579,7 +598,8 @@
         "Lúpus eritematoso"
       ],
       "explicacao_clinica": "Doença inflamatória crônica mediada por linfócitos T citotóxicos contra ceratinócitos basais. A forma reticular exibe o clássico entrelaçamento de linhas brancas ceratóticas denominadas Estrias de Wickham.",
-      "alerta_erro_crasso": "Líquen Plano Oral clássico é tipicamente BILATERAL e simétrico em mucosa jugal! Se for estritamente UNILATERAL em contato direto com restauração metálica, pensar em Reação Liquenoide de Contato!"
+      "alerta_erro_crasso": "Líquen Plano Oral clássico é tipicamente BILATERAL e simétrico em mucosa jugal! Se for estritamente UNILATERAL em contato direto com restauração metálica, pensar em Reação Liquenoide de Contato!",
+      "comentario_imagem": "Imagem exibindo sobre a mucosa jugal um rendilhado fino esbranquiçado exuberante (Estrias de Wickham) entremeado a áreas eritematosas. O padrão reticular com estrias arboriformes bilaterais é típico da forma reticular desta dermatose imunomediada."
     },
     {
       "id": "caso_21_granulos_fordyce",
@@ -608,7 +628,8 @@
         "Leucoplasia pontilhada"
       ],
       "explicacao_clinica": "Glândulas sebáceas ectópicas ou coristomas na mucosa bucal, sem folículo piloso associado. São inteiramente benignas e consideradas variação da anatomia normal humana.",
-      "alerta_erro_crasso": "Grânulos de Fordyce NÃO necessitam de biópsia ou tratamento cirúrgico; são variação anatômica normal inócua."
+      "alerta_erro_crasso": "Grânulos de Fordyce NÃO necessitam de biópsia ou tratamento cirúrgico; são variação anatômica normal inócua.",
+      "comentario_imagem": "Múltiplas pápulas diminutas (1 a 2 mm), circulares, amareladas e assintomáticas agrupadas em placas na mucosa jugal e lábio. A mucosa circundante é saudável e sem eritema; representam glândulas sebáceas ectópicas na mucosa bucal."
     },
     {
       "id": "caso_22_tireoide_lingual",
@@ -637,7 +658,8 @@
         "Cisto do ducto tireoglosso"
       ],
       "explicacao_clinica": "Remanescente ectópico de parênquima tireoidiano funcional resultante da falha na descida embrionária da glândula tireoide a partir do forame cego da língua até a região cervical anterior.",
-      "alerta_erro_crasso": "NUNCA biopsiar ou remover cirurgicamente sem antes realizar cintilografia com iodo radioativo! Em até 70% dos pacientes, a tireoide lingual é o ÚNICO tecido tireoidiano funcional do organismo!"
+      "alerta_erro_crasso": "NUNCA biopsiar ou remover cirurgicamente sem antes realizar cintilografia com iodo radioativo! Em até 70% dos pacientes, a tireoide lingual é o ÚNICO tecido tireoidiano funcional do organismo!",
+      "comentario_imagem": "Massa nodular séssil, arredondada e avermelhada situada exatamente na linha média do terço posterior da língua (região do forame cego). Apresenta vascularização superficial e consistência firme, correspondendo a tecido tireoidiano ectópico funcional."
     },
     {
       "id": "caso_23_candidose_pseudomembranosa",
@@ -666,7 +688,8 @@
         "Queimadura química"
       ],
       "explicacao_clinica": "Infecção fúngica oportunista por Candida albicans. A manobra clínica clássica com gaze é o teste de raspagem: as placas brancas são DESTACÁVEIS com gaze, revelando por baixo uma mucosa eritematosa, cruenta e às vezes discretamente sangrante.",
-      "alerta_erro_crasso": "Confundir Candidose Pseudomembranosa com Leucoplasia! A candidose pseudomembranosa SAI À RASPAGEM com gaze; a leucoplasia NÃO SAI de forma alguma!"
+      "alerta_erro_crasso": "Confundir Candidose Pseudomembranosa com Leucoplasia! A candidose pseudomembranosa SAI À RASPAGEM com gaze; a leucoplasia NÃO SAI de forma alguma!",
+      "comentario_imagem": "Placas brancas algodonosas ou grumosas (lembrando leite coalhado ou queijo cottage) dispersas sobre a mucosa. O achado patognomônico é que as placas são destacáveis quando raspadas com espátula ou gaze, revelando superfície eritematosa cruenta por baixo."
     },
     {
       "id": "caso_24_estomatite_herpetica",
@@ -695,7 +718,8 @@
         "Herpangina"
       ],
       "explicacao_clinica": "Primeiro contato do paciente com o vírus HSV-1, muito frequente em crianças e adultos jovens. Causa febre alta, linfadenopatia cervical, irritabilidade, disfagia e gengivite eritematosa marginal difusa ('gengiva em fogo').",
-      "alerta_erro_crasso": "Diferencial de Herpes Primário vs Recorrente: o primário é disseminado em toda a cavidade oral com sintomas sistêmicos (febre); o recorrente é localizado e sem pródromos sistêmicos intensos."
+      "alerta_erro_crasso": "Diferencial de Herpes Primário vs Recorrente: o primário é disseminado em toda a cavidade oral com sintomas sistêmicos (febre); o recorrente é localizado e sem pródromos sistêmicos intensos.",
+      "comentario_imagem": "Gengivite marginal eritematosa generalizada ('em fogo') acompanhada de múltiplas microvesículas rompidas que coalesceram formando erosões dolorosas recobertas por fibrina na gengiva e mucosa labial de criança/jovem."
     },
     {
       "id": "caso_25_queilite_angular",
@@ -724,7 +748,8 @@
         "Deficiência nutricional de vitamina B"
       ],
       "explicacao_clinica": "Acúmulo de saliva e umidade na comissura labial que favorece infecção secundária por Candida albicans e Staphylococcus aureus. Frequentemente associada à diminuição da Dimensão Vertical de Oclusão (DVO) em usuários de próteses totais antigas e desgastadas.",
-      "alerta_erro_crasso": "Tratar apenas com pomada sem reabilitar a Dimensão Vertical de Oclusão (DVO) da prótese causará recidiva imediata da lesão!"
+      "alerta_erro_crasso": "Tratar apenas com pomada sem reabilitar a Dimensão Vertical de Oclusão (DVO) da prótese causará recidiva imediata da lesão!",
+      "comentario_imagem": "Erosão e fissuras lineares radiadas (rágades) nas comissuras labiais bilaterais, com eritema, maceração tecidual e crostas superficiais amareladas, exacerbadas pela perda de suporte labial e acúmulo de saliva."
     },
     {
       "id": "caso_26_estomatite_protetica",
@@ -753,7 +778,8 @@
         "Sarcoma de Kaposi"
       ],
       "explicacao_clinica": "Reação inflamatória eritematosa na mucosa palatina coberta por prótese dentária removível (total ou parcial), associada à colonização por biofilme de Candida albicans em próteses porosas, higienização precária e hábito de dormir com a prótese.",
-      "alerta_erro_crasso": "O tratamento exige higienização rigorosa da prótese com hipoclorito a 0,5% ou nistatina tópica e orientação de NÃO DORMIR com a prótese na boca!"
+      "alerta_erro_crasso": "O tratamento exige higienização rigorosa da prótese com hipoclorito a 0,5% ou nistatina tópica e orientação de NÃO DORMIR com a prótese na boca!",
+      "comentario_imagem": "Área eritematosa intensa e aveludada no palato duro que delimita com absoluta exatidão o contorno da base acrílica de uma prótese total removível, evidenciando infecção por biofilme fúngico sob a prótese."
     },
     {
       "id": "caso_27_hiperplasia_fibrosa_inflamatoria",
@@ -782,7 +808,8 @@
         "Epúlide congênita"
       ],
       "explicacao_clinica": "Crescimento hiperplásico redundante de tecido conjuntivo fibroso induzido pelo atrito crônico da borda desadaptada ou cortante de uma prótese total ou parcial no fundo de sulco vestibular.",
-      "alerta_erro_crasso": "A lesão abraça a borda da prótese desadaptada; o plano de tratamento exige alívio da borda da prótese antes da excisão cirúrgica e confecção de nova prótese."
+      "alerta_erro_crasso": "A lesão abraça a borda da prótese desadaptada; o plano de tratamento exige alívio da borda da prótese antes da excisão cirúrgica e confecção de nova prótese.",
+      "comentario_imagem": "Pregas redundantes exuberantes de tecido conjuntivo fibroso róseo com sulco central profundo no fundo de sulco vestibular, onde se apoiava a borda sobre-estendida e traumática da prótese dentária total."
     },
     {
       "id": "caso_28_lingua_pilosa",
@@ -811,7 +838,8 @@
         "Pigmentação exógena por bochechos"
       ],
       "explicacao_clinica": "Hipertrofia e alongamento acentuado das papilas filiformes do dorso da língua por diminuição da descamação normal associada ao tabagismo, má higiene bucal, xerostomia ou uso prolongado de antibióticos.",
-      "alerta_erro_crasso": "Não confundir Língua Pilosa (papilas filiformes hipertrofiadas no dorso lingual) com Leucoplasia Pilosa (lesão oportunista viral por EBV na borda lateral de língua em imunossuprimidos)!"
+      "alerta_erro_crasso": "Não confundir Língua Pilosa (papilas filiformes hipertrofiadas no dorso lingual) com Leucoplasia Pilosa (lesão oportunista viral por EBV na borda lateral de língua em imunossuprimidos)!",
+      "comentario_imagem": "Revestimento espesso com aspecto 'cabeludo' ou piloso no dorso posterior da língua, com coloração castanho-escura/enegrecida, resultante da hipertrofia e alongamento acentuado das papilas filiformes sem descamação normal."
     }
   ],
   "sinonimos": {
