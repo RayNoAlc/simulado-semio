@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     errorDeck: JSON.parse(localStorage.getItem('semio_error_deck') || '[]'),
     history: JSON.parse(localStorage.getItem('semio_history') || '[]'),
     userOverrides: {},
+    hintsRevealed: 0,
+    caseSubmissions: {},
+    caseUserInputs: {},
     audioCtx: null
   };
 
@@ -107,7 +110,25 @@ document.addEventListener('DOMContentLoaded', () => {
     btnTrainErrorsNow: document.getElementById('btnTrainErrorsNow'),
 
     toastAlert: document.getElementById('toastAlert'),
-    toastMsg: document.getElementById('toastMsg')
+    toastMsg: document.getElementById('toastMsg'),
+
+    // Navegação e Revisão Rápida
+    btnNavPrev: document.getElementById('btnNavPrev'),
+    btnNavNext: document.getElementById('btnNavNext'),
+    btnPrevCase: document.getElementById('btnPrevCase'),
+    btnPrevCaseFeedback: document.getElementById('btnPrevCaseFeedback'),
+    btnEditCaseAnswer: document.getElementById('btnEditCaseAnswer'),
+    btnQuickBookmark: document.getElementById('btnQuickBookmark'),
+    quickBookmarkLabel: document.getElementById('quickBookmarkLabel'),
+
+    // Pistas Clínicas (Hints)
+    duoHintCard: document.getElementById('duoHintCard'),
+    hintCounterBadge: document.getElementById('hintCounterBadge'),
+    btnRevealHint: document.getElementById('btnRevealHint'),
+    hintBtnText: document.getElementById('hintBtnText'),
+    hintBody: document.getElementById('hintBody'),
+    hintList: document.getElementById('hintList'),
+    btnJumpToHint: document.getElementById('btnJumpToHint')
   };
 
   // ==========================================
@@ -186,9 +207,148 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
+  // ==========================================
+  // SISTEMA DE PISTAS CLÍNICAS (HINTS PROGRESSIVAS)
+  // ==========================================
+  function generateCaseHints(c) {
+    if (!c || !c.gabarito) return [];
+    const g = c.gabarito;
+    const diffs = (c.diagnosticos_diferenciais || []).join(', ');
+    
+    // Pista 1: Inspeção Visual & Morfologia (Sítio e Tipo)
+    let p1Dica = '';
+    const fund = (g.lesao_fundamental || '').toLowerCase();
+    if (fund.includes('bolha') || fund.includes('vesícula')) {
+      p1Dica = 'Observe se a elevação tem aspecto de conteúdo líquido (translúcido/vesicular).';
+    } else if (fund.includes('nódulo') || fund.includes('pápula')) {
+      p1Dica = 'Observe a massa tecidual sólida circunscrita e seu relevo em relação aos tecidos vizinhos.';
+    } else if (fund.includes('úlcera') || fund.includes('erosão')) {
+      p1Dica = 'Atente para a solução de continuidade (perda total ou parcial de epitélio com fundo conjuntivo).';
+    } else if (fund.includes('placa')) {
+      p1Dica = 'Observe a área elevada e plana, de superfície levemente áspera, estriada ou verrucosa.';
+    } else {
+      p1Dica = 'Analise se há alteração plana de cor ou discreta elevação superficial.';
+    }
+
+    const p1 = {
+      level: 1,
+      title: 'Pista 1: Morfologia & Topografia',
+      icon: 'eye',
+      content: `<strong>Sítio Anatômico:</strong> Lesão situada em <strong>${g.localizacao}</strong> (${g.lateralidade}). Coloração: <strong>${g.coloracao}</strong> com limites <strong>${g.limites}</strong>.<br><em>${p1Dica}</em>`
+    };
+
+    // Pista 2: Palpação & Características Físicas
+    const p2 = {
+      level: 2,
+      title: 'Pista 2: Palpação & Características Físicas',
+      icon: 'hand',
+      content: `<strong>Consistência ao toque esperada:</strong> <strong>${g.consistencia}</strong>.<br><strong>Base & Superfície:</strong> Inserção do tipo <strong>${g.insercao}</strong> e relevo superficial <strong>${g.superficie}</strong>.`
+    };
+
+    // Pista 3: Raciocínio & Diagnósticos Diferenciais da Cátedra
+    const p3 = {
+      level: 3,
+      title: 'Pista 3: Pulo do Gato Diagnóstico',
+      icon: 'zap',
+      content: `<strong>Fisiopatologia Clínica:</strong> ${c.explicacao_clinica || 'Considere a etiopatogenia clássica.'}<br><strong>Diagnósticos Diferenciais da Cátedra:</strong> <em>${diffs || 'Considere lesões reacionais e neoplásicas da região.'}</em>`
+    };
+
+    return [p1, p2, p3];
+  }
+
+  function renderHintsUI() {
+    if (!el.duoHintCard || !state.currentCase) return;
+
+    const hints = generateCaseHints(state.currentCase);
+    const total = hints.length;
+    const revealed = state.hintsRevealed;
+
+    if (el.hintCounterBadge) {
+      el.hintCounterBadge.textContent = `${revealed} de ${total} ${revealed === 1 ? 'liberada' : 'liberadas'}`;
+    }
+
+    if (revealed === 0) {
+      if (el.hintBtnText) el.hintBtnText.textContent = `Liberar Pista (1/${total})`;
+      if (el.btnRevealHint) {
+        el.btnRevealHint.disabled = false;
+        el.btnRevealHint.classList.remove('all-unlocked');
+      }
+      if (el.hintBody) el.hintBody.style.display = 'none';
+      if (el.hintList) el.hintList.innerHTML = '';
+    } else {
+      if (el.hintBody) el.hintBody.style.display = 'block';
+      if (el.hintList) {
+        el.hintList.innerHTML = '';
+        for (let i = 0; i < revealed; i++) {
+          const h = hints[i];
+          const item = document.createElement('div');
+          item.className = `hint-item hint-level-${h.level}`;
+          item.innerHTML = `
+            <div class="hint-item-header">
+              <span class="hint-level-tag"><i data-lucide="${h.icon}"></i> ${h.title}</span>
+            </div>
+            <div class="hint-item-body">${h.content}</div>
+          `;
+          el.hintList.appendChild(item);
+        }
+      }
+
+      if (revealed >= total) {
+        if (el.hintBtnText) el.hintBtnText.textContent = 'Todas as pistas liberadas ✓';
+        if (el.btnRevealHint) {
+          el.btnRevealHint.disabled = true;
+          el.btnRevealHint.classList.add('all-unlocked');
+        }
+      } else {
+        if (el.hintBtnText) el.hintBtnText.textContent = `Liberar Pista (${revealed + 1}/${total})`;
+        if (el.btnRevealHint) {
+          el.btnRevealHint.disabled = false;
+          el.btnRevealHint.classList.remove('all-unlocked');
+        }
+      }
+    }
+
+    if (window.lucide) lucide.createIcons();
+  }
+
+  // ==========================================
+  // REVISÃO RÁPIDA (BOOKMARK)
+  // ==========================================
+  function updateQuickBookmarkState() {
+    if (!state.currentCase || !el.btnQuickBookmark) return;
+    const isSaved = state.errorDeck.includes(state.currentCase.id);
+    el.btnQuickBookmark.classList.toggle('saved', isSaved);
+    el.btnQuickBookmark.innerHTML = isSaved
+      ? '<i data-lucide="bookmark-check"></i> <span id="quickBookmarkLabel">Salvo na Revisão</span>'
+      : '<i data-lucide="bookmark"></i> <span id="quickBookmarkLabel">Revisar</span>';
+    el.btnQuickBookmark.title = isSaved
+      ? 'Caso salvo na revisão (clique para remover)'
+      : 'Salvar este caso na lista de revisão';
+    if (window.lucide) lucide.createIcons();
+  }
+
+  function toggleCaseReview(caseId) {
+    const cid = caseId || (state.currentCase && state.currentCase.id);
+    if (!cid) return;
+    if (state.errorDeck.includes(cid)) {
+      state.errorDeck = state.errorDeck.filter(id => id !== cid);
+      showToast('Caso removido da lista de revisão.');
+    } else {
+      state.errorDeck.push(cid);
+      showToast('Caso salvo na sua lista de revisão!');
+    }
+    localStorage.setItem('semio_error_deck', JSON.stringify(state.errorDeck));
+    updateBadges();
+    updateReviewButtonState();
+    updateQuickBookmarkState();
+    if (el.modalDeckErros && el.modalDeckErros.style.display !== 'none') {
+      renderReviewModal();
+    }
+  }
+
   // CARREGAR CASO CLÍNICO
   // ==========================================
-  function loadCase(index) {
+  function loadCase(index, forceShowForm = false) {
     if (!state.currentFilteredCases || state.currentFilteredCases.length === 0) return;
     
     if (index >= state.currentFilteredCases.length) {
@@ -197,17 +357,30 @@ document.addEventListener('DOMContentLoaded', () => {
       index = 0;
       showToast('Nova rodada com casos 100% reembaralhados!');
     } else if (index < 0) {
-      index = state.currentFilteredCases.length - 1;
+      index = 0;
+      showToast('Você já está no primeiro caso!');
     }
+
     state.currentIndex = index;
     state.currentCase = state.currentFilteredCases[index];
     state.userOverrides = {};
 
+    // Atualiza badges e contadores
     const currentNum = index + 1;
     const totalNum = state.currentFilteredCases.length;
     el.caseCounterText.textContent = `Caso ${String(currentNum).padStart(2, '0')} de ${String(totalNum).padStart(2, '0')}`;
     el.progressBarFill.style.width = `${(currentNum / totalNum) * 100}%`;
     el.caseOriginBadge.textContent = state.currentCase.origem || 'Caso Oficial';
+
+    // Atualiza estado de desativação dos botões "Anterior"
+    const isFirstCase = (index === 0);
+    [el.btnPrevCase, el.btnPrevCaseFeedback, el.btnNavPrev].forEach(btn => {
+      if (btn) {
+        btn.disabled = isFirstCase;
+        btn.style.opacity = isFirstCase ? '0.4' : '1';
+        btn.style.cursor = isFirstCase ? 'not-allowed' : 'pointer';
+      }
+    });
 
     el.projectorImage.src = state.currentCase.imagem;
     el.projectorImage.onload = () => {
@@ -216,12 +389,42 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    clearFormFields();
-    el.semiologiaForm.style.display = 'block';
-    el.feedbackPanel.style.display = 'none';
-
+    // Reseta pistas para o novo caso
+    state.hintsRevealed = 0;
+    renderHintsUI();
     updateReviewButtonState();
-    startTimer();
+    updateQuickBookmarkState();
+
+    // VERIFICA SE O CASO JÁ FOI RESPONDIDO NESTA SESSÃO
+    const prevSub = state.caseSubmissions[state.currentCase.id];
+    if (prevSub && !forceShowForm) {
+      // Exibe diretamente a tela de feedback com o resultado e gabarito
+      clearInterval(state.timerInterval);
+      if (el.timerBox) el.timerBox.style.display = 'none';
+      renderDuoFeedback(
+        prevSub.totalScore,
+        prevSub.evaluationResults,
+        prevSub.hasFatalError,
+        prevSub.fatalErrorDescription,
+        false // não auto-scrollar ao navegar
+      );
+    } else {
+      // Exibe formulário para preenchimento ou edição
+      el.semiologiaForm.style.display = 'block';
+      el.feedbackPanel.style.display = 'none';
+
+      // Restaura respostas anteriores (se houver) ou limpa
+      const savedInputs = state.caseUserInputs[state.currentCase.id];
+      if (savedInputs) {
+        restoreUserAnswers(savedInputs);
+      } else {
+        clearFormFields();
+      }
+
+      startTimer();
+    }
+
+    if (window.lucide) lucide.createIcons();
   }
 
   // ==========================================
@@ -379,6 +582,15 @@ document.addEventListener('DOMContentLoaded', () => {
       totalScore = Math.max(0, totalScore - 30);
     }
 
+    // Salva submissão no estado da sessão para possibilitar voltar e revisar
+    state.caseSubmissions[c.id] = {
+      userAnswers,
+      totalScore,
+      evaluationResults,
+      hasFatalError,
+      fatalErrorDescription
+    };
+
     state.history.push({
       caseId: c.id,
       score: totalScore,
@@ -497,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // RENDERIZAÇÃO DO FEEDBACK DUOLINGO
   // ==========================================
-  function renderDuoFeedback(score, results, hasFatal, fatalMsg) {
+  function renderDuoFeedback(score, results, hasFatal, fatalMsg, shouldScroll = true) {
     el.semiologiaForm.style.display = 'none';
     el.feedbackPanel.style.display = 'flex';
 
@@ -580,7 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (window.lucide) lucide.createIcons();
 
-    el.feedbackPanel.scrollIntoView({ behavior: 'smooth' });
+    if (shouldScroll) el.feedbackPanel.scrollIntoView({ behavior: 'smooth' });
   }
 
   function generateOralSpeech(c) {
@@ -672,6 +884,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       return answers;
     }
+  }
+
+  function restoreUserAnswers(answers) {
+    if (!answers) return;
+    if (el.inputLesaoFundamental) el.inputLesaoFundamental.value = answers.lesao_fundamental || '';
+    if (el.inputInsercao) el.inputInsercao.value = answers.insercao || '';
+    if (el.inputSuperficie) el.inputSuperficie.value = answers.superficie || '';
+    if (el.inputLimites) el.inputLimites.value = answers.limites || '';
+    if (el.inputColoracao) el.inputColoracao.value = answers.coloracao || '';
+    if (el.inputLocalizacao) el.inputLocalizacao.value = answers.localizacao || '';
+    if (el.inputLateralidade) el.inputLateralidade.value = answers.lateralidade || '';
+    if (el.inputConsistencia) el.inputConsistencia.value = answers.consistencia || '';
+    if (el.inputDiagnostico) el.inputDiagnostico.value = answers.diagnostico || '';
+
+    // Sincroniza chips ativos
+    document.querySelectorAll('.input-container').forEach(cont => {
+      const field = cont.dataset.field;
+      const val = answers[field];
+      cont.querySelectorAll('.duo-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.val === val);
+      });
+    });
   }
 
   function clearFormFields() {
@@ -953,9 +1187,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateReviewButtonState() {
     if (!state.currentCase) return;
     const isSaved = state.errorDeck.includes(state.currentCase.id);
-    el.btnToggleErrorDeck.innerHTML = isSaved 
-      ? '<i data-lucide="bookmark-check"></i> Salvo na Revisão (Remover)' 
-      : '<i data-lucide="bookmark-plus"></i> Salvar para Revisar';
+    if (el.btnToggleErrorDeck) {
+      el.btnToggleErrorDeck.innerHTML = isSaved 
+        ? '<i data-lucide="bookmark-check"></i> Salvo na Revisão (Remover)' 
+        : '<i data-lucide="bookmark-plus"></i> Salvar para Revisar';
+      el.btnToggleErrorDeck.classList.toggle('active', isSaved);
+    }
+    updateQuickBookmarkState();
     if (window.lucide) lucide.createIcons();
   }
 
@@ -982,7 +1220,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const txtInput = inputCont.querySelector('.text-field-el');
             if (txtInput) txtInput.value = chip.dataset.val;
           }
+          if (state.currentCase) {
+            state.caseUserInputs[state.currentCase.id] = getUserAnswers();
+          }
         }
+      }
+    });
+
+    document.addEventListener('input', (e) => {
+      if (e.target.classList.contains('duo-text-input') && state.currentCase) {
+        state.caseUserInputs[state.currentCase.id] = getUserAnswers();
       }
     });
 
@@ -994,6 +1241,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     el.btnClearForm.addEventListener('click', clearFormFields);
 
+    // Navegação (Anterior, Pular, Próximo)
+    if (el.btnPrevCase) {
+      el.btnPrevCase.addEventListener('click', () => {
+        loadCase(state.currentIndex - 1);
+      });
+    }
+
+    if (el.btnPrevCaseFeedback) {
+      el.btnPrevCaseFeedback.addEventListener('click', () => {
+        loadCase(state.currentIndex - 1);
+      });
+    }
+
+    if (el.btnNavPrev) {
+      el.btnNavPrev.addEventListener('click', () => {
+        loadCase(state.currentIndex - 1);
+      });
+    }
+
+    if (el.btnNavNext) {
+      el.btnNavNext.addEventListener('click', () => {
+        loadCase(state.currentIndex + 1);
+      });
+    }
+
+    if (el.btnEditCaseAnswer) {
+      el.btnEditCaseAnswer.addEventListener('click', () => {
+        loadCase(state.currentIndex, true); // reabre form para editar
+      });
+    }
+
     el.btnSkipCase.addEventListener('click', () => {
       loadCase(state.currentIndex + 1);
     });
@@ -1001,6 +1279,36 @@ document.addEventListener('DOMContentLoaded', () => {
     el.btnNextCase.addEventListener('click', () => {
       loadCase(state.currentIndex + 1);
     });
+
+    // Pistas Clínicas (Hints)
+    if (el.btnRevealHint) {
+      el.btnRevealHint.addEventListener('click', () => {
+        if (state.hintsRevealed < 3) {
+          state.hintsRevealed++;
+          renderHintsUI();
+          showToast(`Pista ${state.hintsRevealed} liberada!`);
+        }
+      });
+    }
+
+    if (el.btnJumpToHint) {
+      el.btnJumpToHint.addEventListener('click', () => {
+        if (state.hintsRevealed === 0) {
+          state.hintsRevealed = 1;
+          renderHintsUI();
+        }
+        if (el.duoHintCard) {
+          el.duoHintCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+
+    // Revisão Rápida / Bookmark
+    if (el.btnQuickBookmark) {
+      el.btnQuickBookmark.addEventListener('click', () => {
+        toggleCaseReview();
+      });
+    }
 
     el.filterCategory.addEventListener('change', (e) => {
       applyFilter(e.target.value);
@@ -1020,17 +1328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     el.btnToggleErrorDeck.addEventListener('click', () => {
-      const cid = state.currentCase.id;
-      if (state.errorDeck.includes(cid)) {
-        state.errorDeck = state.errorDeck.filter(id => id !== cid);
-        showToast('Caso removido da revisão.');
-      } else {
-        state.errorDeck.push(cid);
-        showToast('Caso salvo na sua lista de revisão!');
-      }
-      localStorage.setItem('semio_error_deck', JSON.stringify(state.errorDeck));
-      updateBadges();
-      updateReviewButtonState();
+      toggleCaseReview();
     });
 
     el.btnSpeakText.addEventListener('click', () => {

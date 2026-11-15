@@ -7,7 +7,7 @@
   <meta name="supported-color-schemes" content="light">
   <meta name="theme-color" content="#F5EFEB">
   <title>Semiologia Bucal | Treino & Diagnóstico de Lesões</title>
-  <link rel="stylesheet" href="style.css?v=20261113_duo_mobile_v4">
+  <link rel="stylesheet" href="style.css?v=20261115_hints_nav_v1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
@@ -102,7 +102,15 @@
     </div>
 
     <div class="duo-progress-tracker">
-      <span class="progress-case-badge" id="caseCounterText">Caso 01 de 22</span>
+      <div class="progress-nav-group">
+        <button type="button" class="btn-nav-mini" id="btnNavPrev" title="Caso anterior">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="progress-case-badge" id="caseCounterText">Caso 01 de 22</span>
+        <button type="button" class="btn-nav-mini" id="btnNavNext" title="Próximo caso">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
       <div class="duo-track">
         <div class="duo-fill" id="progressBarFill" style="width: 5%;"></div>
       </div>
@@ -123,7 +131,13 @@
     <section class="duo-image-column">
       <div class="projector-card">
         <div class="projector-card-header">
-          <span class="case-badge-pill" id="caseOriginBadge">Caso Oficial de Semiologia</span>
+          <div class="projector-badge-group">
+            <span class="case-badge-pill" id="caseOriginBadge">Caso Oficial de Semiologia</span>
+            <button type="button" class="btn-case-bookmark" id="btnQuickBookmark" title="Marcar/Desmarcar este caso na lista de revisão">
+              <i data-lucide="bookmark"></i>
+              <span id="quickBookmarkLabel">Revisar</span>
+            </button>
+          </div>
           <div class="projector-tools">
             <button class="duo-btn-tool" id="btnZoomToggle" title="Ativar lupa de inspeção microscópica">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -149,8 +163,23 @@
         </div>
       </div>
 
-      <div class="duo-tip-box">
-        <strong>Dica de Mestre:</strong> Fique atento à consistência ao toque esperada para esta lesão e ao padrão de inserção (séssil vs pediculada).
+      <!-- CARD INTERATIVO DE PISTAS CLÍNICAS (HINTS SOB DEMANDA) -->
+      <div class="duo-hint-card" id="duoHintCard">
+        <div class="duo-hint-header">
+          <div class="duo-hint-title-group">
+            <span class="duo-hint-badge"><i data-lucide="lightbulb"></i> Pistas Clínicas</span>
+            <span class="duo-hint-counter" id="hintCounterBadge">0 de 3 liberadas</span>
+          </div>
+          <button type="button" class="btn-duo-hint-reveal" id="btnRevealHint" title="Revelar próxima pista para este caso">
+            <i data-lucide="sparkles"></i>
+            <span id="hintBtnText">Liberar Pista (1/3)</span>
+          </button>
+        </div>
+        <div class="duo-hint-body" id="hintBody" style="display: none;">
+          <div class="hint-list" id="hintList">
+            <!-- Pistas 1, 2 e 3 renderizadas dinamicamente via JS -->
+          </div>
+        </div>
       </div>
     </section>
 
@@ -334,9 +363,14 @@
               <span class="duo-step-badge">4</span>
               <span class="duo-block-title">Hipótese Diagnóstica</span>
             </div>
-            <button type="button" class="btn-guide-inline" id="btnCaseGuide" title="Ver raciocínio clínico e como diferenciar esta lesão">
-              <i data-lucide="help-circle"></i> Como raciocinar neste caso?
-            </button>
+            <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+              <button type="button" class="btn-guide-inline btn-hint-link" id="btnJumpToHint" title="Ver pistas progressivas deste caso">
+                <i data-lucide="lightbulb"></i> Pistas (Dicas)
+              </button>
+              <button type="button" class="btn-guide-inline" id="btnCaseGuide" title="Ver raciocínio clínico e como diferenciar esta lesão">
+                <i data-lucide="help-circle"></i> Como raciocinar neste caso?
+              </button>
+            </div>
           </div>
 
           <div class="duo-fields-grid">
@@ -356,6 +390,9 @@
 
         <!-- Ações do Formulário -->
         <div class="duo-form-actions">
+          <button type="button" class="btn-duo btn-duo-secondary" id="btnPrevCase" title="Voltar ao caso anterior">
+            <i data-lucide="chevron-left"></i> Anterior
+          </button>
           <button type="button" class="btn-duo btn-duo-secondary" id="btnSkipCase">
             Pular Caso <i data-lucide="skip-forward"></i>
           </button>
@@ -424,10 +461,16 @@
 
         <!-- Ações do Feedback -->
         <div class="duo-feedback-actions">
-          <button class="btn-duo btn-duo-secondary" id="btnToggleErrorDeck">
+          <button type="button" class="btn-duo btn-duo-secondary" id="btnPrevCaseFeedback" title="Voltar ao caso anterior">
+            <i data-lucide="chevron-left"></i> Anterior
+          </button>
+          <button type="button" class="btn-duo btn-duo-secondary" id="btnEditCaseAnswer" title="Editar resposta ou refazer este caso">
+            <i data-lucide="edit-3"></i> Refazer
+          </button>
+          <button type="button" class="btn-duo btn-duo-secondary" id="btnToggleErrorDeck">
             <i data-lucide="bookmark-plus"></i> Salvar para Revisar
           </button>
-          <button class="btn-duo btn-duo-success btn-duo-lg" id="btnNextCase">
+          <button type="button" class="btn-duo btn-duo-success btn-duo-lg" id="btnNextCase">
             Continuar <i data-lucide="arrow-right"></i>
           </button>
         </div>
