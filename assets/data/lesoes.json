@@ -1,5 +1,5 @@
 {
-  "total_casos": 28,
+  "total_casos": 29,
   "casos": [
     {
       "id": "caso_01_mucocele",
@@ -695,7 +695,7 @@
       "id": "caso_24_estomatite_herpetica",
       "nome": "Estomatite Herpética Primária",
       "categoria": "Infecção Viral Primária (HSV-1)",
-      "imagem": "assets/images/semio_img_06_23.jpeg",
+      "imagem": "assets/images/semio_img_08_25.jpeg",
       "origem": "Lesões de Semio (Caso 24)",
       "gabarito": {
         "lesao_fundamental": "Vesícula ou Bolha (evoluindo para Úlceras)",
@@ -703,7 +703,7 @@
           "Pequenas vesículas",
           "Úlceras coalescentes"
         ],
-        "localizacao": "Gengiva difusa, mucosa labial e jugal",
+        "localizacao": "Palato duro e gengiva inserida / mucosa oral",
         "lateralidade": "Bilateral / Generalizada",
         "insercao": "Séssil",
         "superficie": "Irregular com ulcerações puntiformes coalescentes",
@@ -719,13 +719,13 @@
       ],
       "explicacao_clinica": "Primeiro contato do paciente com o vírus HSV-1, muito frequente em crianças e adultos jovens. Causa febre alta, linfadenopatia cervical, irritabilidade, disfagia e gengivite eritematosa marginal difusa ('gengiva em fogo').",
       "alerta_erro_crasso": "Diferencial de Herpes Primário vs Recorrente: o primário é disseminado em toda a cavidade oral com sintomas sistêmicos (febre); o recorrente é localizado e sem pródromos sistêmicos intensos.",
-      "comentario_imagem": "Gengivite marginal eritematosa generalizada ('em fogo') acompanhada de múltiplas microvesículas rompidas que coalesceram formando erosões dolorosas recobertas por fibrina na gengiva e mucosa labial de criança/jovem."
+      "comentario_imagem": "Ulcerações eritematosas dolorosas recobertas por fibrina na mucosa do palato duro e gengiva inserida, características de estomatite herpética primária (Fig. 31.1 do material de aula)."
     },
     {
       "id": "caso_25_queilite_angular",
       "nome": "Queilite Angular",
       "categoria": "Infecção Mista Fúngico-Bacteriana / Perda de DVO",
-      "imagem": "assets/images/semio_img_12_31.jpeg",
+      "imagem": "assets/images/semio_img_13_33.jpeg",
       "origem": "Lesões de Semio (Caso 25)",
       "gabarito": {
         "lesao_fundamental": "Erosão",
@@ -749,13 +749,13 @@
       ],
       "explicacao_clinica": "Acúmulo de saliva e umidade na comissura labial que favorece infecção secundária por Candida albicans e Staphylococcus aureus. Frequentemente associada à diminuição da Dimensão Vertical de Oclusão (DVO) em usuários de próteses totais antigas e desgastadas.",
       "alerta_erro_crasso": "Tratar apenas com pomada sem reabilitar a Dimensão Vertical de Oclusão (DVO) da prótese causará recidiva imediata da lesão!",
-      "comentario_imagem": "Erosão e fissuras lineares radiadas (rágades) nas comissuras labiais bilaterais, com eritema, maceração tecidual e crostas superficiais amareladas, exacerbadas pela perda de suporte labial e acúmulo de saliva."
+      "comentario_imagem": "Fissuras e eritema bilateral nos ângulos da boca (comissuras labiais), característicos de queilite angular associada à perda de dimensão vertical de oclusão e infecção fúngica/bacteriana em paciente edêntulo."
     },
     {
       "id": "caso_26_estomatite_protetica",
       "nome": "Estomatite Protética",
       "categoria": "Infecção Oportunista por Candida / Inflamação Reacional",
-      "imagem": "assets/images/semio_img_13_33.jpeg",
+      "imagem": "assets/images/semio_img_10_29.jpeg",
       "origem": "Lesões de Semio (Caso 26)",
       "gabarito": {
         "lesao_fundamental": "Mancha ou mácula",
@@ -779,7 +779,7 @@
       ],
       "explicacao_clinica": "Reação inflamatória eritematosa na mucosa palatina coberta por prótese dentária removível (total ou parcial), associada à colonização por biofilme de Candida albicans em próteses porosas, higienização precária e hábito de dormir com a prótese.",
       "alerta_erro_crasso": "O tratamento exige higienização rigorosa da prótese com hipoclorito a 0,5% ou nistatina tópica e orientação de NÃO DORMIR com a prótese na boca!",
-      "comentario_imagem": "Área eritematosa intensa e aveludada no palato duro que delimita com absoluta exatidão o contorno da base acrílica de uma prótese total removível, evidenciando infecção por biofilme fúngico sob a prótese."
+      "comentario_imagem": "Área eritematosa bem delimitada na mucosa do palato duro sob a base de prótese total acrílica, apresentando os diferentes graus clínicos (Newton I, II e III) de estomatite protética."
     },
     {
       "id": "caso_27_hiperplasia_fibrosa_inflamatoria",
@@ -840,6 +840,37 @@
       "explicacao_clinica": "Hipertrofia e alongamento acentuado das papilas filiformes do dorso da língua por diminuição da descamação normal associada ao tabagismo, má higiene bucal, xerostomia ou uso prolongado de antibióticos.",
       "alerta_erro_crasso": "Não confundir Língua Pilosa (papilas filiformes hipertrofiadas no dorso lingual) com Leucoplasia Pilosa (lesão oportunista viral por EBV na borda lateral de língua em imunossuprimidos)!",
       "comentario_imagem": "Revestimento espesso com aspecto 'cabeludo' ou piloso no dorso posterior da língua, com coloração castanho-escura/enegrecida, resultante da hipertrofia e alongamento acentuado das papilas filiformes sem descamação normal."
+    },
+    {
+      "id": "caso_29_lpcg_mandibular",
+      "nome": "Lesão Periférica de Células Gigantes (LPCG)",
+      "categoria": "Processo Proliferativo Não Neoplásico Gengival",
+      "imagem": "assets/images/semio_img_06_23.jpeg",
+      "origem": "Lesões de Semio (Slide LPCG)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Nódulo gengival",
+          "Pápula",
+          "Nódulo vascular"
+        ],
+        "localizacao": "Região gengival / rebordo alveolar anterior inferior",
+        "lateralidade": "Central / Lado Direito",
+        "insercao": "Séssil",
+        "superficie": "Lisa a irregular (pode apresentar ulceração superficial)",
+        "coloracao": "Avermelhada / Arroxeada (púrpura escura)",
+        "consistencia": "Firme / Fibroelástica à palpação",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Lobulado"
+      },
+      "diagnosticos_diferenciais": [
+        "Granuloma piogênico",
+        "Fibroma ossificante periférico",
+        "Hemangioma"
+      ],
+      "explicacao_clinica": "Lesão nodular, séssil ou pediculada, avermelhada a arroxeada, às vezes com ulceração superficial, comum na gengiva e rebordos alveolares de dentes decíduos e pré-molares. Radiograficamente pode exibir reabsorção óssea superficial em formato de taça. Histopatologicamente rica em células gigantes multinucleadas em estroma fibroso vascular com depósitos de hemossiderina.",
+      "alerta_erro_crasso": "A LPCG é exclusiva de gengiva e rebordo alveolar anterior; a coloração violácea/arroxeada escura e o padrão de reabsorção óssea em taça a diferenciam de outras lesões proliferativas.",
+      "comentario_imagem": "Lesão nodular séssil, avermelhada a arroxeada (púrpura escura), na gengiva e rebordo alveolar anterior inferior (região de decíduos), compatível com Lesão Periférica de Células Gigantes (LPCG)."
     }
   ],
   "sinonimos": {

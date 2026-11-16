@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMagnifier();
 
     try {
-      const resp = await fetch('assets/data/lesoes.json?v=20261115_v2');
+      const resp = await fetch('assets/data/lesoes.json?v=20261115_v3');
       const data = await resp.json();
       state.allCases = data.casos;
       state.synonyms = data.sinonimos || {};
@@ -183,13 +183,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filterVal === 'todos') {
       selected = [...state.allCases];
     } else if (filterVal === 'oficial_22') {
-      selected = state.allCases.filter(c => c.id.startsWith('caso_'));
+      selected = state.allCases.filter(c => c.origem && c.origem.includes('Descrição de Lesão'));
+      if (selected.length === 0) selected = state.allCases.slice(0, 22);
     } else if (filterVal === 'erros') {
       selected = state.allCases.filter(c => state.errorDeck.includes(c.id));
       if (selected.length === 0) {
         showToast('Nenhum caso na sua lista de revisão!');
         el.filterCategory.value = 'oficial_22';
-        selected = state.allCases.filter(c => c.id.startsWith('caso_'));
+        selected = state.allCases.filter(c => c.origem && c.origem.includes('Descrição de Lesão'));
+        if (selected.length === 0) selected = state.allCases.slice(0, 22);
       }
     } else if (filterVal === 'nodulos') {
       selected = state.allCases.filter(c => 
