@@ -1,5 +1,5 @@
 {
-  "total_casos": 29,
+  "total_casos": 30,
   "casos": [
     {
       "id": "caso_01_mucocele",
@@ -871,6 +871,36 @@
       "explicacao_clinica": "Lesão nodular, séssil ou pediculada, avermelhada a arroxeada, às vezes com ulceração superficial, comum na gengiva e rebordos alveolares de dentes decíduos e pré-molares. Radiograficamente pode exibir reabsorção óssea superficial em formato de taça. Histopatologicamente rica em células gigantes multinucleadas em estroma fibroso vascular com depósitos de hemossiderina.",
       "alerta_erro_crasso": "A LPCG é exclusiva de gengiva e rebordo alveolar anterior; a coloração violácea/arroxeada escura e o padrão de reabsorção óssea em taça a diferenciam de outras lesões proliferativas.",
       "comentario_imagem": "Lesão nodular séssil, avermelhada a arroxeada (púrpura escura), na gengiva e rebordo alveolar anterior inferior (região de decíduos), compatível com Lesão Periférica de Células Gigantes (LPCG)."
+    },
+    {
+      "id": "caso_30_lipoma_jugal",
+      "nome": "Lipoma",
+      "categoria": "Neoplasia Benigna Mesenquimal (Adipocítica)",
+      "imagem": "assets/images/semio_img_12_31.jpeg",
+      "origem": "Lesões de Semio (Slide Lipoma)",
+      "gabarito": {
+        "lesao_fundamental": "Nódulo",
+        "lesao_fundamental_alt": [
+          "Nódulo adiposo",
+          "Massa submucosa"
+        ],
+        "localizacao": "Mucosa jugal / Cavidade oral",
+        "lateralidade": "Lado Esquerdo / Direito",
+        "insercao": "Séssil",
+        "superficie": "Lisa",
+        "coloracao": "Amarelada ou semelhante à mucosa oral",
+        "consistencia": "Mole / Semiflutuante à palpação (pastosa)",
+        "limites": "Nítidos / Bem definidos",
+        "formato": "Lobulado"
+      },
+      "diagnosticos_diferenciais": [
+        "Hiperplasia focal",
+        "Mucocele profunda",
+        "Neoplasia de glândula salivar"
+      ],
+      "explicacao_clinica": "Neoplasia benigna de adipócitos maduros. Lesão de crescimento lento, indolor, amarelada ou rósea quando mais profunda, de consistência caracteristicamente mole ou semiflutuante ao toque.",
+      "alerta_erro_crasso": "Ao toque, o lipoma é MOLE/MACIO e pastoso, jamais duro ou ósseo. A cor amarelada translúcida é patognomônica quando superficial.",
+      "comentario_imagem": "Aumento volumétrico nodular volumoso amarelado/róseo de consistência macia e superfície lisa na mucosa oral, compatível com Lipoma."
     }
   ],
   "sinonimos": {

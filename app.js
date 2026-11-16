@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMagnifier();
 
     try {
-      const resp = await fetch('assets/data/lesoes.json?v=20261115_v3');
+      const resp = await fetch('assets/data/lesoes.json?v=20261115_v4');
       const data = await resp.json();
       state.allCases = data.casos;
       state.synonyms = data.sinonimos || {};
